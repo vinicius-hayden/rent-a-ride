@@ -1,0 +1,73 @@
+.form-login {
+    color:#263238;
+    margin: 158px 364px 128px;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.form-login h1 {
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.input-form-email {
+    width: 448px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    background-color: #F3F1ED;
+    margin: 10px 0;
+    display: block;
+    padding-left: 10px;
+}
+
+.input-form-password {
+    width: 448px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    background-color: #F3F1ED;
+    margin: 10px 0;
+    display: block;
+    padding-left: 10px;
+}
+
+.button-form-password {
+    width: 40px;
+    height: 20px;
+    float: right;
+    margin-top: -40px;
+    border: none;    
+    border-radius: 5px;
+    cursor: pointer;
+    background-image: url('eye.png');
+    background-repeat: no-repeat;
+    background-size: 20px;
+}
+
+.div-button-login {
+    text-align: center;
+}
+
+.button-login {
+    width: 206px;
+    height: 40px;
+    border:none;
+    background-color: #FBC02D;
+    margin-top: 51px;
+    margin-bottom: 18px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+/* Confirmar cor com PO */
+.button-login:hover {
+    background-color: #F3F1ED;
+}
+
+.message-login {
+    text-align: center;
+}
