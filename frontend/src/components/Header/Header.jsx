@@ -1,8 +1,22 @@
 import { Link } from "react-router-dom";
 import logo from "./logo.png";
 import "./Header.css"
+import { GiHamburgerMenu } from "react-icons/gi";
+import Sidebar from "./Sidebar";
 
 export default function Header() {
+
+  function handleChangeState() {
+    let sidebar = document.querySelector('.sidebar');
+
+    if (sidebar.style.display == '') {
+      sidebar.style.display = 'block';
+    }
+    else if (sidebar.style.display == 'block') {
+      sidebar.style.display = '';
+    }
+  }
+
   return (
     <>
       <div className="header">
@@ -14,7 +28,11 @@ export default function Header() {
         </div>
 
         <div className="header-right">
-          <Link to="/register">
+          <Sidebar handleChangeState={handleChangeState}></Sidebar>
+          <GiHamburgerMenu className="hamburger-menu-button" size={40} onClick={handleChangeState}> 
+        
+          </GiHamburgerMenu>
+          <Link to="/register" className="header-right-signup">
             <input
               type="button"
               value="Criar conta"
@@ -22,7 +40,7 @@ export default function Header() {
             />
           </Link>
 
-          <Link to="/login">
+          <Link to="/login" className="header-right-signin">
             <input
               type="button"
               value="Iniciar sessão"
