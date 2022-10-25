@@ -1,4 +1,5 @@
 import Categories from "../Categories/Categories";
+import Products from "../Products/Products";
 import Search from "../Search/Search";
 
 export default function Body() {
@@ -7,6 +8,7 @@ export default function Body() {
       <div className="body">
         <Search />
         <Categories />
+        <Products />
       </div>
     </>
   );

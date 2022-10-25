@@ -13,6 +13,10 @@ export default function Login() {
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState(false);
 
+  const [errorEmail, setErrorEmail] = useState(false);
+  const [errorPassword, setErrorPassword] = useState(false);
+  const [errorCredential, setErrorCredential] = useState(false);
+
   const handleEmail = (e) => {
     setEmail(e.target.value);
     setSubmitted(false);
@@ -30,42 +34,81 @@ export default function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (email === "" || password === "") {
-      setError(true);
+
+    if (email === "") {
+      setErrorEmail(true);
       errorMessageNull(true);
-    } else if (password.length < 6 || !/\S+@\S+\.\S+/.test(email)) {
-      setError(true);
-      errorMessageValidation(true);
-    } else if (!userTest.email || !userTest.password) {
-      setError(true);
-      errorMessageUserTest(true);
-    } else {
+    } else if (password === "") {
+      setErrorPassword(true);
+      errorMessageNull(true);
+    } else if (!/\S+@\S+\.\S+/.test(email)) {
+      setErrorEmail(true);
+      errorMessageEmail(true);
+    } else if (password.length < 6) {
+      setErrorPassword(true);
+      errorMessagePassword(true);
+    } else if (email !== userTest.email) {
+      setErrorCredential(true);
+      errorMessageUserTestEmail(true);
+    } else if (password !== userTest.password) {
+      setErrorCredential(true);
+      errorMessageUserTestPassword(true);
+    } else if (email === userTest.email && password === userTest.password) {
       setSubmitted(true);
-      setError(false);
+      setError(false)
       successMessage(true);
+    } else {
+      setError(true);
     }
   };
 
   const successMessage = () => {
     return (
-      console.log("Usuário logado!"),
+      alert("Usuário logado! Seja bem-vindo(a)!"),
       console.log("Email: " + email + " Password: " + password)
     );
   };
 
   const errorMessageNull = () => {
-    return console.log("Por favor, preencha todos os campos!");
-  };
-
-  const errorMessageValidation = () => {
-    return console.log(
-      "Lembre-se: você precisa de um e-mail válido e uma senha com mais de 6 caracteres."
+    return ( 
+      alert("Por favor, preencha todos os campos!"),
+      console.log("Por favor, preencha todos os campos!")
     );
   };
 
-  const errorMessageUserTest = () => {
-    return console.log(
-      "Por favor, tente novamente, suas credenciais são inválidas."
+  const errorMessageEmail = () => {
+    return ( 
+      alert("Insira um e-mail válido."),
+      console.log("Insira um e-mail válido.")
+    );
+  };
+
+  const errorMessagePassword = () => {
+    return (
+      alert("Insira uma senha válida com mais de 6 caracteres."),
+      console.log("Insira uma senha válida com mais de 6 caracteres.")
+    );
+  };
+
+  const errorMessageUserTestEmail = () => {
+    return (
+      alert(
+        "Por favor, tente novamente, suas credenciais são inválidas. Esse e-mail ainda não está cadastrado."
+      ),
+      console.log(
+        "Por favor, tente novamente, suas credenciais são inválidas. Esse e-mail ainda não está cadastrado."
+      )
+    );
+  };
+
+  const errorMessageUserTestPassword = () => {
+    return (
+      alert(
+        "Por favor, tente novamente, suas credenciais são inválidas. A senha inserida é inválida."
+      ),
+      console.log(
+        "Por favor, tente novamente, suas credenciais são inválidas. A senha inserida é inválida."
+      )
     );
   };
 
@@ -90,6 +133,7 @@ export default function Login() {
               autoComplete="email"
               value={email}
               onChange={handleEmail}
+              required
             />
           </label>
 
@@ -101,6 +145,7 @@ export default function Login() {
               autoComplete="password"
               value={password}
               onChange={handlePassword}
+              required
             />
             <button
               className="button-form-password"
@@ -111,17 +156,17 @@ export default function Login() {
           </label>
 
           <div className="div-button-login">
+            <Link to="/userpage">
               <button
                 onClick={handleSubmit}
                 className="button-login"
                 type="submit"
                 value="Entrar"
+                id="button-login"
               >
                 Iniciar sessão
               </button>
-
-              {/* Teste - usuário logado*/}
-              <Link to="/userpage">Link to userpage</Link>
+            </Link>
           </div>
 
           <div className="message-login">
