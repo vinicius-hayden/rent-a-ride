@@ -10,7 +10,7 @@ export default function Categories() {
     },
     {
       id: 2,
-      h2: "Para estrada",
+      h2: "Fora de estrada",
       p: "807.105 carros",
       image: "https://images.unsplash.com/photo-1467489904517-075c242c2b4f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1018&q=80",
     },
