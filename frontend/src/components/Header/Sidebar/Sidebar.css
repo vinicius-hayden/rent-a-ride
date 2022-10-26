@@ -1,0 +1,42 @@
+.sidebar {
+    background-color: #B58B00;
+    height: 100vh;
+    padding: 70px 25px 0;
+    position: fixed;
+    min-width: 250px;
+    top: 0;
+    right: 0;
+    transition: all 2.s;
+    width: 250px;
+    z-index: 1;
+    display: none;
+}
+
+.sidebar-button { 
+    height: 40px;
+    width: 206px;
+    margin: 0 8px;
+    font-size: 16px;
+    border-style: solid;
+    border-radius: 5px;
+    border-color: #263238;
+    background-color: #FFFBE2;
+    margin: 4px;
+}
+
+.sidebar-button:hover {
+    background-color: #263238;
+}
+
+@media screen and (min-width:838px) {
+    .hamburger-menu-button {
+        visibility: hidden;
+    }
+}
+
+@media screen and (max-width:838px) {
+
+    .button-header{
+        display: none;
+    }
+}
