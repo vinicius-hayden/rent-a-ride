@@ -55,11 +55,20 @@ export default function Login() {
       errorMessageUserTestPassword(true);
     } else if (email === userTest.email && password === userTest.password) {
       setSubmitted(true);
-      setError(false)
+      setError(false);
       successMessage(true);
+      goToUserPage(true);
     } else {
       setError(true);
     }
+  };
+
+  const goToUserPage = () => {
+    // return (window.location.href = "/userpage");
+    // dois segundos para redirecionamento
+    setTimeout(function () {
+      window.location.href = "/userpage";
+    }, 2000);
   };
 
   const successMessage = () => {
@@ -70,16 +79,15 @@ export default function Login() {
   };
 
   const errorMessageNull = () => {
-    return ( 
+    return (
       alert("Por favor, preencha todos os campos!"),
       console.log("Por favor, preencha todos os campos!")
     );
   };
 
   const errorMessageEmail = () => {
-    return ( 
-      alert("Insira um e-mail válido."),
-      console.log("Insira um e-mail válido.")
+    return (
+      alert("Insira um e-mail válido."), console.log("Insira um e-mail válido.")
     );
   };
 
@@ -156,17 +164,15 @@ export default function Login() {
           </label>
 
           <div className="div-button-login">
-            <Link to="/userpage">
-              <button
-                onClick={handleSubmit}
-                className="button-login"
-                type="submit"
-                value="Entrar"
-                id="button-login"
-              >
-                Iniciar sessão
-              </button>
-            </Link>
+            <button
+              onClick={handleSubmit}
+              className="button-login"
+              type="submit"
+              value="Entrar"
+              id="button-login"
+            >
+              Iniciar sessão
+            </button>
           </div>
 
           <div className="message-login">
