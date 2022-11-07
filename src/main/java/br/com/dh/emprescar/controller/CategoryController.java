@@ -26,7 +26,7 @@ public class CategoryController {
 
     @CrossOrigin(origins = "*")
     @GetMapping(value = "/{id}")
-    public ResponseEntity<CategoryDto> searchCategoriesById(@PathVariable Integer id) {
+    public ResponseEntity<CategoryDto> searchCategoryById(@PathVariable Integer id) {
         CategoryDto dto = categoryService.searchById(id);
         return ResponseEntity.ok().body(dto);
     }
@@ -51,7 +51,8 @@ public class CategoryController {
     @CrossOrigin(origins = "*")
     @PutMapping(value = "/{id}")
     public ResponseEntity<CategoryDto> updateCategory(@PathVariable Integer id,  @RequestBody CategoryDto dto) {
-        dto = categoryService.update(id, dto);
+        dto.setId(id);
+        dto = categoryService.update(dto);
         return ResponseEntity.ok().body(dto);
     }
 

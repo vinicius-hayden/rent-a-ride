@@ -2,10 +2,12 @@ package br.com.dh.emprescar.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table
 public class Category implements Serializable {
+
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -16,15 +18,19 @@ public class Category implements Serializable {
     private String description;
     private String url;
 
+    @OneToMany(mappedBy = "category")
+    private List<Product> products;
+
     public Category() {
     }
 
-    public Category(Integer id, String name, Integer rating, String description, String url) {
+    public Category(Integer id, String name, Integer rating, String description, String url, List<Product> products) {
         this.id = id;
         this.name = name;
         this.rating = rating;
         this.description = description;
         this.url = url;
+        this.products = products;
     }
 
     public Integer getId() {
@@ -67,6 +73,14 @@ public class Category implements Serializable {
         this.url = url;
     }
 
+    public List<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<Product> products) {
+        this.products = products;
+    }
+
     @Override
     public String toString() {
         return "Category{" +
@@ -75,6 +89,7 @@ public class Category implements Serializable {
                 ", rating=" + rating +
                 ", description='" + description + '\'' +
                 ", url='" + url + '\'' +
+                ", products=" + products +
                 '}';
     }
 }

@@ -46,40 +46,35 @@ public class CategoryService {
 
     @Transactional
     public CategoryDto insert(CategoryDto dto) {
-        Category entity = copyDtoToEntity(dto);
+        Category entity = copyDtoToEntity(dto, new Category());
 
         if (entity.getRating() > 6 || entity.getRating() < 1) {
             throw new RuntimeException("Error: Rating should be between 1 and 5");
         }
 
         entity = categoryRepository.save(entity);
-        return entityToDto(entity);
+        return new CategoryDto(entity);
     }
 
     @Transactional
-    public CategoryDto update(Integer id, CategoryDto dto) {
+    public CategoryDto update(CategoryDto dto) {
 
         try {
-            Category entity = categoryRepository.getReferenceById(id);
-            entity.setName(dto.getName());
+            Category entity = categoryRepository.getReferenceById(dto.getId());
+            copyDtoToEntity(dto, entity);
             entity = categoryRepository.save(entity);
             return new CategoryDto(entity);
         } catch (EntityNotFoundException entityNotFoundException) {
-            throw new EntityNotFoundException("Entity or register " + id + " Not found on database!");
+            throw new EntityNotFoundException("Entity or register " + dto.getId() + " Not found on database!");
         }
     }
 
-    private Category copyDtoToEntity(CategoryDto dto) {
-        Category category = new Category();
-        category.setName(dto.getName());
-        category.setRating(dto.getRating());
-        category.setDescription(dto.getDescription());
-        category.setUrl(dto.getUrl());
-        return category;
-    }
-
-    private CategoryDto entityToDto(Category category) {
-        return new CategoryDto(category.getId(), category.getName(), category.getRating(), category.getDescription(), category.getUrl());
+    private Category copyDtoToEntity(CategoryDto dto, Category entity) {
+        entity.setName(dto.getName());
+        entity.setRating(dto.getRating());
+        entity.setDescription(dto.getDescription());
+        entity.setUrl(dto.getUrl());
+        return entity;
     }
 
 }
