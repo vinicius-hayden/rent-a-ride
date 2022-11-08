@@ -2,11 +2,9 @@ package br.com.dh.emprescar.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
-@Table
+@Table(name = "features")
 public class Feature implements Serializable {
 
     private static final long serialVersionUID = 1L;

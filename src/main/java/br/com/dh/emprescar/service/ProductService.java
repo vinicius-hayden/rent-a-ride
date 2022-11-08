@@ -10,6 +10,7 @@ import br.com.dh.emprescar.repository.CityRepository;
 import br.com.dh.emprescar.repository.FeatureRepository;
 import br.com.dh.emprescar.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import br.com.dh.emprescar.service.exceptions.EntityNotFoundException;
 
@@ -18,6 +19,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+@Service
 public class ProductService {
 
     @Autowired
@@ -62,7 +64,7 @@ public class ProductService {
         Product entity = copyDtoToEntity(dto, new Product());
         Optional<City> city = cityRepository.findById(dto.getCity().getId());
         Optional<Category> category = categoryRepository.findById(dto.getCategory().getId());
-        List<Feature> features = featureRepository.findByFeatureIdIn(dto.getFeatures().stream().map(x -> x.getId()).toList());
+        List<Feature> features = featureRepository.findByIdIn(dto.getFeatures().stream().map(x -> x.getId()).toList());
         if (city.isPresent()) {
             entity.setCity(city.get());
         }
@@ -81,7 +83,7 @@ public class ProductService {
             Product entity = productRepository.getReferenceById(dto.getId());
             City city = cityRepository.getReferenceById(dto.getCity().getId());
             Category category = categoryRepository.getReferenceById(dto.getCategory().getId());
-            List<Feature> features = featureRepository.findByFeatureIdIn(dto.getFeatures().stream().map(x -> x.getId()).toList());
+            List<Feature> features = featureRepository.findByIdIn(dto.getFeatures().stream().map(x -> x.getId()).toList());
             entity.setCity(city);
             entity.setCategory(category);
             entity.setFeatures(new HashSet<Feature>(features));

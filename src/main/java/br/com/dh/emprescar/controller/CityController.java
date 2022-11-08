@@ -26,7 +26,7 @@ public class CityController {
 
     @CrossOrigin(origins = "*")
     @PostMapping
-    public ResponseEntity<CityDto> insertCategory(@RequestBody CityDto dto) {
+    public ResponseEntity<CityDto> insertCity(@RequestBody CityDto dto) {
         System.out.println(dto);
         dto = cityService.insert(dto);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")

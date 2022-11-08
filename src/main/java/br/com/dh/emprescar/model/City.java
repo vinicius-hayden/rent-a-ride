@@ -5,7 +5,7 @@ import java.io.Serializable;
 import java.util.List;
 
 @Entity
-@Table
+@Table(name = "cities")
 public class City implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -15,7 +15,7 @@ public class City implements Serializable {
     private Integer id;
     private String name;
     private String country;
-    @OneToMany(mappedBy = "city")
+    @OneToMany(mappedBy = "city", fetch = FetchType.EAGER)
     private List<Product> products;
 
     public City() {

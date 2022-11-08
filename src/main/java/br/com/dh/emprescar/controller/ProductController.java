@@ -10,6 +10,8 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import java.net.URI;
 import java.util.List;
 
+@RestController
+@RequestMapping(value = "/products")
 public class ProductController {
 
     @Autowired
@@ -17,24 +19,34 @@ public class ProductController {
 
     @CrossOrigin(origins = "*")
     @GetMapping
-    public ResponseEntity<List<ProductDto>> searchAllProducts() {
+    public ResponseEntity<List<ProductDto>> searchAllProducts(@RequestParam(required = false) Integer categoryId, @RequestParam(required = false) Integer cityId) {
+
+        if (categoryId != null) {
+            List<ProductDto> list = productService.searchAllByCategoryId(categoryId);
+            return ResponseEntity.ok().body(list);
+        }
+        if (cityId != null) {
+            List<ProductDto> list = productService.searchAllByCityId(cityId);
+            return ResponseEntity.ok().body(list);
+        }
+
         List<ProductDto> list = productService.searchAll();
         return ResponseEntity.ok().body(list);
     }
 
-    @CrossOrigin(origins = "*")
-    @GetMapping
-    public ResponseEntity<List<ProductDto>> searchAllProductsByCategoryId(@RequestParam Integer categoryId) {
-        List<ProductDto> list = productService.searchAllByCategoryId(categoryId);
-        return ResponseEntity.ok().body(list);
-    }
-
-    @CrossOrigin(origins = "*")
-    @GetMapping
-    public ResponseEntity<List<ProductDto>> searchAllProductsByCityId(@RequestParam Integer cityId) {
-        List<ProductDto> list = productService.searchAllByCityId(cityId);
-        return ResponseEntity.ok().body(list);
-    }
+//    @CrossOrigin(origins = "*")
+//    @GetMapping
+//    public ResponseEntity<List<ProductDto>> searchAllProductsByCategoryId(@RequestParam Integer categoryId) {
+//        List<ProductDto> list = productService.searchAllByCategoryId(categoryId);
+//        return ResponseEntity.ok().body(list);
+//    }
+//
+//    @CrossOrigin(origins = "*")
+//    @GetMapping
+//    public ResponseEntity<List<ProductDto>> searchAllProductsByCityId(@RequestParam Integer cityId) {
+//        List<ProductDto> list = productService.searchAllByCityId(cityId);
+//        return ResponseEntity.ok().body(list);
+//    }
 
     @CrossOrigin(origins = "*")
     @GetMapping(value = "/{id}")

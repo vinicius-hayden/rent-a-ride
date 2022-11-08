@@ -8,9 +8,9 @@ import java.util.List;
 
 public interface ProductRepository extends JpaRepository<Product, Integer> {
 
-    @Query("select p from Product p where p.categoryId = ?1")
+    @Query("select p from Product p where p.category.id = ?1")
     List<Product> findAllByCategoryId(Integer categoryId);
 
-    @Query("select p from Product p where p.cityId = ?1")
+    @Query("select p from Product p where p.city.id = ?1")
     List<Product> findAllByCityId(Integer cityId);
 }

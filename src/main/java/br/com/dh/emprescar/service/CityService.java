@@ -4,11 +4,12 @@ import br.com.dh.emprescar.dto.CityDto;
 import br.com.dh.emprescar.model.City;
 import br.com.dh.emprescar.repository.CityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.stream.Collectors;
-
+@Service
 public class CityService {
 
     @Autowired

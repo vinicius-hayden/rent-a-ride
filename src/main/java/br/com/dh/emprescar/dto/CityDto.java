@@ -2,6 +2,7 @@ package br.com.dh.emprescar.dto;
 
 import br.com.dh.emprescar.model.City;
 import br.com.dh.emprescar.model.Product;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.io.Serializable;
 import java.util.List;
@@ -13,6 +14,7 @@ public class CityDto implements Serializable {
     private Integer id;
     private String name;
     private String country;
+    @JsonIgnore
     private List<Product> products;
 
     public CityDto(Integer id, String name, String country, List<Product> products) {
