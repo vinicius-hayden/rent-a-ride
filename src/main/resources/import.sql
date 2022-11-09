@@ -6,16 +6,16 @@ INSERT INTO categories(name, rating, description, url) VALUES ('Quarta Categoria
 INSERT INTO categories(name, rating, description, url) VALUES ('Quinta Categoria', 5, 'SUV', 'https://images.unsplash.com/photo-1615063029891-497bebd4f03c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1100&q=80');
 
 -- Features table
-INSERT INTO features(name, icon) VALUES ('Ar-Condicionado', 'https://imgur.com/KqAj8ec');
-INSERT INTO features(name, icon) VALUES ('Direção Hidráulica', 'https://imgur.com/BmmKKML');
-INSERT INTO features(name, icon) VALUES ('Vidro Elétrico', 'https://imgur.com/UZptZ9M');
-INSERT INTO features(name, icon) VALUES ('Trava Elétrica', 'https://imgur.com/89Tnzs0');
-INSERT INTO features(name, icon) VALUES ('AirBag', 'https://imgur.com/BmmKKML');
-INSERT INTO features(name, icon) VALUES ('Alarme', 'https://imgur.com/BmmKKML');
-INSERT INTO features(name, icon) VALUES ('Som', 'https://imgur.com/BmmKKML');
-INSERT INTO features(name, icon) VALUES ('Sensor de Ré', 'https://imgur.com/BmmKKML');
-INSERT INTO features(name, icon) VALUES ('Câmera de Ré', 'https://imgur.com/BmmKKML');
-INSERT INTO features(name, icon) VALUES ('Blindado', 'https://imgur.com/BmmKKML');
+INSERT INTO features(name, icon) VALUES ('Ar-Condicionado', 'fa-solid fa-snowflake');
+INSERT INTO features(name, icon) VALUES ('Direção Hidráulica', 'fa-solid fa-steering-wheel');
+INSERT INTO features(name, icon) VALUES ('Vidro Elétrico', 'fa-regular fa-car-mirrors');
+INSERT INTO features(name, icon) VALUES ('Trava Elétrica', 'fa-solid fa-lock');
+INSERT INTO features(name, icon) VALUES ('AirBag', 'fa-solid fa-wind-warning');
+INSERT INTO features(name, icon) VALUES ('Alarme', 'fa-solid fa-bell-exclamation');
+INSERT INTO features(name, icon) VALUES ('Som', 'fa-solid fa-music');
+INSERT INTO features(name, icon) VALUES ('Sensor de Ré', 'fa-solid fa-sensor-triangle-exclamation');
+INSERT INTO features(name, icon) VALUES ('Câmera de Ré', 'fa-solid fa-camera');
+INSERT INTO features(name, icon) VALUES ('Blindado', 'fa-solid fa-shield-halved');
 
 -- Cities table
 INSERT INTO cities(name, country) VALUES ('Lauro de Freitas', 'Brasil');
