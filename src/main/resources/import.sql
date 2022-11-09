@@ -7,13 +7,13 @@ INSERT INTO categories(name, rating, description, url) VALUES ('Quinta Categoria
 
 -- Features table
 INSERT INTO features(name, icon) VALUES ('Ar-Condicionado', 'fa-solid fa-snowflake');
-INSERT INTO features(name, icon) VALUES ('Direção Hidráulica', 'fa-solid fa-steering-wheel');
-INSERT INTO features(name, icon) VALUES ('Vidro Elétrico', 'fa-regular fa-car-mirrors');
+INSERT INTO features(name, icon) VALUES ('Direção Hidráulica', 'fa-solid fa-gear');
+INSERT INTO features(name, icon) VALUES ('Vidro Elétrico', 'fa-regular fa-car');
 INSERT INTO features(name, icon) VALUES ('Trava Elétrica', 'fa-solid fa-lock');
-INSERT INTO features(name, icon) VALUES ('AirBag', 'fa-solid fa-wind-warning');
-INSERT INTO features(name, icon) VALUES ('Alarme', 'fa-solid fa-bell-exclamation');
+INSERT INTO features(name, icon) VALUES ('AirBag', 'fa-solid fa-car-on');
+INSERT INTO features(name, icon) VALUES ('Alarme', 'fa-solid fa-bell');
 INSERT INTO features(name, icon) VALUES ('Som', 'fa-solid fa-music');
-INSERT INTO features(name, icon) VALUES ('Sensor de Ré', 'fa-solid fa-sensor-triangle-exclamation');
+INSERT INTO features(name, icon) VALUES ('Sensor de Ré', 'fa-solid fa-exclamation');
 INSERT INTO features(name, icon) VALUES ('Câmera de Ré', 'fa-solid fa-camera');
 INSERT INTO features(name, icon) VALUES ('Blindado', 'fa-solid fa-shield-halved');
 
