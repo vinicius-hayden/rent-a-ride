@@ -46,6 +46,7 @@ export default function Register() {
                 type="text"
                 className="input-firstname"
                 autoComplete="firstname"
+                required
               />
             </label>
 
@@ -55,6 +56,7 @@ export default function Register() {
                 type="text"
                 className="input-lastname"
                 autoComplete="lastname"
+                required
               />
             </label>
           </div>
@@ -66,6 +68,7 @@ export default function Register() {
                 type="email"
                 className="input-block"
                 autoComplete="email"
+                required
               />
             </label>
 
@@ -75,6 +78,7 @@ export default function Register() {
                 type="password"
                 className="input-block"
                 autoComplete="password"
+                required
               />
             </label>
 
@@ -84,6 +88,7 @@ export default function Register() {
                 type="password"
                 className="input-block"
                 autoComplete="passwordconfirm"
+                required
               />
             </label>
           </div>

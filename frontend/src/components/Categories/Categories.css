@@ -10,7 +10,8 @@
 }
 
 .categories {
-    margin-left: 55px;
+    margin-left: 50px;
+    /* margin-left: 130px;*/ 
     display: inline-block;
     align-items: center;
     flex-direction: row;
