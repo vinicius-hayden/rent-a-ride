@@ -1,0 +1,16 @@
+version: "3.7"
+services:
+  #outro container --- backend
+  springweb:
+    container_name: dockerbackemprescar
+    build: . #preciso do Dockerfile para gerar a imagem
+    ports:
+      - "8082:8080"
+    networks:
+      - servers
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+
+networks:
+  servers:
+    driver: bridge
