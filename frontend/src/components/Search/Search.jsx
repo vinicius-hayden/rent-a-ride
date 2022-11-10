@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import "./Search.css";
 
 export default function Search() {
-  const [city, setCity] = useState([null, null]);
+  const [city, setCity] = useState(['', '']);
 
   let requestConfigurationGet = {
     headers: {
@@ -26,8 +26,7 @@ export default function Search() {
 
   return (
     <>
-      {city.map((city, index) => (
-        <div className="form-search" key={index}>
+        <div className="form-search">
           <form
             onSubmit={(event) => submitForm(event)}
             className="input-search"
@@ -38,10 +37,10 @@ export default function Search() {
               <option value="cities" disabled selected>
                 Onde quer retirar seu carro?
               </option>
-              <option value="São Paulo">São Paulo</option>
-              <option value="Diadema">Diadema</option>
-              <option value="Lauro de Freitas">Lauro de Freitas</option>
-              <option value="Salvador">Salvador</option>
+              
+              {city.map((city, index) => (  
+                <option value={city.name} key={index}>{city.name}</option>
+              ))}
             </select>
 
             <input
@@ -59,7 +58,6 @@ export default function Search() {
             <input className="button-search" type="submit" value="Buscar" />
           </form>
         </div>
-      ))}
     </>
   );
 }

@@ -1,4 +1,5 @@
 import "./Categories.css";
+import { useEffect, useState } from "react";
 
 export default function Categories() {
   const [categories, setCategories] = useState([]);
@@ -24,9 +25,9 @@ export default function Categories() {
         {categories.map((category, index) => (
           <div className="categories" key={index}>
             <div className="categories-card">
-              <img className="categories-image" src={category.image} />
-              <h2> {category.h2} </h2>
-              <p> {category.p} </p>
+              <img className="categories-image" src={category.url} />
+              <h2> {category.name} </h2>
+              <p> {category.description} </p>
             </div>
           </div>
         ))}

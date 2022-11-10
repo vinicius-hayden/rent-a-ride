@@ -6,16 +6,16 @@ INSERT INTO categories(name, rating, description, url) VALUES ('Quarta Categoria
 INSERT INTO categories(name, rating, description, url) VALUES ('Quinta Categoria', 5, 'SUV', 'https://images.unsplash.com/photo-1615063029891-497bebd4f03c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1100&q=80');
 
 -- Features table
-INSERT INTO features(name, icon) VALUES ('Ar-Condicionado', 'fa-solid fa-snowflake');
-INSERT INTO features(name, icon) VALUES ('Direção Hidráulica', 'fa-solid fa-gear');
-INSERT INTO features(name, icon) VALUES ('Vidro Elétrico', 'fa-regular fa-car');
-INSERT INTO features(name, icon) VALUES ('Trava Elétrica', 'fa-solid fa-lock');
-INSERT INTO features(name, icon) VALUES ('AirBag', 'fa-solid fa-car-on');
-INSERT INTO features(name, icon) VALUES ('Alarme', 'fa-solid fa-bell');
-INSERT INTO features(name, icon) VALUES ('Som', 'fa-solid fa-music');
-INSERT INTO features(name, icon) VALUES ('Sensor de Ré', 'fa-solid fa-exclamation');
-INSERT INTO features(name, icon) VALUES ('Câmera de Ré', 'fa-solid fa-camera');
-INSERT INTO features(name, icon) VALUES ('Blindado', 'fa-solid fa-shield-halved');
+INSERT INTO features(name, icon) VALUES ('Ar-Condicionado', 'snowflake');
+INSERT INTO features(name, icon) VALUES ('Direção Hidráulica', 'gear');
+INSERT INTO features(name, icon) VALUES ('Vidro Elétrico', 'car');
+INSERT INTO features(name, icon) VALUES ('Trava Elétrica', 'lock');
+INSERT INTO features(name, icon) VALUES ('AirBag', 'car-on');
+INSERT INTO features(name, icon) VALUES ('Alarme', 'bell');
+INSERT INTO features(name, icon) VALUES ('Som', 'music');
+INSERT INTO features(name, icon) VALUES ('Sensor de Ré', 'exclamation');
+INSERT INTO features(name, icon) VALUES ('Câmera de Ré', 'camera');
+INSERT INTO features(name, icon) VALUES ('Blindado', 'shield-halved');
 
 -- Cities table
 INSERT INTO cities(name, country) VALUES ('Lauro de Freitas', 'Brasil');
