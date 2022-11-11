@@ -1,4 +1,5 @@
 import "./ProductsDetails.css";
+import 'react-calendar/dist/Calendar.css';
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 
@@ -6,21 +7,46 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 
+import Calendar from 'react-calendar';
+
+import { Gallery } from "react-grid-gallery";
+
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { BiArrowBack } from "react-icons/bi";
 import { MdLocationOn } from "react-icons/md";
+import { MdSecurity } from "react-icons/md";
 
 export default function ProductsDetails() {
   const { idProduct } = useParams();
   const [product, setProduct] = useState({ name: "", description: "", category: { name: '' }, city: { name: '' }, features: [] });
+  const [value, onChange] = useState(new Date());
   let requestConfigurationGet = {
     headers: {
       "Content-Type": "application/json",
       Authorization: localStorage.getItem("token"),
     },
   };
+
+  const images = [
+    {
+      src: "https://images.unsplash.com/photo-1489824904134-891ab64532f1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1631&q=80",
+      width: 320,
+      height: 212,
+    },
+    {
+      src: "https://images.unsplash.com/photo-1498887960847-2a5e46312788?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80jpeg",
+      width: 320,
+      height: 212,
+    },
+
+    {
+      src: "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+      width: 320,
+      height: 212,
+    },
+  ];
 
   library.add(fas);
 
@@ -30,92 +56,76 @@ export default function ProductsDetails() {
       .then((productsJSON) => setProduct(productsJSON));
   }, []);
 
-
-  let testing = {
-    id: 1,
-    name: "Hyundai HB20",
-    description: "Aceleração de 0 a 100 km/h: 9,3 - 14,5 segundos/ Volume de carga: 300 - 475 l/ Tração: Tração dianteira/ Portas: 4, 5",
-    features: [
-      {
-        id: 1,
-        name: "Ar-Condicionado",
-        icon: "faSnowflake"
-      },
-      {
-        id: 3,
-        name: "Vidro Elétrico",
-        icon: "faCar"
-      },
-      {
-        id: 5,
-        name: "AirBag",
-        icon: "faCarOn"
-      },
-      {
-        id: 7,
-        name: "Som",
-        icon: "faMusic"
-      },
-      {
-        id: 4,
-        name: "Trava Elétrica",
-        icon: "FaLock"
-      },
-      {
-        id: 2,
-        name: "Direção Hidráulica",
-        icon: "faGear"
-      }
-    ]
-  } 
- 
   return (
     <>
       <Header />
       <div className="header-products">
         <div className="header-products-left">
-          <p>{product.category.name}</p>
+          <p>{product.category.description} - {product.category.name}</p>
           <h1>{product.name}</h1>
         </div>
-
         <div className="header-products-right">
           <Link to={"/"}>
             <BiArrowBack size="40" color="#FBC02D" />
           </Link>
         </div>
       </div>
-
       <div className="header-products-location">
         <h3>
           <MdLocationOn size="20" color="#263238" /> {product.city.name}
         </h3>
-
         <div className="header-products-location-right">
-          <h3>Rating</h3>
+          <h3>Rating - {product.category.rating} <FontAwesomeIcon icon={['fas', 'star']} /> </h3>
         </div>
       </div>
       <div className="images">
         <h1> Bloco das Imagens</h1>
+        <Gallery images={images} enableImageSelection={false} />
       </div>
       <div className="description">
         <h1>Título da descrição</h1>
         <p>{product.description}</p>
-
       </div>
-      
       <div className="features">
-        
+        <h1>Características</h1>
         {product.features.map((feature, index) => {
-          return (<>
-          
-          <FontAwesomeIcon icon={['fas', `${feature.icon}`]} key={index}></FontAwesomeIcon>
-
-          <h3>{feature.name}</h3>
-          </>)
+          return (
+            <div className="feature-information">
+              <FontAwesomeIcon icon={['fas', `${feature.icon}`]} key={index}></FontAwesomeIcon>
+              <p>{feature.name}</p>
+            </div>)
         })}
-
       </div>
 
+      <div className="calendar-availability-block">
+        <Calendar onChange={onChange} value={value} />
+      </div>
+
+      <div className="rent-button-block">
+        <button type="button" className="rent-button-block-button" value="Reservar">Iniciar Reserva</button>
+      </div>
+
+      <div className="product-agreement">
+        <MdSecurity style={{ 'font-size': '25px' }} />
+        <div className="unit-agreement">
+          <h1 className="title">Normas</h1>
+          <p className="description-agreement">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+          </p>
+        </div>
+        <div className="unit-agreement">
+          <h1 className="title">Segurança</h1>
+          <p className="description-agreement">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+          </p>
+        </div>
+        <div className="unit-agreement">
+          <h1 className="title">Cancelamento</h1>
+          <p className="description-agreement">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+          </p>
+        </div>
+      </div>
       <Footer />
     </>
   );

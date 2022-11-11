@@ -21,16 +21,22 @@ export default function Header() {
     <>
       <div className="header">
         <div className="header-left">
-          {/*Levar à home do site*/}
-          <Link to="/">
-            <img src={logo} className="header-logo" alt="logo" />
-          </Link>
+          <div className="header-logo-components">
+            {/*Levar à home do site*/}
+            <Link to="/" style={{ textDecoration: 'none' }}>
+              <img src={logo} className="header-logo" alt="logo" />
+              <div className="header-logo-content">
+                <h1 className="logo-text">Emprescar </h1>
+                <p className="logo-text-description">Liberdade para ir onde quiser</p>
+              </div>
+            </Link>
+          </div>
         </div>
 
         <div className="header-right">
           <Sidebar handleChangeState={handleChangeState}></Sidebar>
-          <GiHamburgerMenu className="hamburger-menu-button" size={40} onClick={handleChangeState}> 
-        
+          <GiHamburgerMenu className="hamburger-menu-button" size={40} onClick={handleChangeState}>
+
           </GiHamburgerMenu>
           <Link to="/register" className="header-right-signup">
             <input

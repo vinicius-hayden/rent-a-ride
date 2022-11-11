@@ -1,5 +1,6 @@
 import "./Categories.css";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Categories() {
   const [categories, setCategories] = useState([]);
@@ -21,8 +22,8 @@ export default function Categories() {
     <>
       <div className="div-main">
         <h2 className="div-title">Buscar por categorias</h2>
-
         {categories.map((category, index) => (
+        <Link to={`/categories/${category.id}/products`} index={index}>
           <div className="categories" key={index}>
             <div className="categories-card">
               <img className="categories-image" src={category.url} />
@@ -30,6 +31,7 @@ export default function Categories() {
               <p> {category.description} </p>
             </div>
           </div>
+        </Link>
         ))}
       </div>
     </>

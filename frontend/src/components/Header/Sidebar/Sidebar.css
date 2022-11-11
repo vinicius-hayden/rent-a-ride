@@ -1,5 +1,5 @@
 .sidebar {
-    background-color: #B58B00;
+    background-color: #083808;
     height: 100vh;
     padding: 70px 25px 0;
     position: fixed;
@@ -20,12 +20,12 @@
     border-style: solid;
     border-radius: 5px;
     border-color: #263238;
-    background-color: #FFFBE2;
+    background-color: #FFFFFF;
     margin: 4px;
 }
 
 .sidebar-button:hover {
-    background-color: #263238;
+    background-color: #267d26;
 }
 
 @media screen and (min-width:838px) {

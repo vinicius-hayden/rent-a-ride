@@ -3,7 +3,7 @@
     height: 149px;
     margin-top: 80px;
     background-color: #263238;
-    color: #FFFBE2;
+    color: #FFFFFF;
     text-align: center;
 }
 
@@ -18,7 +18,7 @@
     margin-left: 148px;   
     border-radius: 5px;
     border: none;
-    background-color: #FFFBE2;
+    background-color: #FFFFFF;
     background-image: url('placeholder.png');
     background-position: 10px 10px; 
     background-repeat: no-repeat;
@@ -32,7 +32,7 @@
     border-radius: 5px;
     border: none;
     margin-right: 10px;
-    background-color: #FFFBE2;
+    background-color: #FFFFFF;
     background-image: url('calendar.png');
     background-position: 10px 10px; 
     background-repeat: no-repeat;
@@ -46,7 +46,13 @@
     margin-right: 148px;
     border-radius: 5px;
     border: none;
-    background-color: #FBC02D;
+    background-color: #267d26;
     color:#263238;
+    cursor: pointer;
+    color: #FFFFFF;
+}
+
+.button-search:hover {
+    background-color: #04aa6d;
     cursor: pointer;
 }

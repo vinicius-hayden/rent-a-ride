@@ -17,10 +17,12 @@
     "font-awesome": "^4.7.0",
     "fortawesome": "^0.0.1-security",
     "react": "^18.2.0",
-    "react-bootstrap": "^2.5.0",
+    "react-bootstrap": "^2.6.0",
+    "react-calendar": "^4.0.0",
     "react-date-range": "^1.4.0",
     "react-dom": "^18.2.0",
     "react-fontawesome": "^1.7.1",
+    "react-grid-gallery": "^1.0.0",
     "react-icons": "^4.6.0",
     "react-router-dom": "^6.4.2"
   },

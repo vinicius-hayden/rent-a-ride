@@ -8,6 +8,8 @@ import Login from "./pages/Login/Login";
 import UserPage from "./pages/UserPage/UserPage";
 // import Products from "./components/Products/Products";
 import ProductsDetails from "./components/ProductsDetails/ProductsDetails";
+import ProductCategory from "./components/ProductCategory/ProductCategory";
+import ProductCity from "./components/ProductCity/ProductCity";
 
 
 function App() {
@@ -20,6 +22,8 @@ function App() {
         <Route path="/userpage" element={<UserPage />} />
         {/* <Route path="/products" element={<Products />} /> */}
         <Route path="/products/:idProduct" element={<ProductsDetails />} /> 
+        <Route path="/categories/:idCategory/products" element={<ProductCategory/>}/>
+        <Route path="/cities/:idCity/products" element={<ProductCity/>} />
       </Routes>
     </div>
   );

@@ -24,6 +24,25 @@ export default function Search() {
     console.log("City: " + city?.value, "Date: " + dateRange?.value);
   }
 
+  function findProductByCity() {
+    let element = document.querySelector('.input-city');
+    var selectedOption = element.value
+    var idFromSelectedCity = null;
+    city.forEach((city) => {
+      if (city.name ===  selectedOption) { 
+        idFromSelectedCity = city.id;
+      }
+    })
+
+    if(idFromSelectedCity === null) { 
+      window.alert("Por favor, coloque uma cidade");
+    }
+    else {
+      window.location.replace(`/cities/${idFromSelectedCity}/products`);
+    }
+
+  }
+
   return (
     <>
         <div className="form-search">
@@ -55,7 +74,7 @@ export default function Search() {
               placeholder="Data de devolução"
             />
 
-            <input className="button-search" type="submit" value="Buscar" />
+            <input className="button-search" type="submit" value="Buscar" onClick={findProductByCity}/>
           </form>
         </div>
     </>

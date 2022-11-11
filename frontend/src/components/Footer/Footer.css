@@ -1,8 +1,8 @@
 .footer {
     width: 100%;
     height: 58px;
-    background-color: #FBC02D;
-    color: #263238;
+    background-color: #1B571B;
+    color: #FFFFFF;
     position: fixed;
     left: 0;
     bottom: 0;
@@ -11,7 +11,7 @@
 
 .footer-left {
     float: left;
-    color: #263238;
+    color: #FFFFFF;
     margin-left: 40px;
     margin-top: 20px;
     font-size: 14px;
@@ -19,7 +19,7 @@
 
 .footer-right {
     float: right;    
-    color: #263238;
+    color: #FFFFFF;
     margin-right: 40px;
     margin-top: 15px;
     font-size: 25px;

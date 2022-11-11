@@ -20,7 +20,7 @@
 }
 
 .categories-card {
-    background-color: #FFFBE2;
+    background-color: #ffffff;
     height: 246.67px;
     width: 310px;
     border-radius: 10px;
@@ -32,7 +32,7 @@
 .categories-image {
     height: 183.31px;
     width: 310px;
-    border-radius: 10px;
+    border-radius: 10px 10px 0 0;
     object-fit: cover;
 }
 

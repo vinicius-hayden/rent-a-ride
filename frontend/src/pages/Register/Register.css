@@ -63,15 +63,17 @@
     width: 206px;
     height: 40px;
     border:none;
-    background-color: #FBC02D;
     margin-top: 51px;
+    background-color: #267d26;
     margin-bottom: 18px;
     text-align: center;
     border-radius: 5px;
+    color: #ffff;
 }
 
 .button-register:hover {
-    background-color: #F3F1ED;
+    background-color: #04aa6d;
+    cursor: pointer;
 }
 
 .message-register {
