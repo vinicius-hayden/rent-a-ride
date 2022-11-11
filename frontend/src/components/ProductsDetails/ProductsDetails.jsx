@@ -1,5 +1,6 @@
 import "./ProductsDetails.css";
 import 'react-calendar/dist/Calendar.css';
+import 'react-image-gallery/styles/css/image-gallery.css'
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 
@@ -9,7 +10,7 @@ import { fas } from '@fortawesome/free-solid-svg-icons'
 
 import Calendar from 'react-calendar';
 
-import { Gallery } from "react-grid-gallery";
+import ImageGallery from 'react-image-gallery';
 
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
@@ -31,20 +32,23 @@ export default function ProductsDetails() {
 
   const images = [
     {
-      src: "https://images.unsplash.com/photo-1489824904134-891ab64532f1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1631&q=80",
-      width: 320,
-      height: 212,
+      original: "https://images.unsplash.com/photo-1489824904134-891ab64532f1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1631&q=80",
+      thumbnail: "https://images.unsplash.com/photo-1489824904134-891ab64532f1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1631&q=80",
+      originalHeight: 315,
+      originalWidth: 215
     },
     {
-      src: "https://images.unsplash.com/photo-1498887960847-2a5e46312788?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80jpeg",
-      width: 320,
-      height: 212,
+      original: "https://images.unsplash.com/photo-1498887960847-2a5e46312788?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80jpeg",
+      thumbnail: "https://images.unsplash.com/photo-1498887960847-2a5e46312788?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80jpeg",
+      originalHeight: 315,
+      originalWidth: 215
     },
 
     {
-      src: "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
-      width: 320,
-      height: 212,
+      original: "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+      thumbnail: "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+      originalHeight: 315,
+      originalWidth: 215
     },
   ];
 
@@ -80,7 +84,7 @@ export default function ProductsDetails() {
       </div>
       <div className="images">
         <h1> Bloco das Imagens</h1>
-        <Gallery images={images} enableImageSelection={false} />
+        <ImageGallery items={images}/>
       </div>
       <div className="description">
         <h1>Título da descrição</h1>

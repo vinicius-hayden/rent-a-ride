@@ -24,6 +24,7 @@
     "react-fontawesome": "^1.7.1",
     "react-grid-gallery": "^1.0.0",
     "react-icons": "^4.6.0",
+    "react-image-gallery": "^1.2.11",
     "react-router-dom": "^6.4.2"
   },
   "devDependencies": {

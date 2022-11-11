@@ -43,6 +43,7 @@
   height: 100%;
   margin-left: 40px;
   color: #263238;
+  position: sticky;
 }
 
 .description {
