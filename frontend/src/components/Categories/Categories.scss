@@ -9,6 +9,14 @@
     margin-bottom: 9px;
 }
 
+/* .categories-res {
+    display: block;
+} */
+
+.use-bootstrap {
+    @import "node_modules/bootstrap/scss/bootstrap.scss";
+}
+
 .categories {
     margin-left: 50px;
     /* margin-left: 130px;*/ 
@@ -41,10 +49,12 @@
     margin-left: 10px;
     margin-top: 0;
     margin-bottom: 0;
+    font-size: 20px;
 }
 
 .categories-card p {
     color:#263238;
     margin-left: 10px;
     margin-top: 0;
+    font-size: 15px;
 }

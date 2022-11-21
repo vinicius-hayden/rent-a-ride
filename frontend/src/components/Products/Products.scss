@@ -29,6 +29,10 @@
     float: left;
 }
 
+.use-bootstrap {
+    @import url(/node_modules/bootstrap/dist/css/bootstrap.min.css);
+}
+
 .products-image {
     height: 283px;
     width: 311px;

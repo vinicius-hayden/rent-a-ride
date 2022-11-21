@@ -1,5 +1,8 @@
-import "./Categories.css";
+import "./Categories.scss";
 import { useEffect, useState } from "react";
+// import { Link } from "react-router-dom";
+import { CardGroup } from "react-bootstrap";
+import Card from 'react-bootstrap/Card';
 import { Link } from "react-router-dom";
 
 export default function Categories() {
@@ -19,21 +22,22 @@ export default function Categories() {
   }, []);
 
   return (
-    <>
-      <div className="div-main">
-        <h2 className="div-title">Buscar por categorias</h2>
+    <div className="use-bootstrap">
+      <CardGroup style={{'justify-content': 'center'}}>
         {categories.map((category, index) => (
-        <Link to={`/categories/${category.id}/products`} index={index}>
-          <div className="categories" key={index}>
-            <div className="categories-card">
-              <img className="categories-image" src={category.url} />
-              <h2> {category.name} </h2>
-              <p> {category.description} </p>
-            </div>
+          <Link to={`/categories/${category.id}/products`} index={index} style={{ textDecoration: 'none' }}>
+          <div className="categories-res">
+            <Card key={index} className="m-3" style={{  height: '18rem','width': '18rem', 'border-radius': '15px', 'border': 'solid 1px #D3D3D3' }}>
+              <Card.Img variant="top" src={category.url} style={{ 'height': '75%', 'border-radius': '15px 15px 0px 0px' }} />
+              <Card.Body>
+                <Card.Title>{category.name}</Card.Title>
+                <Card.Text>{category.description}</Card.Text>
+              </Card.Body>
+            </Card>
           </div>
-        </Link>
+          </Link>
         ))}
-      </div>
-    </>
+      </CardGroup>
+    </div>
   );
 }

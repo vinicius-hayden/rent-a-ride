@@ -4,7 +4,11 @@
 
 /* App */
 * {
-    font-family: Poppins;
+    font-family: Poppins !important;
+}
+
+html {
+    font-family: Poppins !important;
 }
 
 /* Responsividade: desktop, tablet e mobile */

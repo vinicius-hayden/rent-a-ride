@@ -4,7 +4,9 @@
     margin-top: 80px;
     background-color: #263238;
     color: #FFFFFF;
+    font-family: Poppins;
     text-align: center;
+    font-size: 12.5px;
 }
 
 .input-search {

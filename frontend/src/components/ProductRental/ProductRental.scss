@@ -1,0 +1,29 @@
+#card-product {
+  margin-left: 25vw;
+  margin-right: 25vw;
+  min-width: 35px;
+  border-radius: 15px;
+}
+
+#hour-appointment {
+  display: flex;
+  justify-content: center;
+}
+
+.product-detail {
+  margin-top: 25px;
+}
+
+.calendar-availability-block {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+}
+
+.use-bootstrap {
+  @import "node_modules/bootstrap/scss/bootstrap.scss";
+}
+
+.check-in-box {
+  background-color: black;
+}

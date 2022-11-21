@@ -1,4 +1,4 @@
-import "./Products.css";
+import "./Products.scss";
 
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";

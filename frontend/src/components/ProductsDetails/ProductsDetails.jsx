@@ -52,6 +52,11 @@ export default function ProductsDetails() {
     },
   ];
 
+  function redirectToRentalPage(productId) {
+    console.log(productId);
+    window.location.replace(`/products/${productId}/rental`);
+  }
+
   library.add(fas);
 
   useEffect(() => {
@@ -66,7 +71,7 @@ export default function ProductsDetails() {
       <div className="header-products">
         <div className="header-products-left">
           <p>{product.category.description} - {product.category.name}</p>
-          <h1>{product.name}</h1>
+          <h1 style={{'font-family': 'Poppins'}}>{product.name}</h1>
         </div>
         <div className="header-products-right">
           <Link to={"/"}>
@@ -106,7 +111,7 @@ export default function ProductsDetails() {
       </div>
 
       <div className="rent-button-block">
-        <button type="button" className="rent-button-block-button" value="Reservar">Iniciar Reserva</button>
+        <button type="button" className="rent-button-block-button" value="Reservar" onClick={() => redirectToRentalPage(product.id)}>Iniciar Reserva</button>
       </div>
 
       <div className="product-agreement">
