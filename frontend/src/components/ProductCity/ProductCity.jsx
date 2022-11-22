@@ -16,7 +16,7 @@ export default function ProductCity() {
   };
   
   useEffect(() => {
-    fetch(`http://localhost:9000/products/?cityId=${idCity}`, requestConfigurationGet)
+    fetch(`http://ec2-54-153-58-52.us-west-1.compute.amazonaws.com:9000/products/?cityId=${idCity}`, requestConfigurationGet)
       .then((response) => response.json())
       .then((productsJSON) => setProducts(productsJSON));
   }, []);

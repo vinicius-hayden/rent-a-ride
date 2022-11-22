@@ -6,9 +6,11 @@ import Card from 'react-bootstrap/Card';
 import Calendar from 'react-calendar';
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import swal from "sweetalert";
 
 import { BiArrowBack } from "react-icons/bi";
 import { MdLocationOn } from "react-icons/md";
+import { MdSecurity } from "react-icons/md";
 import { IoIosCheckmarkCircle } from "react-icons/io"
 
 import './ProductRental.scss';
@@ -26,14 +28,30 @@ export default function ProductRental() {
     },
   };
 
+  function rentProduct() {
+
+    if(true) {
+      swal({
+        title: "Uhuuuul!",
+        text: "Sua reserva foi feita :)",
+        icon: "success",
+        button: {
+          text: "Voltar para a Home",
+        },
+      
+      })
+      .then(() => window.location = "/");
+    }
+  }
+
   useEffect(() => {
-    fetch(`http://localhost:9000/products/${idProduct}`, requestConfigurationGet)
+    fetch(`http://ec2-54-153-58-52.us-west-1.compute.amazonaws.com:9000/products/${idProduct}`, requestConfigurationGet)
       .then((response) => response.json())
       .then((productsJSON) => setProduct(productsJSON));
   }, []);
 
   useEffect(() => {
-    fetch("http://localhost:9000/cities", requestConfigurationGet)
+    fetch("http://ec2-54-153-58-52.us-west-1.compute.amazonaws.com:9000/cities", requestConfigurationGet)
       .then((response) => response.json())
       .then((citiesJSON) => setCity(citiesJSON));
   }, []);
@@ -87,7 +105,7 @@ export default function ProductRental() {
                   <MdLocationOn />{product.city.name}
                 </Card.Footer>
               </Card.Body>
-              <Button>Confirmar Reserva</Button>
+              <Button onClick={rentProduct}>Confirmar Reserva</Button>
             </Card>
           </div>
         </div>
@@ -119,11 +137,27 @@ export default function ProductRental() {
           </Card.Body>
         </Card>
       </div>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
+      <div className="product-agreement">
+        <MdSecurity style={{ 'fontSize': '25px' }} />
+        <div className="unit-agreement">
+          <h1 className="title">Normas</h1>
+          <p className="description-agreement">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+          </p>
+        </div>
+        <div className="unit-agreement">
+          <h1 className="title">Segurança</h1>
+          <p className="description-agreement">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+          </p>
+        </div>
+        <div className="unit-agreement">
+          <h1 className="title">Cancelamento</h1>
+          <p className="description-agreement">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+          </p>
+        </div>
+      </div>               
       <Footer />
     </>
   )

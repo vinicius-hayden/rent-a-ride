@@ -17,7 +17,7 @@ export default function ProductCategory() {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:9000/products/?categoryId=${idCategory}`, requestConfigurationGet)
+    fetch(`http://ec2-54-153-58-52.us-west-1.compute.amazonaws.com:9000/products/?categoryId=${idCategory}`, requestConfigurationGet)
       .then((response) => response.json())
       .then((productsJSON) => setProducts(productsJSON));
   }, []);
