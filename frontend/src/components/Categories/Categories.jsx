@@ -16,19 +16,19 @@ export default function Categories() {
   };
 
   useEffect(() => {
-    fetch("http://ec2-54-153-58-52.us-west-1.compute.amazonaws.com:9000/categories", requestConfigurationGet)
+    fetch("http://localhost:9000/categories", requestConfigurationGet)
       .then((response) => response.json())
       .then((categoriesJSON) => setCategories(categoriesJSON));
   }, []);
 
   return (
     <div className="use-bootstrap">
-      <CardGroup style={{'justify-content': 'center'}}>
+      <CardGroup style={{'justify-content': 'center'}} id="card-group-bootstrap">
         {categories.map((category, index) => (
           <Link to={`/categories/${category.id}/products`} index={index} style={{ textDecoration: 'none' }}>
-          <div className="categories-res">
-            <Card key={index} className="m-3" style={{  height: '18rem','width': '18rem', 'border-radius': '15px', 'border': 'solid 1px #D3D3D3' }}>
-              <Card.Img variant="top" src={category.url} style={{ 'height': '75%', 'border-radius': '15px 15px 0px 0px' }} />
+          <div id="categories-res">
+            <Card key={index} className="m-3" style={{'border-radius': '5px', 'border': 'solid 1px #D3D3D3' }} id="card-bootstrap-category">
+              <Card.Img variant="top" src={category.url} style={{'border-radius': '5px 5px 0px 0px'}} id="card-bootstrap-category-image"/>
               <Card.Body>
                 <Card.Title>{category.name}</Card.Title>
                 <Card.Text>{category.description}</Card.Text>

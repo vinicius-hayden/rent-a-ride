@@ -29,6 +29,23 @@
   float: left;
 }
 
+.city-title {
+  width: 100%;
+  height: 79px;
+  margin-top: 80px;
+  background-color: #263238;
+  color: #ffffff;
+  font-family: Poppins;
+  font-size: 12.5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.left {
+  margin-left: 75vw;
+}
+
 .use-bootstrap {
   @import url(/node_modules/bootstrap/dist/css/bootstrap.min.css);
 }
@@ -44,8 +61,8 @@
   max-width: 250px;
 }
 
-#product-card-bootstrap{
-  height: 320px; 
+#product-card-bootstrap {
+  height: 320px;
   width: 15rem;
 }
 
@@ -145,5 +162,45 @@
     border-style: solid;
     border-color: #f3f1ed;
     box-shadow: 0px 3px #f3f1ed;
+  }
+}
+
+@media screen and (max-width: 1346px) {
+  .left {
+    margin-left: 65vw;
+  }
+}
+@media screen and (max-width: 1016px) {
+  .left {
+    margin-left: 55vw;
+  }
+}
+@media screen and (max-width: 780px) {
+  .left {
+    margin-left: 45vw;
+  }
+}
+@media screen and (max-width: 650px) {
+  .left {
+    margin-left: 35vw;
+  }
+}
+@media screen and (max-width: 530px) {
+  .left {
+    margin-left: 25vw;
+  }
+}
+@media screen and (max-width: 460px) {
+  .left {
+    margin-left: 10vw;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .left {
+    margin-left: 25px;
+  }
+  .city-title {
+    font-size: 9.5px;
   }
 }

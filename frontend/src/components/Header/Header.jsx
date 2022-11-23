@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import logo from "./logo.png";
-import "./Header.css"
+import "./Header.scss"
 import { GiHamburgerMenu } from "react-icons/gi";
 import Sidebar from "./Sidebar/Sidebar";
 

@@ -52,6 +52,12 @@ export default function ProductsDetails() {
     },
   ];
 
+  window.scroll({
+    top: 0, 
+    left: 0, 
+    behavior: 'smooth'
+  });
+
   function redirectToRentalPage(productId) {
     console.log(productId);
     window.location.replace(`/products/${productId}/rental`);
@@ -60,7 +66,7 @@ export default function ProductsDetails() {
   library.add(fas);
 
   useEffect(() => {
-    fetch(`http://ec2-54-153-58-52.us-west-1.compute.amazonaws.com:9000/products/${idProduct}`, requestConfigurationGet)
+    fetch(`http://localhost:9000/products/${idProduct}`, requestConfigurationGet)
       .then((response) => response.json())
       .then((productsJSON) => setProduct(productsJSON));
   }, []);

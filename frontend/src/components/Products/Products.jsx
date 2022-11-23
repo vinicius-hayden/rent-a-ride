@@ -19,7 +19,7 @@ export default function Products() {
   };
 
   useEffect(() => {
-    fetch("http://ec2-54-153-58-52.us-west-1.compute.amazonaws.com:9000/products", requestConfigurationGet)
+    fetch("http://localhost:9000/products", requestConfigurationGet)
       .then((response) => response.json())
       .then((productsJSON) => setProducts(productsJSON));
   }, []);
@@ -27,17 +27,25 @@ export default function Products() {
   return (
     <>
       <h2 className="div-title">Recomendações</h2>
-      <CardGroup style={{ 'justify-content': 'center' }} className='use-bootstrap'>
-        {products.map((product, index) => (
-          <Card key={index} className="m-3" style={{ height: '18rem', 'width': '18rem', 'borderRadius': '18px', 'border': 'solid 1px #D3D3D3' }}>
-            <Card.Img variant="top" src={product.category.url} style={{ 'height': '105px', 'borderRadius': '15px 15px 0px 0px' }} />
-            <Card.Body>
-              <Card.Title>{product.name}</Card.Title>
-              <Card.Text>{product.description}</Card.Text>
-            </Card.Body>
-          </Card>
-        ))}
-      </CardGroup>
+      <div className="use-bootstrap">
+        <CardGroup style={{ 'justify-content': 'center' }}>
+          {products.map((product, index) => (
+            <div className="products-res">
+              <Card key={index} className="m-3" style={{ 'borderRadius': '5px', 'border': 'solid 1px #D3D3D3' }} id="product-card-bootstrap">
+                <Card.Img variant="top" src={product.category.url} style={{ 'height': '105px', 'borderRadius': '5px 5px 0px 0px' }} />
+                <Card.Body id="card-product-body">
+                  <Card.Title id="card-product-body-title">{product.name}</Card.Title>
+                  <Card.Text id="card-product-body-text">{product.description}</Card.Text>
+                  <Link to={`/products/${product.id}`}>
+                    <Button variant="primary" id="card-product-button"> Ver mais detalhes</Button>
+                  </Link>
+                </Card.Body>
+              </Card>
+            </div>
+          ))}
+        </CardGroup>
+        <div className="u-footer"></div>
+      </div>
     </>
   );
 }
