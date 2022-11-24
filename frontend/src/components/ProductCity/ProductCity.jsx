@@ -2,15 +2,8 @@ import { useEffect, useState } from "react"
 import { Link } from "react-router-dom";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
-import Button from 'react-bootstrap/Button';
-import { MdLocationOn } from "react-icons/md";
-
-import { CardGroup } from "react-bootstrap";
-import { BiArrowBack } from "react-icons/bi";
-import Card from 'react-bootstrap/Card';
-
 import { useParams } from "react-router-dom";
-import "./ProductCity.scss"
+import "./ProductCity.css"
 
 export default function ProductCity() {
   const { idCity } = useParams();
@@ -22,9 +15,6 @@ export default function ProductCity() {
     },
   };
   
-  let cityName = '';
-  products.map((product) => cityName = product.city.name)
- 
   useEffect(() => {
     fetch(`http://localhost:9000/products/?cityId=${idCity}`, requestConfigurationGet)
       .then((response) => response.json())
@@ -34,33 +24,27 @@ export default function ProductCity() {
   return (
     <>
       <Header/>
-      <div className="city-title">
-        <h1> <MdLocationOn size={25}/> Carros em {cityName}</h1> 
-        <div className="left">
-          <Link to={"/"}>  
-        <BiArrowBack size={40} color="#FBC02D" className="arrowback"/>
-          </Link>
-        </div>
-      </div> 
-      <div className="use-bootstrap">
-        <CardGroup style={{ 'justify-content': 'center' }}>
-          {products.map((product, index) => (
-            <div className="products-res">
-              <Card key={index} className="m-3" style={{ 'borderRadius': '5px', 'border': 'solid 1px #D3D3D3' }} id="product-card-bootstrap">
-                <Card.Img variant="top" src={product.category.url} style={{ 'height': '105px', 'borderRadius': '5px 5px 0px 0px' }} />
-                <Card.Body id="card-product-body">
-                  <Card.Title id="card-product-body-title">{product.name}</Card.Title>
-                  <Card.Text id="card-product-body-text">{product.description}</Card.Text>
-                  <Link to={`/products/${product.id}`}>
-                    <Button variant="primary" id="card-product-button"> Ver mais detalhes</Button>
-                  </Link>
-                </Card.Body>
-              </Card>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      {products.map((product, index) => (
+          <div className="products" key={index}>
+            <div className="products-card">
+              <div className="div-products-information">
+                <h2> {product.name} </h2>
+                <h3> {product.category.description} </h3>
+                <p> {product.city.name} </p>
+                {/* <p> {product.description} </p> */}
+                <Link to={`/products/${product.id}`}>
+                  <button className="products-button">Ver detalhes</button>
+                </Link>
+              </div>
             </div>
-          ))}
-        </CardGroup>
-        <div className="u-footer"></div>
-      </div>
+          </div>
+        ))}
       <Footer/>
     </>
   )

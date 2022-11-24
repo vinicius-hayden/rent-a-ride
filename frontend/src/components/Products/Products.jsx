@@ -1,12 +1,7 @@
-import "./Products.scss";
+import "./Products.css";
 
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-
-import Button from 'react-bootstrap/Button';
-
-import { CardGroup } from "react-bootstrap";
-import Card from 'react-bootstrap/Card';
 
 export default function Products() {
   const [products, setProducts] = useState([]);
@@ -26,25 +21,24 @@ export default function Products() {
 
   return (
     <>
-      <h2 className="div-title">Recomendações</h2>
-      <div className="use-bootstrap">
-        <CardGroup style={{ 'justify-content': 'center' }}>
-          {products.map((product, index) => (
-            <div className="products-res">
-              <Card key={index} className="m-3" style={{ 'borderRadius': '5px', 'border': 'solid 1px #D3D3D3' }} id="product-card-bootstrap">
-                <Card.Img variant="top" src={product.category.url} style={{ 'height': '105px', 'borderRadius': '5px 5px 0px 0px' }} />
-                <Card.Body id="card-product-body">
-                  <Card.Title id="card-product-body-title">{product.name}</Card.Title>
-                  <Card.Text id="card-product-body-text">{product.description}</Card.Text>
-                  <Link to={`/products/${product.id}`}>
-                    <Button variant="primary" id="card-product-button"> Ver mais detalhes</Button>
-                  </Link>
-                </Card.Body>
-              </Card>
+      <div className="div-products">
+        <h2 className="div-title">Recomendações</h2>
+
+        {products.map((product, index) => (
+          <div className="products" key={index}>
+            <div className="products-card">
+              <div className="div-products-information">
+                <h2> {product.name} </h2>
+                <h3> {product.category.description} </h3>
+                <p> {product.city.name} </p>
+                {/* <p> {product.description} </p> */}
+                <Link to={`/products/${product.id}`}>
+                  <button className="products-button">Ver detalhes</button>
+                </Link>
+              </div>
             </div>
-          ))}
-        </CardGroup>
-        <div className="u-footer"></div>
+          </div>
+        ))}
       </div>
     </>
   );

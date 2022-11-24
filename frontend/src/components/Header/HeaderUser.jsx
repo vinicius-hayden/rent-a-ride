@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import logo from "./logo.png";
 
-import "./Header.scss";
+import "./Header.css";
 
 export default function HeaderUser() {
   return (

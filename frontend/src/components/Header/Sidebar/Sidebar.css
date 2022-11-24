@@ -24,14 +24,6 @@
     margin: 4px;
 }
 
-.hamburger-menu-button {
-    color: #FFFFFF;
-}
-
-.hamburger-menu-button :hover {
-    color: #263238;
-}
-
 .sidebar-button:hover {
     background-color: #267d26;
 }

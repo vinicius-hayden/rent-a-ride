@@ -10,7 +10,6 @@ import UserPage from "./pages/UserPage/UserPage";
 import ProductsDetails from "./components/ProductsDetails/ProductsDetails";
 import ProductCategory from "./components/ProductCategory/ProductCategory";
 import ProductCity from "./components/ProductCity/ProductCity";
-import ProductRental from "./components/ProductRental/ProductRental";
 
 
 function App() {
@@ -25,7 +24,6 @@ function App() {
         <Route path="/products/:idProduct" element={<ProductsDetails />} /> 
         <Route path="/categories/:idCategory/products" element={<ProductCategory/>}/>
         <Route path="/cities/:idCity/products" element={<ProductCity/>} />
-        <Route path="products/:idProduct/rental" element={<ProductRental/>} />
       </Routes>
     </div>
   );
