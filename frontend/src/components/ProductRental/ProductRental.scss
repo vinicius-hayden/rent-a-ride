@@ -1,0 +1,46 @@
+#card-product {
+  margin-left: 25vw;
+  margin-right: 25vw;
+  min-width: 35px;
+  border-radius: 15px;
+}
+
+#hour-appointment {
+  display: flex;
+  justify-content: center;
+}
+
+.product-detail {
+  margin-top: 25px;
+}
+
+.calendar-availability-block {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center
+}
+
+.use-bootstrap {
+  @import "node_modules/bootstrap/scss/bootstrap.scss";
+}
+
+.check-in-box {
+  background-color: black;
+}
+
+.product-agreement {
+  margin-top: 5px;
+  height: 100%;
+  color: #263238;
+  margin-bottom: 125px;
+  margin-left: 45px;
+}
+
+.product-agreement h1 {
+  font-size: 20px;
+}
+
+.product-agreement p {
+  font-size: 12.5px;
+}
