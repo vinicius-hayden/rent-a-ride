@@ -1,0 +1,189 @@
+.form-login {
+  color: #263238;
+  margin: 158px 364px 128px;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.form-login h1 {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.input-form-email {
+  width: 448px;
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+  background-color: #f3f1ed;
+  margin: 10px 0;
+  display: block;
+  padding-left: 10px;
+}
+
+.input-form-password {
+  width: 448px;
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+  background-color: #f3f1ed;
+  margin: 10px 0;
+  display: block;
+  padding-left: 10px;
+}
+
+.button-form-password {
+  width: 40px;
+  height: 20px;
+  float: right;
+  margin-top: -40px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-image: url("eye.png");
+  background-repeat: no-repeat;
+  background-size: 20px;
+}
+
+.div-button-login {
+  text-align: center;
+}
+
+.button-login {
+  width: 206px;
+  height: 40px;
+  border: none;
+  margin-top: 51px;
+  background-color: #267d26;
+  margin-bottom: 18px;
+  text-align: center;
+  border-radius: 5px;
+  color: #ffff;
+}
+
+/* Confirmar cor com PO */
+.button-login:hover {
+  background-color: #04aa6d;
+  cursor: pointer;
+}
+
+.message-login {
+  text-align: center;
+}
+
+@media screen and (max-width: 695px) {
+  .form-login {
+    margin: 0px;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .input-form-email {
+    width: 418px;
+    padding-left: 8px;
+  }
+
+  .input-form-password {
+    width: 418px;
+    padding-left: 8px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .form-login {
+    margin: 0px;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .input-form-email {
+    width: 290px;
+    padding-left: 8px;
+  }
+
+  .input-form-password {
+    width: 290px;
+    padding-left: 8px;
+  }
+}
+@media screen and (max-width: 375px) {
+  .form-login {
+    margin: 0px;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .input-form-email {
+    width: 290px;
+    padding-left: 8px;
+  }
+
+  .input-form-password {
+    width: 290px;
+    padding-left: 8px;
+  }
+}
+@media screen and (max-height: 882) {
+  .form-login {
+    margin-top: 15rem;
+  }
+}
+@media screen and (max-height: 540px) and (max-width: 720px) {
+  .form-login {
+    margin-top: 55px;
+  }
+
+  .input-form-email {
+    width: 290px;
+    padding-left: 8px;
+  }
+
+  .input-form-password {
+    width: 290px;
+    padding-left: 8px;
+  }
+
+}
+
+@media screen and (max-width: 651px) and (max-width: 791px) {
+  .form-login {
+    margin-top: 75px;
+    h1 {
+      margin-bottom: 5px;
+    }
+  }
+}
+@media screen and (max-width: 280px) and (max-width: 653px) {
+  .form-login {
+    margin-top: 25px;
+  }
+  .input-form-email {
+    width: 190px;
+    padding-left: 8px;
+  }
+
+  .input-form-password {
+    width: 190px;
+    padding-left: 8px;
+  }
+}
+@media screen and (max-width: 684px) and (max-width: 794px) {
+  .form-login {
+    margin-top: 55px;
+  }
+}
+@media screen and (max-width: 375px) and (max-height: 667px) {
+  .form-login {
+    top: 35%;
+  }
+}
+

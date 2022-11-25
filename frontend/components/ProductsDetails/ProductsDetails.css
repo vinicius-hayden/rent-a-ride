@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap');
+
+h1 {
+  font-family: Poppins !important;
+}
+
+.header-products {
+  height: 100%;
+  width: 100%;
+  margin-top: 80px;
+  background-color: #263238;
+  color: #f3f1ed;
+}
+
+.header-products-right {
+  float: right;
+  margin-top: -80px;
+  margin-right: 40px;
+}
+
+.header-products-left {
+  margin-left: 40px;
+}
+
+.header-products-left p {
+  margin-bottom: -30px;
+  padding: 5px;
+  margin-left: -5px;
+}
+
+.header-products-left h1 {
+  font-family: Poppins !important;
+}
+
+.header-products-location {
+  margin-top: -20px;
+  background-color: #f3f1ed;
+  color: #263238;
+}
+
+.header-products-location h3 {
+  margin-left: 30px;
+  padding: 5px;
+}
+
+.header-products-location-right {
+  float: right;
+  margin-top: -80px;
+  margin-right: 40px;
+}
+
+.images {
+  height: 100%;
+  margin-left: 40px;
+  color: #263238;
+  position: sticky;
+}
+
+.description {
+  height: 100%;
+  background-color: #f3f1ed;
+  color: #263238;
+}
+
+.description h1 {
+  margin-left: 35px;
+  padding: 5px;
+}
+
+.description p {
+  padding: 5px;
+  margin-left: 35px;
+  margin-top: -30px;
+}
+
+.features {
+  height: 100%;
+  background-color: #f3f1ed;
+  color: #263238;
+}
+
+.features h1 {
+  margin-left: 35px;
+  padding: 5px;
+}
+
+.features p {
+  padding: 5px;
+  margin-left: 35px;
+  margin-top: -30px;
+}
+
+.features .feature-information {
+  display: flex;
+  align-items: baseline;
+  margin-left: 50px;
+}
+
+.product-agreement {
+  margin-top: 5px;
+  height: 100%;
+  color: #263238;
+  margin-bottom: 125px;
+  margin-left: 45px;
+}
+
+.product-agreement h1 {
+  font-size: 20px;
+}
+
+.product-agreement p {
+  font-size: 12.5px;
+}
+
+.rent-button-block {
+  height: 100%;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  display: flex;
+  justify-content: center;
+}
+
+.rent-button-block-button {
+  display: block;
+  width: 25%;
+  height: 35px;
+  border: none;
+  background-color: #04aa6d;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 10px;
+  text-align: center;
+  margin-top: 25px;
+  color: #FFFFFF;
+}
+
+.rent-button-block-button:hover {
+  background-color: #267d26;
+}
+
+.calendar-availability-block {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+}

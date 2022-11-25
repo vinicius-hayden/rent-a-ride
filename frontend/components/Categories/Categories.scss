@@ -1,0 +1,164 @@
+.div-main {
+  height: 305px;
+  width: 100%;
+  margin-top: 13px;
+}
+
+.div-title {
+  margin-left: 40px;
+  margin-bottom: 9px;
+}
+
+.use-bootstrap {
+  @import "node_modules/bootstrap/scss/bootstrap.scss";
+}
+
+#card-bootstrap-category {
+  height: 16.5rem; 
+  width: 16.5rem; 
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+#card-bootstrap-category-image {
+  height: 155px;
+}
+
+#card-bootstrap-category h5 {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#card-bootstrap-category p {
+  font-size: 15px;
+}
+
+.categories {
+  margin-left: 50px;
+  /* margin-left: 130px;*/
+  display: inline-block;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.categories-card {
+  background-color: #ffffff;
+  height: 246.67px;
+  width: 310px;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: #f3f1ed;
+  box-shadow: 0px 3px #f3f1ed;
+}
+
+.categories-image {
+  height: 183.31px;
+  width: 310px;
+  border-radius: 10px 10px 0 0;
+  object-fit: cover;
+}
+
+.categories-card h2 {
+  color: #263238;
+  margin-left: 10px;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 20px;
+}
+
+.categories-card p {
+  color: #263238;
+  margin-left: 10px;
+  margin-top: 0;
+  font-size: 15px;
+}
+
+@media screen and (max-width: 636px) {
+  #categories-res {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+  }
+
+  #card-bootstrap-category h5 {
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  #card-bootstrap-category p {
+    font-size: 15px;
+  }
+
+
+  #card-bootstrap-category {
+    height: 15.5rem;
+    width: 14rem;
+    
+  }
+
+  #card-bootstrap-category-image{
+    height: 125px;
+  }
+}
+
+@media screen and (max-width: 629px) {
+
+  #categories-res {
+    flex-direction: row;
+  }
+
+  #card-bootstrap-category {
+    height: 11.5rem;
+    width: 10rem;
+    
+  }
+
+  #card-bootstrap-category-image{
+    height: 95px;
+  }
+  
+  #card-bootstrap-category h5 {
+    font-size: 15.5px;
+    font-weight: bold;
+  }
+
+  #card-bootstrap-category p {
+    font-size: 12.5px;
+  }
+
+}
+
+@media screen and (max-width: 577px){
+
+  #categories-res {
+    display: flex;
+    flex-flow: row wrap;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  #card-bootstrap-category {
+    height: 10.5rem;
+    width: 8rem;
+  }
+
+  #card-bootstrap-category-image{
+    height: 75px;
+  }
+
+}
+
+@media screen and (max-width: 574px) {
+
+  #card-group-bootstrap {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  #card-bootstrap-category {
+    height: 10.5rem;
+    width: 8rem;
+  }
+
+}

@@ -1,0 +1,196 @@
+.form-register {
+  color: #263238;
+  margin: 158px 364px 128px;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.form-register h1 {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.div-input-inline {
+  column-count: 2;
+  column-gap: 6px;
+}
+
+.input-firstname {
+  width: 218px;
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+  background-color: #f3f1ed;
+  margin: 10px 0;
+  display: block;
+  padding-left: 5px;
+}
+
+.input-lastname {
+  width: 218px;
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+  background-color: #f3f1ed;
+  margin: 10px 0;
+  display: block;
+  padding-left: 5px;
+}
+
+.input-block {
+  width: 448px;
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+  background-color: #f3f1ed;
+  margin: 10px 0;
+  display: block;
+  padding-left: 10px;
+}
+
+.div-button-register {
+  text-align: center;
+}
+
+.button-register {
+  width: 206px;
+  height: 40px;
+  border: none;
+  margin-top: 51px;
+  background-color: #267d26;
+  margin-bottom: 18px;
+  text-align: center;
+  border-radius: 5px;
+  color: #ffff;
+}
+
+.button-register:hover {
+  background-color: #04aa6d;
+  cursor: pointer;
+}
+
+.message-register {
+  text-align: center;
+}
+@media screen and (max-width: 695px) {
+  .form-register {
+    margin: 0px;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .input-firstname,
+  .input-lastname {
+    width: 178px;
+    // padding-left: 8px;
+  }
+
+  .input-block {
+    width: 368px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .form-register {
+    margin: 0px;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .input-firstname,
+  .input-lastname {
+    width: 128px;
+    padding-left: 8px;
+    margin: 5px 0;
+  }
+
+  .input-block {
+    width: 278px;
+    padding-left: 8px;
+    margin: 5px 0;
+  }
+
+  .button-register {
+    margin-top: 12.5px;
+  }
+}
+@media screen and (max-width: 375px) {
+  .form-register {
+    margin: 0px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .input-firstname,
+  .input-lastname {
+    width: 128px;
+    padding-left: 8px;
+  }
+
+  .input-block {
+    width: 278px;
+    padding-left: 8px;
+  }
+}
+// @media screen and (max-width: 375px) and (max-height: 667px) { // iPhone SE
+//   .form-register {
+//     margin-top: 15px;
+//   }
+// }
+@media screen and (min-width: 540px) and (min-height: 720px) {
+  .form-register {
+    top: 50%;
+  }
+}
+@media screen and (min-height: 800px) and (min-width: 525px) {
+  .form-register {
+    top: 50%;
+  }
+}
+@media screen and (max-width: 280px) and (max-height: 653px) { 
+  .input-firstname,
+  .input-lastname {
+    width: 98px;
+    padding-left: 8px;
+    height: 30px;
+  }
+
+  .input-block {
+    width: 218px;
+    padding-left: 8px;
+    height: 30px;
+  }
+}
+@media screen and (min-width: 1280px) and (min-height: 800px) {
+  .form-register {
+    top: 35%;
+  }
+}
+// @media screen and (min-width: 1024px) and (min-height: 600px) {
+//   .form-register {
+//     margin: 0;
+//     margin-top: 55px;
+//   }
+
+//   .input-firstname,
+//   .input-lastname {
+//     width: 98px;
+//     padding-left: 8px;
+//     height: 30px;
+//   }
+
+//   .input-block {
+//     width: 238px;
+//     padding-left: 8px;
+//     height: 30px;
+//   }
+
+// }

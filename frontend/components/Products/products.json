@@ -1,0 +1,78 @@
+{
+  "products": [
+    {
+      "img": "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+      "category": "Simples",
+      "title": "Carro nº 1",
+      "location": "São Paulo",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed lectus ante. Fusce malesuada nibh orci. Nam vel dictum elit."
+    },
+    {
+      "img": "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+      "category": "Simples",
+      "title": "Carro nº 2",
+      "location": "São Paulo",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed lectus ante. Fusce malesuada nibh orci. Nam vel dictum elit."
+    },
+
+    {
+      "img": "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+      "category": "Para estrada",
+      "title": "Carro nº 3",
+      "location": "Diadema",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed lectus ante. Fusce malesuada nibh orci. Nam vel dictum elit."
+    },
+    {
+      "img": "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+      "category": "Para estrada",
+      "title": "Carro nº 4",
+      "location": "Diadema",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed lectus ante. Fusce malesuada nibh orci. Nam vel dictum elit."
+    },
+
+    {
+      "img": "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+      "category": "Luxo",
+      "title": "Carro nº 5",
+      "location": "Lauro de Freitas",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed lectus ante. Fusce malesuada nibh orci. Nam vel dictum elit."
+    },
+    {
+      "img": "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+      "category": "Luxo",
+      "title": "Carro nº 6",
+      "location": "Lauro de Freitas",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed lectus ante. Fusce malesuada nibh orci. Nam vel dictum elit."
+    },
+
+    {
+      "img": "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+      "category": "Econômico",
+      "title": "Carro nº 7",
+      "location": "Salvador",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed lectus ante. Fusce malesuada nibh orci. Nam vel dictum elit."
+    },
+    {
+      "img": "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+      "category": "Econômico",
+      "title": "Carro nº 8",
+      "location": "Salvador",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed lectus ante. Fusce malesuada nibh orci. Nam vel dictum elit."
+    },
+
+    {
+      "img": "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+      "category": "SUV",
+      "title": "Carro nº 9",
+      "location": "São Paulo",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed lectus ante. Fusce malesuada nibh orci. Nam vel dictum elit."
+    },
+    {
+      "img": "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+      "category": "SUV",
+      "title": "Carro nº 10",
+      "location": "Lauro de Freitas",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed lectus ante. Fusce malesuada nibh orci. Nam vel dictum elit."
+    }
+  ]
+}

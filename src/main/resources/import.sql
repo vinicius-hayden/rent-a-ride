@@ -1,29 +1,7 @@
--- Role
-INSERT INTO table_role(name) VALUES ('ROLE_OPERATOR');
-INSERT INTO table_role(name) VALUES ('ROLE_ADMIN');
+-- Role Table
 
--- User
-INSERT INTO table_user(first_name, last_name, email, password) VALUES("Elaine", "Onuki","elaine@hotmail.com", "123456789");
-INSERT INTO table_user(first_name, last_name, email, password) VALUES("Jailson", "Junior", "jailson@hotmail.com", "123456789");
-INSERT INTO table_user(first_name, last_name, email, password) VALUES("Vinicius", "Hayden", "vinicius@hotmail.com", "123456789");
-INSERT INTO table_user(first_name, last_name, email, password) VALUES("Willian", "Silva", "willian@hotmail.com", "123456789");
-INSERT INTO table_user(first_name, last_name, email, password) VALUES("Test", "User", "TestUser@hotmail.com", "123456789");
-
--- Users
-INSERT INTO table_user_role(user_id, role_id) VALUES(1,1);
-INSERT INTO table_user_role(user_id, role_id) VALUES(2,2);
-INSERT INTO table_user_role(user_id, role_id) VALUES(3,1);
-INSERT INTO table_user_role(user_id, role_id) VALUES(4,2);
-
--- User test
-INSERT INTO table_user_role(user_id, role_id) VALUES(5,2);
-
--- Reservation
-INSERT INTO reservation(start_time, start_date, final_date, product_feature_id, table_user_id) VALUES ("13:00", "22.11.2022", "28.11.2022", 1, 2);
-INSERT INTO reservation(start_time, start_date, final_date, product_feature_id, table_user_id) VALUES ("22:00", "22.10.2022", "28.12.2022", 8, 4);
-INSERT INTO reservation(start_time, start_date, final_date, product_feature_id, table_user_id) VALUES ("08:00", "17.12.2022", "01.01.2023", 4, 1);
-INSERT INTO reservation(start_time, start_date, final_date, product_feature_id, table_user_id) VALUES ("11:00", "20.12.2022", "20.01.2022", 3, 3);
-INSERT INTO reservation(start_time, start_date, final_date, product_feature_id, table_user_id) VALUES ("20:00", "14.12.2022", "24.12.2022", 9, 5);
+INSERT INTO roles(name) VALUES ('admin');
+INSERT INTO roles(name) VALUES ('customer');
 
 -- Category table
 INSERT INTO categories(name, rating, description, url) VALUES ('Primeira Categoria', 1, 'Simples', 'https://images.unsplash.com/photo-1490985830292-06e0fe60d725?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1132&q=80');
