@@ -4,7 +4,7 @@ import Footer from "../../components/Footer/Footer";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-import "./Login.css";
+import "./Login.scss";
 
 export default function Login() {
   const [email, setEmail] = useState("");

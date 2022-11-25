@@ -4,7 +4,7 @@ import Footer from "../../components/Footer/Footer";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-import "./Register.css";
+import "./Register.scss";
 
 export default function Register() {
   const [formRegister, setFormRegister] = useState({
