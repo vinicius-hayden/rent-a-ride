@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
+import java.util.List;
 
 @RestController
 @RequestMapping(value = "/users")
@@ -15,6 +16,13 @@ public class UserController {
 
     @Autowired
     UserService userService;
+
+    @CrossOrigin(origins = "*")
+    @GetMapping
+    public ResponseEntity<List<UserDto>> searchAllUsers() {
+        List<UserDto> list = userService.searchAll();
+        return ResponseEntity.ok().body(list);
+    }
 
     @CrossOrigin
     @PostMapping

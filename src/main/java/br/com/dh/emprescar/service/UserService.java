@@ -5,12 +5,13 @@ import br.com.dh.emprescar.model.Role;
 import br.com.dh.emprescar.model.User;
 import br.com.dh.emprescar.repository.RoleRepository;
 import br.com.dh.emprescar.repository.UserRepository;
-import com.google.common.hash.Hashing;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.nio.charset.StandardCharsets;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class UserService {
@@ -19,6 +20,12 @@ public class UserService {
     private UserRepository userRepository;
     @Autowired
     private RoleRepository roleRepository;
+
+     @Transactional(readOnly = true)
+    public List<UserDto> searchAll() {
+        List<User> list = userRepository.findAll();
+        return list.stream().map(x -> new UserDto(x)).collect(Collectors.toList());
+    }
 
     @Transactional
     public UserDto insert (UserDto dto) {
@@ -31,10 +38,7 @@ public class UserService {
         entity.setName(dto.getName());
         entity.setLastName(dto.getLastName());
         entity.setEmail(dto.getEmail());
-        String hashedPassword = Hashing.sha256()
-                .hashString(dto.getPassword(), StandardCharsets.UTF_8)
-                .toString();
-        entity.setPassword(hashedPassword);
+        entity.setPassword(encodePassword(dto.getPassword()));
         if (dto.getRole() == null ) {
             entity.setRole(defaultRole());
         } else {
@@ -48,5 +52,10 @@ public class UserService {
         final Integer CUSTOMER = 2;
         return roleRepository.getReferenceById(CUSTOMER);
     }
+
+    public String encodePassword(String plainPassword){
+        return new BCryptPasswordEncoder().encode(plainPassword);
+    }
+
 
 }
