@@ -14,11 +14,14 @@ public class BookingDto implements Serializable {
     private Date dropoffDate;
     private ProductDto product;
 
-    public BookingDto(Integer id, Date pickupDate, Date dropoffDate, ProductDto product) {
+    private CustomerDto customer;
+
+    public BookingDto(Integer id, Date pickupDate, Date dropoffDate, ProductDto product, CustomerDto customer) {
         this.id = id;
         this.pickupDate = pickupDate;
         this.dropoffDate = dropoffDate;
         this.product = product;
+        this.customer = customer;
     }
 
     public BookingDto(Booking entity) {
@@ -59,5 +62,13 @@ public class BookingDto implements Serializable {
 
     public void setProduct(ProductDto product) {
         this.product = product;
+    }
+
+    public CustomerDto getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(CustomerDto customer) {
+        this.customer = customer;
     }
 }

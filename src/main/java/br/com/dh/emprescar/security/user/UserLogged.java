@@ -16,7 +16,7 @@ public class UserLogged implements UserDetails {
 
     public UserLogged(br.com.dh.emprescar.model.User user) {
         this.user = user;
-        springUserDetails = new User(user.getEmail(), user.getPassword(), List.of());
+        this.springUserDetails = new User(user.getEmail(), user.getPassword(), List.of());
     }
 
     @Override
