@@ -52,8 +52,8 @@ export default function Search() {
           >
             <h1>Buscar por ofertas de carros para alugar</h1>
 
-            <select className="input-city">
-              <option value="cities" disabled selected>
+            <select className="input-city" defaultValue={'DEFAULT'}>
+              <option value="DEFAULT" disabled>
                 Onde quer retirar seu carro?
               </option>
               

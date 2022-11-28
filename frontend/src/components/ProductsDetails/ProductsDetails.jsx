@@ -1,6 +1,6 @@
-import "./ProductsDetails.css";
+import "./ProductsDetails.scss";
 import 'react-calendar/dist/Calendar.css';
-import 'react-image-gallery/styles/css/image-gallery.css'
+import 'react-image-gallery/styles/scss/image-gallery.scss'
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 
@@ -21,7 +21,7 @@ import { MdSecurity } from "react-icons/md";
 
 export default function ProductsDetails() {
   const { idProduct } = useParams();
-  const [product, setProduct] = useState({ name: "", description: "", category: { name: '' }, city: { name: '' }, features: [] });
+  const [product, setProduct] = useState({ name: "", description: "", category: { name: '' }, city: { name: '' }, features: [], images: [{url : ""}] });
   const [value, onChange] = useState(new Date());
   let requestConfigurationGet = {
     headers: {
@@ -32,22 +32,9 @@ export default function ProductsDetails() {
 
   const images = [
     {
-      original: "https://images.unsplash.com/photo-1489824904134-891ab64532f1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1631&q=80",
-      thumbnail: "https://images.unsplash.com/photo-1489824904134-891ab64532f1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1631&q=80",
-      originalHeight: 315,
-      originalWidth: 215
-    },
-    {
-      original: "https://images.unsplash.com/photo-1498887960847-2a5e46312788?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80jpeg",
-      thumbnail: "https://images.unsplash.com/photo-1498887960847-2a5e46312788?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80jpeg",
-      originalHeight: 315,
-      originalWidth: 215
-    },
-
-    {
-      original: "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
-      thumbnail: "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
-      originalHeight: 315,
+      original: `${product.images[0].url}`,
+      thumbnail: `${product.images[0].url}`,
+      originalHeight: 415,
       originalWidth: 215
     },
   ];
@@ -94,11 +81,10 @@ export default function ProductsDetails() {
         </div>
       </div>
       <div className="images">
-        <h1> Bloco das Imagens</h1>
         <ImageGallery items={images}/>
       </div>
       <div className="description">
-        <h1>Título da descrição</h1>
+        <h1>Descrição</h1>
         <p>{product.description}</p>
       </div>
       <div className="features">

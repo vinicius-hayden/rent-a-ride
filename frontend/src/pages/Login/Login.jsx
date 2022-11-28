@@ -1,124 +1,106 @@
 import HeaderLogin from "../../components/Header/HeaderLogin";
 import Footer from "../../components/Footer/Footer";
-
+import Swal from 'sweetalert2'
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
 import "./Login.scss";
+import axios from 'axios';
+import { useEffect } from "react";
 
 export default function Login() {
   const [email, setEmail] = useState("");
+  const [emailError, setEmailError] = useState("");
   const [password, setPassword] = useState("");
+  const [passwordError, setPasswordError] = useState("");
+  const [successMsg, setSuccessMsg] = useState("");
+  const url = 'http://localhost:9000/auth'
+  var postData =  {
+    username: `${email}`,
+    password: `${password}`
+  }
 
-  const [submitted, setSubmitted] = useState(false);
-  const [error, setError] = useState(false);
+  let axiosConfig = {
+    headers: {
+      Accept: "*/*, application/json, text/plain ",
+      "Content-Type": "application/json",
+    },
+  };
 
-  const [errorEmail, setErrorEmail] = useState(false);
-  const [errorPassword, setErrorPassword] = useState(false);
-  const [errorCredential, setErrorCredential] = useState(false);
-
-  const handleEmail = (e) => {
+  const handleEmailChange = (e) => {
+    setSuccessMsg('');
+    setEmailError('');
     setEmail(e.target.value);
-    setSubmitted(false);
-  };
+  }
 
-  const handlePassword = (e) => {
+  const handlePasswordChange = (e) => {
+    setSuccessMsg('');
+    setPasswordError('');
     setPassword(e.target.value);
-    setSubmitted(false);
-  };
+  }
 
-  const userTest = {
-    email: "brunorocha@email.com",
-    password: "bruno123",
-  };
+  
+  function isValidEmail(email) {
+    return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
+      email
+      )
+    ;
+  }
 
+  function isValidPassword(password) {
+    if(password.size > 8) {
+      return false;
+    }
+    if(password == '' || password == null) {
+      return false
+    }
+    return true
+  }
+    
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (email === "") {
-      setErrorEmail(true);
-      errorMessageNull(true);
-    } else if (password === "") {
-      setErrorPassword(true);
-      errorMessageNull(true);
-    } else if (!/\S+@\S+\.\S+/.test(email)) {
-      setErrorEmail(true);
-      errorMessageEmail(true);
-    } else if (password.length < 6) {
-      setErrorPassword(true);
-      errorMessagePassword(true);
-    } else if (email !== userTest.email) {
-      setErrorCredential(true);
-      errorMessageUserTestEmail(true);
-    } else if (password !== userTest.password) {
-      setErrorCredential(true);
-      errorMessageUserTestPassword(true);
-    } else if (email === userTest.email && password === userTest.password) {
-      setSubmitted(true);
-      setError(false);
-      successMessage(true);
-      goToUserPage(true);
+    if (isValidEmail(email) && isValidPassword(password)) {
+
+      axios.post(url, postData, axiosConfig)
+        .then((response) => {
+          console.log(response);
+          Swal.fire({
+            title: 'Login feito',
+            text: "Seja bem vindo :)",
+            icon: "success",
+          })
+          .then(console.log("jwt", response.data.jwt))
+          .then(() => goToUserPage())
+          console.log();
+        }, (error) => {
+          console.log(error)
+          Swal.fire({
+            title: `Tente novamente...`,
+            text: "Dados invádios",
+            icon: "error",
+          })
+        })
+      ;
+
     } else {
-      setError(true);
+      if (!isValidPassword(password)) {
+        setPasswordError("Favor, inserir senha válida")
+      }
+  
+      if (!isValidEmail(email)) {
+        setEmailError("Favor, inserir email válido");
+      }   
     }
-  };
+  }
 
   const goToUserPage = () => {
-    // return (window.location.href = "/userpage");
-    // dois segundos para redirecionamento
     setTimeout(function () {
-      window.location.href = "/userpage";
+      window.location.href = "/";
     }, 2000);
   };
 
-  const successMessage = () => {
-    return (
-      alert("Usuário logado! Seja bem-vindo(a)!"),
-      console.log("Email: " + email + " Password: " + password)
-    );
-  };
 
-  const errorMessageNull = () => {
-    return (
-      alert("Por favor, preencha todos os campos!"),
-      console.log("Por favor, preencha todos os campos!")
-    );
-  };
-
-  const errorMessageEmail = () => {
-    return (
-      alert("Insira um e-mail válido."), console.log("Insira um e-mail válido.")
-    );
-  };
-
-  const errorMessagePassword = () => {
-    return (
-      alert("Insira uma senha válida com mais de 6 caracteres."),
-      console.log("Insira uma senha válida com mais de 6 caracteres.")
-    );
-  };
-
-  const errorMessageUserTestEmail = () => {
-    return (
-      alert(
-        "Por favor, tente novamente, suas credenciais são inválidas. Esse e-mail ainda não está cadastrado."
-      ),
-      console.log(
-        "Por favor, tente novamente, suas credenciais são inválidas. Esse e-mail ainda não está cadastrado."
-      )
-    );
-  };
-
-  const errorMessageUserTestPassword = () => {
-    return (
-      alert(
-        "Por favor, tente novamente, suas credenciais são inválidas. A senha inserida é inválida."
-      ),
-      console.log(
-        "Por favor, tente novamente, suas credenciais são inválidas. A senha inserida é inválida."
-      )
-    );
-  };
 
   const [openPassword, setOpenPassword] = useState(false);
 
@@ -140,11 +122,11 @@ export default function Login() {
               className="input-form-email"
               autoComplete="email"
               value={email}
-              onChange={handleEmail}
+              onChange={handleEmailChange}
               required
             />
           </label>
-
+          {emailError&&<div className="error-msg"><p> {emailError} </p></div>}
           <label htmlFor="password">
             Senha
             <input
@@ -152,7 +134,7 @@ export default function Login() {
               className="input-form-password"
               autoComplete="password"
               value={password}
-              onChange={handlePassword}
+              onChange={handlePasswordChange}
               required
             />
             <button
@@ -162,6 +144,8 @@ export default function Login() {
               onClick={showPassword}
             />
           </label>
+
+          {passwordError&&<div className="error-msg"><p> {passwordError} </p></div>}
 
           <div className="div-button-login">
             <button

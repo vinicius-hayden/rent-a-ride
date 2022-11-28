@@ -42,11 +42,11 @@ export default function ProductCategory() {
       </div>
 
       <div className="use-bootstrap">
-        <CardGroup style={{ 'justify-content': 'center' }}>
+        <CardGroup style={{ 'justifyContent': 'center' }}>
           {products.map((product, index) => (
-            <div className="products-res">
+            <div className="products-res" key={index}>
               <Card key={index} className="m-3" style={{ 'borderRadius': '5px', 'border': 'solid 1px #D3D3D3' }} id="product-card-bootstrap">
-                <Card.Img variant="top" src={product.category.url} style={{ 'height': '105px', 'borderRadius': '5px 5px 0px 0px' }} />
+                <Card.Img variant="top" src={product.images[0].url} style={{ 'height': '135px', 'borderRadius': '5px 5px 0px 0px' }} />
                 <Card.Body id="card-product-body">
                   <Card.Title id="card-product-body-title">{product.name}</Card.Title>
                   <Card.Text id="card-product-body-text">{product.description}</Card.Text>

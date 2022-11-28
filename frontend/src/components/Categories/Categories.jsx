@@ -23,12 +23,12 @@ export default function Categories() {
 
   return (
     <div className="use-bootstrap">
-      <CardGroup style={{'justify-content': 'center'}} id="card-group-bootstrap">
+      <CardGroup style={{'justifyContent': 'center'}} id="card-group-bootstrap">
         {categories.map((category, index) => (
-          <Link to={`/categories/${category.id}/products`} index={index} style={{ textDecoration: 'none' }}>
+          <Link to={`/categories/${category.id}/products`} key={index} style={{ textDecoration: 'none' }}>
           <div id="categories-res">
-            <Card key={index} className="m-3" style={{'border-radius': '5px', 'border': 'solid 1px #D3D3D3' }} id="card-bootstrap-category">
-              <Card.Img variant="top" src={category.url} style={{'border-radius': '5px 5px 0px 0px'}} id="card-bootstrap-category-image"/>
+            <Card key={index} className="m-3" style={{'borderRadius': '5px', 'border': 'solid 1px #D3D3D3' }} id="card-bootstrap-category">
+              <Card.Img variant="top" src={category.url} style={{'borderRadius': '5px 5px 0px 0px'}} id="card-bootstrap-category-image"/>
               <Card.Body>
                 <Card.Title>{category.name}</Card.Title>
                 <Card.Text>{category.description}</Card.Text>
