@@ -29,7 +29,20 @@ public class Product implements Serializable {
     @ManyToOne
     private City city;
 
+    @OneToMany(mappedBy = "product", fetch = FetchType.EAGER)
+    private Set<Image> images;
+
     public Product() {
+    }
+
+    public Product(Integer id, String name, String description, Set<Feature> features, Category category, City city, Set<Image> images) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.features = features;
+        this.category = category;
+        this.city = city;
+        this.images = images;
     }
 
     public Integer getId() {
@@ -80,13 +93,12 @@ public class Product implements Serializable {
         this.city = city;
     }
 
-    @Override
-    public String toString() {
-        return "Product{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", category=" + category +
-                '}';
+    public Set<Image> getImages() {
+        return images;
     }
+
+    public void setImages(Set<Image> images) {
+        this.images = images;
+    }
+
 }

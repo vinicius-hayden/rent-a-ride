@@ -41,7 +41,6 @@ public class CategoryController {
     @CrossOrigin(origins = "*")
     @PostMapping
     public ResponseEntity<CategoryDto> insertCategory(@RequestBody CategoryDto dto) {
-        System.out.println(dto);
         dto = categoryService.insert(dto);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
                 .buildAndExpand(dto.getId()).toUri();

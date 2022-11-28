@@ -1,10 +1,7 @@
 package br.com.dh.emprescar.service;
 
 import br.com.dh.emprescar.dto.ProductDto;
-import br.com.dh.emprescar.model.Category;
-import br.com.dh.emprescar.model.City;
-import br.com.dh.emprescar.model.Feature;
-import br.com.dh.emprescar.model.Product;
+import br.com.dh.emprescar.model.*;
 import br.com.dh.emprescar.repository.CategoryRepository;
 import br.com.dh.emprescar.repository.CityRepository;
 import br.com.dh.emprescar.repository.FeatureRepository;
@@ -84,6 +81,7 @@ public class ProductService {
             City city = cityRepository.getReferenceById(dto.getCity().getId());
             Category category = categoryRepository.getReferenceById(dto.getCategory().getId());
             List<Feature> features = featureRepository.findByIdIn(dto.getFeatures().stream().map(x -> x.getId()).toList());
+
             entity.setCity(city);
             entity.setCategory(category);
             entity.setFeatures(new HashSet<Feature>(features));

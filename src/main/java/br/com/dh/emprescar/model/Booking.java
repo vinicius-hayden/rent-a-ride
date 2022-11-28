@@ -19,17 +19,17 @@ public class Booking implements Serializable {
     Product product;
 
     @ManyToOne
-    User user;
+    Customer customer;
 
     public Booking() {
     }
 
-    public Booking(Integer id, Date pickupDate, Date dropoffDate, Product product, User user) {
+    public Booking(Integer id, Date pickupDate, Date dropoffDate, Product product, Customer customer) {
         this.id = id;
         this.pickupDate = pickupDate;
         this.dropoffDate = dropoffDate;
         this.product = product;
-        this.user = user;
+        this.customer = customer;
     }
 
     public Integer getId() {
@@ -64,12 +64,12 @@ public class Booking implements Serializable {
         this.product = product;
     }
 
-    public User getUser() {
-        return user;
+    public Customer getCustomer() {
+        return customer;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 
     @Override
@@ -79,7 +79,7 @@ public class Booking implements Serializable {
                 ", pickupDate=" + pickupDate +
                 ", dropoffDate=" + dropoffDate +
                 ", product=" + product +
-                ", user=" + user +
+                ", customer=" + customer +
                 '}';
     }
 }
