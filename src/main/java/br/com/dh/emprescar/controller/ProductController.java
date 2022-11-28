@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -19,14 +20,22 @@ public class ProductController {
 
     @CrossOrigin(origins = "*")
     @GetMapping
-    public ResponseEntity<List<ProductDto>> searchAllProducts(@RequestParam(required = false) Integer categoryId, @RequestParam(required = false) Integer cityId) {
+    public ResponseEntity<List<ProductDto>> searchAllProducts(@RequestParam(required = false) Integer categoryId, @RequestParam(required = false) Integer cityId, @RequestParam(required = false) Date pickupDate, @RequestParam(required = false) Date dropoffDate) {
 
         if (categoryId != null) {
             List<ProductDto> list = productService.searchAllByCategoryId(categoryId);
             return ResponseEntity.ok().body(list);
         }
+        if (cityId != null && pickupDate != null && dropoffDate != null) {
+            List<ProductDto> list = productService.searchAllByCityIdAndDateRange(cityId, pickupDate, dropoffDate);
+            return ResponseEntity.ok().body(list);
+        }
         if (cityId != null) {
             List<ProductDto> list = productService.searchAllByCityId(cityId);
+            return ResponseEntity.ok().body(list);
+        }
+        if (pickupDate != null && dropoffDate != null) {
+            List<ProductDto> list = productService.searchAllByDateRange(pickupDate, dropoffDate);
             return ResponseEntity.ok().body(list);
         }
 

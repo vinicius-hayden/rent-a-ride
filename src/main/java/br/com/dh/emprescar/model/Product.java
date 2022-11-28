@@ -32,6 +32,9 @@ public class Product implements Serializable {
     @OneToMany(mappedBy = "product", fetch = FetchType.EAGER)
     private Set<Image> images;
 
+    @OneToMany(mappedBy = "product", fetch = FetchType.EAGER)
+    private Set<Booking> bookings;
+
     public Product() {
     }
 

@@ -7,10 +7,12 @@ import br.com.dh.emprescar.repository.CityRepository;
 import br.com.dh.emprescar.repository.FeatureRepository;
 import br.com.dh.emprescar.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import br.com.dh.emprescar.service.exceptions.EntityNotFoundException;
 
+import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
@@ -114,4 +116,13 @@ public class ProductService {
         return entity;
     }
 
+    public List<ProductDto> searchAllByDateRange(Date pickupDate, Date dropoffDate) {
+        List<Product> list = productRepository.findAllByDateRange(pickupDate, dropoffDate);
+        return list.stream().map(x -> new ProductDto(x)).collect(Collectors.toList());
+    }
+
+    public List<ProductDto> searchAllByCityIdAndDateRange(Integer cityId, Date pickupDate, Date dropoffDate) {
+        List<Product> list = productRepository.findAllByDateRangeAndDateRange(cityId, pickupDate, dropoffDate);
+        return list.stream().map(x -> new ProductDto(x)).collect(Collectors.toList());
+    }
 }
