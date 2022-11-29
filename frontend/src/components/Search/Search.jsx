@@ -42,24 +42,12 @@ export default function Search() {
       window.location.replace(`/cities/${idFromSelectedCity}/products`);
     }
 
-    let params = { pickUpDate, dropOffDate }
     if (idFromSelectedCity != null) {
-      params.cityId = idFromSelectedCity;
+      window.location.replace(`/cities/${idFromSelectedCity}/products/dateRange/${pickUpDate}/${dropOffDate}`);
     }
-
-    axios.get(url, { ...config, params })
-      .then((response) => {
-        console.log(response.data);
-
-      })
-      .catch((error) => console.log(error.message));
-  
-    
-    
-
-
-
-
+    else {
+      window.location.replace(`/products/dateRange/${pickUpDate}/${dropOffDate}`);
+    }
   }
 
   return (

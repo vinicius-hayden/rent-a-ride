@@ -11,7 +11,8 @@ import ProductsDetails from "./components/ProductsDetails/ProductsDetails";
 import ProductCategory from "./components/ProductCategory/ProductCategory";
 import ProductCity from "./components/ProductCity/ProductCity";
 import ProductRental from "./components/ProductRental/ProductRental";
-
+import ProductDateRange from "./components/ProductDateRange/ProductDateRange";
+import ProductCityDateRange from "./components/ProductCityDateRange/ProductCityDateRange";
 
 function App() {
   return (
@@ -25,7 +26,9 @@ function App() {
         <Route path="/products/:idProduct" element={<ProductsDetails />} /> 
         <Route path="/categories/:idCategory/products" element={<ProductCategory/>}/>
         <Route path="/cities/:idCity/products" element={<ProductCity/>} />
-        <Route path="products/:idProduct/rental" element={<ProductRental/>} />
+        <Route path="/products/:idProduct/rental" element={<ProductRental/>} />
+        <Route path="/products/dateRange/:pickupdate/:dropoffdate" element={<ProductDateRange/>} />
+        <Route path="/cities/:idCity/products/dateRange/:pickupdate/:dropoffdate" element={<ProductCityDateRange/>} />
       </Routes>
     </div>
   );
