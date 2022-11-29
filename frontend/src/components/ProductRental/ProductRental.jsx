@@ -80,18 +80,18 @@ export default function ProductRental() {
             <Form className="mt-5 m-3">
               <Form.Group className="mb-3">
                 <Form.Label>Nome</Form.Label>
-                <Form.Control type="text" disabled placeholder="Bruno" />
+                <Form.Control type="text" disabled placeholder={localStorage.getItem('nome')} />
               </Form.Group>
               <Form.Group className="mb-3">
                 <Form.Label>Sobrenome</Form.Label>
-                <Form.Control type="text" disabled placeholder="Rocha" />
+                <Form.Control type="text" disabled placeholder={localStorage.getItem('sobrenome')} />
               </Form.Group>
               <Form.Group className="mb-3">
                 <Form.Label>Email address</Form.Label>
                 <Form.Control
                   type="email"
                   disabled
-                  placeholder="brunorocha@email.com"
+                  placeholder={localStorage.getItem('email')}
                 />
               </Form.Group>
               <Form.Group className="mb-3">

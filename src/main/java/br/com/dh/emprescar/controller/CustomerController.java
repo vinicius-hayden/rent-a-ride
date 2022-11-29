@@ -16,7 +16,7 @@ public class CustomerController {
     @Autowired
     CustomerService customerService;
 
-    @CrossOrigin
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @PostMapping
     public ResponseEntity<CustomerDto> insertCustomer(@RequestBody CustomerDto dto) {
         dto = customerService.insert(dto);
@@ -24,6 +24,8 @@ public class CustomerController {
                 .buildAndExpand(dto.getId()).toUri();
         return ResponseEntity.created(uri).body(dto);
     }
+
+
 
 }
 

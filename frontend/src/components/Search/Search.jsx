@@ -1,19 +1,20 @@
 import React, { useState, useEffect } from "react";
-
+import axios from "axios";
 import "./Search.css";
 
 export default function Search() {
   const [city, setCity] = useState(['', '']);
-
-  let requestConfigurationGet = {
+  const url = 'http://localhost:9000/products'
+  
+  let config = {
     headers: {
       "Content-Type": "application/json",
       Authorization: localStorage.getItem("token"),
-    },
+    },    
   };
 
   useEffect(() => {
-    fetch("http://localhost:9000/cities", requestConfigurationGet)
+    fetch("http://localhost:9000/cities", config)
       .then((response) => response.json())
       .then((citiesJSON) => setCity(citiesJSON));
   }, []);
@@ -24,8 +25,11 @@ export default function Search() {
     console.log("City: " + city?.value, "Date: " + dateRange?.value);
   }
 
-  function findProductByCity() {
+  function findProducts() {
     let element = document.querySelector('.input-city');
+    let pickUpDate = document.getElementById("pickUpDate").value;
+    let dropOffDate = document.getElementById("dropOffDate").value;
+    
     var selectedOption = element.value
     var idFromSelectedCity = null;
     city.forEach((city) => {
@@ -34,12 +38,27 @@ export default function Search() {
       }
     })
 
-    if(idFromSelectedCity === null) { 
-      window.alert("Por favor, coloque uma cidade");
-    }
-    else {
+    if (pickUpDate == '' && dropOffDate == '' && idFromSelectedCity != null) {
       window.location.replace(`/cities/${idFromSelectedCity}/products`);
     }
+
+    let params = { pickUpDate, dropOffDate }
+    if (idFromSelectedCity != null) {
+      params.cityId = idFromSelectedCity;
+    }
+
+    axios.get(url, { ...config, params })
+      .then((response) => {
+        console.log(response.data);
+
+      })
+      .catch((error) => console.log(error.message));
+  
+    
+    
+
+
+
 
   }
 
@@ -66,15 +85,17 @@ export default function Search() {
               type="date"
               className="input-date"
               placeholder="Data de retirada"
+              id="pickUpDate"
             />
 
             <input
               type="date"
               className="input-date"
               placeholder="Data de devolução"
+              id="dropOffDate"
             />
 
-            <input className="button-search" type="submit" value="Buscar" onClick={findProductByCity}/>
+            <input className="button-search" type="submit" value="Buscar" onClick={findProducts}/>
           </form>
         </div>
     </>

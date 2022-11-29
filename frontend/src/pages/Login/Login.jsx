@@ -4,6 +4,8 @@ import Swal from 'sweetalert2'
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
+import jwt from "jwt-decode"
+
 import "./Login.scss";
 import axios from 'axios';
 import { useEffect } from "react";
@@ -61,7 +63,6 @@ export default function Login() {
     e.preventDefault();
 
     if (isValidEmail(email) && isValidPassword(password)) {
-
       axios.post(url, postData, axiosConfig)
         .then((response) => {
           console.log(response);
@@ -70,7 +71,16 @@ export default function Login() {
             text: "Seja bem vindo :)",
             icon: "success",
           })
-          .then(console.log("jwt", response.data.jwt))
+          .then(() => {
+            const token = response.data.jwt;
+            localStorage.setItem('jwt', token)
+            const {sub, name, lastName, customerId} = jwt(token);
+            localStorage.setItem('email', sub);
+            localStorage.setItem('nome', name);
+            localStorage.setItem('sobrenome', lastName);
+            localStorage.setItem('customerId', customerId);
+
+          })
           .then(() => goToUserPage())
           console.log();
         }, (error) => {

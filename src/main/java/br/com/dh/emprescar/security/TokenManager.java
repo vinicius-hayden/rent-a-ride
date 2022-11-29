@@ -6,10 +6,13 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 @Component
 public class TokenManager {
@@ -23,6 +26,13 @@ public class TokenManager {
     public String generateToken(Authentication authentication) {
 
         UserDetails user = (UserDetails) authentication.getPrincipal();
+        Map<String, Object> claims = new HashMap<>();
+        for (GrantedAuthority item: user.getAuthorities()) {
+            String[] values = item.toString().split(":");
+            String key = values[0];
+            String value = values[1];
+            claims.put(key, value);
+        }
 
         final Date now = new Date();
         final Date expiration = new Date(now.getTime() + this.expirationInMillis);
@@ -30,6 +40,7 @@ public class TokenManager {
         return Jwts.builder()
                 .setIssuer("Emprescar")
                 .setSubject(user.getUsername())
+                .addClaims(claims)
                 .setIssuedAt(now)
                 .setExpiration(expiration)
                 .signWith(SignatureAlgorithm.HS256, this.secret)

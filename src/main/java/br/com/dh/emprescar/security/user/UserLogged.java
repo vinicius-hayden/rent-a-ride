@@ -1,6 +1,7 @@
 package br.com.dh.emprescar.security.user;
 
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -16,7 +17,10 @@ public class UserLogged implements UserDetails {
 
     public UserLogged(br.com.dh.emprescar.model.User user) {
         this.user = user;
-        this.springUserDetails = new User(user.getEmail(), user.getPassword(), List.of());
+        SimpleGrantedAuthority name = new SimpleGrantedAuthority("name:"+user.getCustomer().getName());
+        SimpleGrantedAuthority lastName = new SimpleGrantedAuthority("lastName:"+user.getCustomer().getLastName());
+        SimpleGrantedAuthority customerId = new SimpleGrantedAuthority("customerId:"+user.getCustomer().getId());
+        this.springUserDetails = new User(user.getEmail(), user.getPassword(), List.of(name, lastName, customerId));
     }
 
     @Override

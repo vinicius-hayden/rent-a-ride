@@ -16,6 +16,9 @@ public class User implements Serializable {
     @ManyToOne
     private Role role;
 
+    @OneToOne(mappedBy = "user")
+    private Customer customer;
+
     public User() {
     }
 
@@ -56,6 +59,14 @@ public class User implements Serializable {
 
     public void setRole(Role role) {
         this.role = role;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 
     @Override

@@ -32,6 +32,7 @@ public class AuthorizationController {
 
         try {
             Authentication authentication = authenticationManager.authenticate(authenticationToken);
+
             String jwt = tokenManager.generateToken(authentication);
             return ResponseEntity.ok().body(new AuthorizationResponseDto(jwt));
 
