@@ -87,7 +87,7 @@ public class ProductController {
 
     @CrossOrigin(origins = "*")
     @PutMapping(value = "/{id}")
-    public ResponseEntity<ProductDto> updateCategory(@PathVariable Integer id,  @RequestBody ProductDto dto) {
+    public ResponseEntity<ProductDto> updateProduct(@PathVariable Integer id,  @RequestBody ProductDto dto) {
         dto.setId(id);
         dto = productService.update(dto);
         return ResponseEntity.ok().body(dto);
