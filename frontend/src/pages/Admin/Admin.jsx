@@ -1,17 +1,42 @@
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import InputGroup from 'react-bootstrap/InputGroup';
 import HeaderAdmin from "../../components/Header/HeaderAdmin"
 import Footer from "../../components/Footer/Footer"
 import { BiArrowBack } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import "./Admin.scss";
 import { useState, useEffect } from 'react';
-import { FormLabel } from 'react-bootstrap';
+import { FormGroup, FormLabel } from 'react-bootstrap';
 import Swal from 'sweetalert2'
+import { icon } from '@fortawesome/fontawesome-svg-core';
 
 export default function Admin() {
-  const [city, setCity] = useState(['', '']);
+  const [cities, setCities] = useState([]);
   const [category, setCategory] = useState([]);
+  const [car, setCar] = useState("");
+  const [carError, setCarError] = useState("");
+  const [categoryInput, setCategoryInput] = useState("");
+  const [categoryError, setCategoryError] = useState("");
+  const [country, setCountry] = useState("");
+  const [contryError, setCountryError] = useState("");
+  const [cityInput, setCityInput] = useState("");
+  const [cityError, setCityError] = useState("");
+  const [description, setDescription] = useState("");
+  const [descriptionError, setDescriptionError] = useState("");
+  const [image, setImage] = useState("");
+  const [imageError, setImageError] = useState("");
+  const [features, setFeatures] = useState([]);
+  const [featuresError, setFeaturesErrror] = useState("");
+
+  const handleCarChange = (e) => {
+    setCar(e.target.value);
+  }
+
+  const handleCategoryChange = (e) => {
+    setCategoryInput(e.target.value);
+    console.log(categoryInput);
+  }
 
   let config = {
     headers: {
@@ -28,18 +53,55 @@ export default function Admin() {
 
 
   useEffect(() => {
-    fetch("http://localhost:9000/cities", config)
+    fetch("http://localhost:9000/features", config)
       .then((response) => response.json())
-      .then((citiesJSON) => setCity(citiesJSON));
+      .then((featuresJSON) => { const features = featuresJSON.map(feat => ({ 
+        ...feat, checked: false }));
+        setFeatures(features);
+      });
   }, []);
 
-  function createProduct() {
-    Swal.fire({
-      title: 'Produto Criado',
-      icon: 'success'
-    })
+  useEffect(() => {
+    fetch("http://localhost:9000/cities", config)
+      .then((response) => response.json())
+      .then((citiesJSON) => setCities(citiesJSON));
+  }, []);
+
+  const handleFeatureChange = (position) => {
+    const updatedCheckedState = features.map((item, index) => {
+      // index === position ? !item : item;
+        if (index === position) {
+          return { ...item, checked: !item.checked }
+        } else {
+          return item
+        }
+      }
+    );
+
+    setFeatures(updatedCheckedState);
+    console.log(updatedCheckedState);
   }
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const checkedFeatures = features.filter(obj => obj.checked === true).map((obj) => ({id: obj.id}));
+
+    
+    const postData = {
+      features: checkedFeatures,
+      name: 'name of the car',
+      image: 'image of a car',
+    }
+
+    console.log(postData);
+
+    Swal.fire({
+      title: 'Produto criado',
+      icon: 'success',
+    })
+
+  }
 
   return (
     <>
@@ -58,32 +120,25 @@ export default function Admin() {
             <Form>
               <Form.Group className="mb-3">
                 <Form.Label>Nome do Carro</Form.Label>
-                <Form.Control type="email" placeholder="Digite o nome do Carro" id='forms-input' />
+                <Form.Control type="name" placeholder="Digite o nome do Carro" id='forms-input' />
               </Form.Group>
 
               <Form.Group className="mb-3">
                 <Form.Label>País</Form.Label>
-                <Form.Select defaultValue={'DEFAULT'} id='forms-input'>
+                <Form.Select defaultValue={'DEFAULT'} id='forms-input' required>
                   <option value={'DEFAULT'} disabled>Escolha o País</option>
                   <option value="1">Brasil</option>
                 </Form.Select>
               </Form.Group>
-              <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+              <Form.Group className="mb-3">
                 <Form.Label>Descrição do Produto</Form.Label>
                 <Form.Control as="textarea" id='forms-input-text' />
               </Form.Group>
               <FormLabel>Adicionar Atributos</FormLabel>
-                <Form.Check label={'Ar-Condicionado'} />
-                <Form.Check label={'Direção Hidráulica'} />
-                <Form.Check label={'Vidro Elétrico'} />
-                <Form.Check label={'Trava Elétrica'} />
-                <Form.Check label={'Air-Bag'} />
-                <Form.Check label={'Alarme'} />
-                <Form.Check label={'Som'} />
-                <Form.Check label={'Sensor de Ré'} />
-                <Form.Check label={'Câmera de Ré'} />
-                <Form.Check label={'Blindado'} />
-              <Button variant="primary" type="submit" className='mb-5 mt-5' onClick={createProduct}>
+              {features.map((feature, index) => {
+                return <Form.Check label={feature.name} value={feature.id} key={index} onChange={() => handleFeatureChange(index)} />
+              })}
+              <Button variant="primary" type="submit" className='mb-5 mt-5' onClick={handleSubmit}>
                 Criar Produto
               </Button>
             </Form>
@@ -92,38 +147,31 @@ export default function Admin() {
             <Form>
               <Form.Group className="mb-3">
                 <Form.Label>Categoria</Form.Label>
-                <Form.Select defaultValue={'DEFAULT'} id='forms-input'>
+                <Form.Select defaultValue={'DEFAULT'} id='forms-input' required onChange={handleCategoryChange}>
                   <option value={'DEFAULT'} disabled>Escolha a Categoria</option>
                   {category.map((category, index) => (
-                    <option value={category.description} key={index}>{category.name} - {category.description}</option>
+                    <option value={category.id} key={index}>{category.name} - {category.description}</option>
                   ))}
                 </Form.Select>
               </Form.Group>
 
               <Form.Group className="mb-3">
                 <Form.Label>Cidade</Form.Label>
-                <Form.Select defaultValue={'DEFAULT'} id='forms-input'>
+                <Form.Select defaultValue={'DEFAULT'} id='forms-input' required>
                   <option value={'DEFAULT'} disabled>Escolha a Cidade</option>
-                  {city.map((city, index) => (
+                  {cities.map((city, index) => (
                     <option value={city.name} key={index}>{city.name}</option>
                   ))}
                 </Form.Select>
-                <Form.Group controlId="formFileSm" className="mb-3 mt-3">
-                  <Form.Label>Selecione a Imagem do Produto</Form.Label>
-                  <Form.Control type="file" size="sm" id='forms-input' />
-                </Form.Group>
+              </Form.Group>
+              <Form.Group className="mb-3" id='forms-input'>
+                <Form.Label>Inserir Url da Imagem</Form.Label>
+                <Form.Control type="text" placeholder="Link completo da imagem" />
               </Form.Group>
             </Form>
           </div>
         </div>
       </div>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-
       <Footer />
     </>
   )
