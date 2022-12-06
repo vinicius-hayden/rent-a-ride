@@ -38,14 +38,21 @@ export default function Search() {
       }
     })
 
-    if (pickUpDate == '' && dropOffDate == '' && idFromSelectedCity != null) {
-      window.location.replace(`/cities/${idFromSelectedCity}/products`);
-    }
+    console.log(`==>>${pickUpDate}<<==`);
+    console.log("dropOffDate", dropOffDate);
+    console.log("selectedOption", selectedOption);
+    console.log("idFromSelectedCity", idFromSelectedCity);
 
-    if (idFromSelectedCity != null) {
-      window.location.replace(`/cities/${idFromSelectedCity}/products/dateRange/${pickUpDate}/${dropOffDate}`);
-    }
-    else {
+    if (idFromSelectedCity > 0) {
+      if (pickUpDate == '' && dropOffDate == '') {
+        window.location.replace(`/cities/${idFromSelectedCity}/products`);
+        console.log(`1`);
+      } else {
+        console.log(`2`);
+        window.location.replace(`/cities/${idFromSelectedCity}/products/dateRange/${pickUpDate}/${dropOffDate}`);
+      }
+      window.location.replace(`/cities/${idFromSelectedCity}/products`);
+    } else {
       window.location.replace(`/products/dateRange/${pickUpDate}/${dropOffDate}`);
     }
   }

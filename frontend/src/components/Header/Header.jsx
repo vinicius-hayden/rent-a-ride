@@ -4,6 +4,7 @@ import "./Header.scss"
 import { GiHamburgerMenu } from "react-icons/gi";
 import Sidebar from "./Sidebar/Sidebar";
 import axios from "axios";
+import { RiAdminFill } from "react-icons/ri"
 
 import { FaSignOutAlt } from "react-icons/fa";
 
@@ -30,7 +31,7 @@ export default function Header() {
     const last = lastName.split(' ').pop();
     return [capitalizeFirstLetter(first), capitalizeFirstLetter(last)];
   }
-  
+
   function initials(name, lastName) {
     const first = name[0].toUpperCase();
     const last = lastName[0].toUpperCase();
@@ -84,10 +85,10 @@ export default function Header() {
         </div>
       </>
     );
-  } if (localStorage.getItem('jwt')) {
+  } if (localStorage.getItem('jwt') && localStorage.getItem('customerId') !== '6') {
 
     let [nome, sobrenome] = names(localStorage.getItem('nome'), localStorage.getItem('sobrenome'));
-    let [firstLetter, lastLetter] = initials(nome,sobrenome);
+    let [firstLetter, lastLetter] = initials(nome, sobrenome);
 
     return (
       <div className="header">
@@ -109,12 +110,48 @@ export default function Header() {
             <h3>{firstLetter + lastLetter}</h3>
           </div>
 
-          <div className="name">                                                                      
+          <div className="name">
             <h3> {`${nome} ${sobrenome}`} </h3>
           </div>
 
           <Link to="/">
-            <button className="button-logout" onClick={signOut}><FaSignOutAlt size={15}/></button>
+            <button className="button-logout" onClick={signOut}><FaSignOutAlt size={15} /></button>
+          </Link>
+        </div>
+      </div>
+    )
+  } if (localStorage.getItem(('customerId')) == '6') {
+    return (
+      <div className="header">
+        <div className="header-left">
+          <div className="header-logo-components">
+            {/*Levar à home do site*/}
+            <Link to="/" style={{ textDecoration: 'none' }}>
+              <img src={logo} className="header-logo" alt="logo" />
+              <div className="header-logo-content">
+                <h1 className="logo-text">Emprescar </h1>
+                <p className="logo-text-description">Liberdade para ir onde quiser</p>
+              </div>
+            </Link>
+          </div>
+        </div>
+
+        <div className="header-right">
+          <Link to="/admin" className="header-right-signin">
+            <input
+              type="button"
+              value="Administração"
+              className="button-header"
+            />
+          </Link>
+          {/* <div className="initials">
+            <h3><RiAdminFill size={25} /></h3>
+          </div> */}
+          <div className="name">
+            <h3> ADMIN</h3>
+          </div>
+          <Link to="/">
+            <button className="button-logout" onClick={signOut}><FaSignOutAlt size={15} /></button>
           </Link>
         </div>
       </div>

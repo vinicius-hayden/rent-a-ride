@@ -1,0 +1,42 @@
+.admin-title{
+  width: 100%;
+  height: 79px;
+  margin-top: 80px;
+  background-color: #263238;
+  color: #ffffff;
+  font-family: Poppins;
+  font-size: 12.5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.left {
+  margin-left: 80vw;
+}
+
+.use-bootstrap {
+  @import url('/node_modules/bootstrap/dist/css/bootstrap.min.css');
+  margin-top: 55px;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+}
+
+.forms {
+  margin-top: 75px;
+  display: flex;
+  justify-content: center;
+  border-radius: 8px;
+  border-style: solid;
+  border-color: #f3f1ed;
+  box-shadow: 0px 2px 2px 0px #f3f1ed;
+  width: 85vw;
+}
+
+#forms-input {
+  width: 35vw;
+  margin: 5px;
+}
