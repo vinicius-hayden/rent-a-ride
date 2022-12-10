@@ -51,7 +51,7 @@ export default function ProductCategory() {
                   <Card.Title id="card-product-body-title">{product.name}</Card.Title>
                   <Card.Text id="card-product-body-text">{product.description}</Card.Text>
                   <Link to={`/products/${product.id}`}>
-                    <Button variant="primary" id="card-product-button"> Ver mais detalhes</Button>
+                    <Button variant="success" id="card-product-button"> Ver mais detalhes</Button>
                   </Link>
                 </Card.Body>
               </Card>

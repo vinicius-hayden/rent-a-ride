@@ -25,13 +25,20 @@ public class BookingController {
 
     @CrossOrigin(origins = "*")
     @GetMapping
-    public ResponseEntity<List<BookingDto>> searchAllBookingsByProductId(@RequestParam(required = false) Integer productId) {
+    public ResponseEntity<List<BookingDto>> searchAllBookings(@RequestParam(required = false) Integer productId, @RequestParam(required = false) Integer customerId) {
 
-        List<BookingDto> list = bookingService.searchAllByProductId(productId);
+        if (productId != null) {
+            List<BookingDto> list = bookingService.searchAllByProductId(productId);
+            return ResponseEntity.ok().body(list);
+        }
+        if (customerId != null) {
+            List<BookingDto> list = bookingService.searchAllByCustomerId(customerId);
+            return ResponseEntity.ok().body(list);
+        }
+        List<BookingDto> list = bookingService.searchAll();
         return ResponseEntity.ok().body(list);
 
     }
-
 
     @CrossOrigin(origins = "*")
     @PostMapping

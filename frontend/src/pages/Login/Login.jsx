@@ -74,12 +74,12 @@ export default function Login() {
           .then(() => {
             const token = response.data.jwt;
             localStorage.setItem('jwt', token)
-            const {sub, name, lastName, customerId} = jwt(token);
+            const {sub, name, lastName, customerId, role} = jwt(token);
             localStorage.setItem('email', sub);
             localStorage.setItem('nome', name);
             localStorage.setItem('sobrenome', lastName);
             localStorage.setItem('customerId', customerId);
-
+            localStorage.setItem('role', role);
           })
           .then(() => goToUserPage())
           console.log();
@@ -114,7 +114,8 @@ export default function Login() {
 
   const [openPassword, setOpenPassword] = useState(false);
 
-  const showPassword = () => {
+  const showPassword = (e) => {
+    e.preventDefault()
     setOpenPassword(!openPassword);
   };
 

@@ -29,7 +29,7 @@ public class Product implements Serializable {
     @ManyToOne
     private City city;
 
-    @OneToMany(mappedBy = "product", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "product", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Set<Image> images;
 
     @OneToMany(mappedBy = "product", fetch = FetchType.EAGER)

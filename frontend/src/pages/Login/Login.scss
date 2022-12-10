@@ -35,6 +35,12 @@
   padding-left: 10px;
 }
 
+.input-field{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .button-form-password {
   width: 40px;
   height: 20px;
@@ -54,6 +60,10 @@
 
 .error-msg {
   color: red;
+  font-weight: bold;
+  font-size: 0.9em;
+  display: block;
+  margin-top: 5px;
 }
 
 .button-login {

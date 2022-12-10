@@ -33,7 +33,7 @@
   width: 100%;
   height: 79px;
   margin-top: 80px;
-  background-color: #263238;
+  background-color: #002D38;
   color: #ffffff;
   font-family: Poppins;
   font-size: 12.5px;
@@ -43,7 +43,7 @@
 }
 
 .left {
-  margin-left: 75vw;
+  margin-right: 15px
 }
 
 .use-bootstrap {
@@ -167,7 +167,7 @@
 
 @media screen and (max-width: 1346px) {
   .left {
-    margin-left: 65vw;
+    margin-left: 45vw;
   }
 }
 @media screen and (max-width: 1016px) {
@@ -185,7 +185,7 @@
     margin-left: 35vw;
   }
 }
-@media screen and (max-width: 530px) {
+@media screen and (max-width: 560px) {
   .left {
     margin-left: 25vw;
   }
@@ -193,6 +193,9 @@
 @media screen and (max-width: 460px) {
   .left {
     margin-left: 10vw;
+  }
+  .city-title {
+    font-size: 10.5px;
   }
 }
 

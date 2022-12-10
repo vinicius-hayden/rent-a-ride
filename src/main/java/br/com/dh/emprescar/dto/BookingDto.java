@@ -29,6 +29,7 @@ public class BookingDto implements Serializable {
         this.pickupDate = entity.getPickupDate();
         this.dropoffDate = entity.getDropoffDate();
         this.product = new ProductDto(entity.getProduct());
+        this.customer = new CustomerDto(entity.getCustomer());
     }
 
 

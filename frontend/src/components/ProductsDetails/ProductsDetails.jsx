@@ -64,7 +64,7 @@ export default function ProductsDetails() {
       <div className="header-products">
         <div className="header-products-left">
           <p>{product.category.description} - {product.category.name}</p>
-          <h1 style={{'font-family': 'Poppins'}}>{product.name}</h1>
+          <h1 style={{'fontFamily': 'Poppins'}}>{product.name}</h1>
         </div>
         <div className="header-products-right">
           <Link to={"/"}>
@@ -84,11 +84,11 @@ export default function ProductsDetails() {
         <ImageGallery items={images}/>
       </div>
       <div className="description">
-        <h1>Descrição</h1>
+        <h3>Descrição</h3>
         <p>{product.description}</p>
       </div>
       <div className="features">
-        <h1>Características</h1>
+        <h3>Características</h3>
         {product.features.map((feature, index) => {
           return (
             <div className="feature-information">

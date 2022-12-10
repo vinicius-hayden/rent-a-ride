@@ -1,7 +1,10 @@
 -- Role Table
-
 INSERT INTO roles(name) VALUES ('admin');
 INSERT INTO roles(name) VALUES ('customer');
+
+-- Admin Account
+INSERT INTO users(email, password, role_id) VALUES ('admin@emprescar.com.br', '$2a$10$FIrVveP7RFnjy1ioAyEouuKnlcQdGtRv3rtOJBAmKlelbQpSFEscO', 1);
+INSERT INTO customers(last_name, name, user_id) VALUES ('Emprescar', 'Admin', 1);
 
 -- Category table
 INSERT INTO categories(name, rating, description, url) VALUES ('Primeira Categoria', 1, 'Simples', 'https://images.unsplash.com/photo-1490985830292-06e0fe60d725?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1132&q=80');

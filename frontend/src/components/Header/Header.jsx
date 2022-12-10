@@ -85,11 +85,11 @@ export default function Header() {
         </div>
       </>
     );
-  } if (localStorage.getItem('jwt') && localStorage.getItem('customerId') !== '6') {
+  } if (localStorage.getItem('jwt') && localStorage.getItem('role') == 'customer') {
 
     let [nome, sobrenome] = names(localStorage.getItem('nome'), localStorage.getItem('sobrenome'));
+    {console.log("---->", sobrenome)}
     let [firstLetter, lastLetter] = initials(nome, sobrenome);
-
     return (
       <div className="header">
         <div className="header-left">
@@ -120,7 +120,7 @@ export default function Header() {
         </div>
       </div>
     )
-  } if (localStorage.getItem(('customerId')) == '6') {
+  } if (localStorage.getItem(('role')) == 'admin') {
     return (
       <div className="header">
         <div className="header-left">

@@ -1,5 +1,6 @@
 package br.com.dh.emprescar.service;
 
+import br.com.dh.emprescar.dto.ImageDto;
 import br.com.dh.emprescar.dto.ProductDto;
 import br.com.dh.emprescar.model.*;
 import br.com.dh.emprescar.repository.CategoryRepository;
@@ -12,10 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import br.com.dh.emprescar.service.exceptions.EntityNotFoundException;
 
-import java.util.Date;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -72,7 +70,8 @@ public class ProductService {
         }
         entity.setFeatures(new HashSet<Feature>(features));
 
-        entity = productRepository.save(entity);
+        entity = productRepository.saveAndFlush(entity);
+
         return new ProductDto(entity);
     }
 
@@ -113,7 +112,16 @@ public class ProductService {
     private Product copyDtoToEntity(ProductDto dto, Product entity) {
         entity.setName(dto.getName());
         entity.setDescription(dto.getDescription());
+        entity.setImages(dto.getImages().stream().map(x -> copyDtoToEntity(x, entity)).collect(Collectors.toSet()));
         return entity;
+    }
+
+    private Image copyDtoToEntity(ImageDto dto, Product entity) {
+        Image image =  new Image();
+        image.setProduct(entity);
+        image.setTitle(dto.getTitle());
+        image.setUrl(dto.getUrl());
+        return image;
     }
 
     public List<ProductDto> searchAllByDateRange(Date pickupDate, Date dropoffDate) {

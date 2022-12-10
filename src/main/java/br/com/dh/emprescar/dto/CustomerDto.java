@@ -16,15 +16,15 @@ public class CustomerDto implements Serializable {
     private String name;
     private String lastName;
 
-    @JsonInclude(JsonInclude.Include.NON_EMPTY)
-    private Set<BookingDto> bookings = new HashSet<>();
+//    @JsonInclude(JsonInclude.Include.NON_EMPTY)
+//    private Set<BookingDto> bookings = new HashSet<>();
     private UserDto user;
 
-    public CustomerDto(Integer id, String name, String lastName, Set<BookingDto> bookings, UserDto user) {
+    public CustomerDto(Integer id, String name, String lastName/*, Set<BookingDto> bookings*/, UserDto user) {
         this.id = id;
-        this.name = name;
-        this.lastName = lastName;
-        this.bookings = bookings;
+        this.name = name.trim();
+        this.lastName = lastName.trim();
+//        this.bookings = bookings;
         this.user = user;
     }
 
@@ -32,9 +32,9 @@ public class CustomerDto implements Serializable {
         this.id = entity.getId();
         this.name = entity.getName();
         this.lastName = entity.getLastName();
-        if (entity.getBookings() != null) {
-            this.bookings = toBookingsDto(entity.getBookings());
-        }
+//        if (entity.getBookings() != null) {
+//            this.bookings = toBookingsDto(entity.getBookings());
+//        }
         if (entity.getUser() != null) {
             this.user = new UserDto(entity.getUser());
         }
@@ -57,13 +57,13 @@ public class CustomerDto implements Serializable {
         this.lastName = lastName;
     }
 
-    public Set<BookingDto> getBookings() {
-        return bookings;
-    }
-
-    public void setBookings(Set<BookingDto> bookings) {
-        this.bookings = bookings;
-    }
+//    public Set<BookingDto> getBookings() {
+//        return bookings;
+//    }
+//
+//    public void setBookings(Set<BookingDto> bookings) {
+//        this.bookings = bookings;
+//    }
 
     public UserDto getUser() {
         return user;
@@ -81,13 +81,13 @@ public class CustomerDto implements Serializable {
         this.id = id;
     }
 
-    private Set<BookingDto> toBookingsDto(Set<Booking> bookings) {
-        Set<BookingDto> result = new HashSet<>();
-        for (Booking booking: bookings) {
-            result.add(new BookingDto(booking));
-        }
-        return result;
-    }
+//    private Set<BookingDto> toBookingsDto(Set<Booking> bookings) {
+//        Set<BookingDto> result = new HashSet<>();
+//        for (Booking booking: bookings) {
+//            result.add(new BookingDto(booking));
+//        }
+//        return result;
+//    }
 
 
 

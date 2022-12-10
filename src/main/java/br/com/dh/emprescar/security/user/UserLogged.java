@@ -20,7 +20,8 @@ public class UserLogged implements UserDetails {
         SimpleGrantedAuthority name = new SimpleGrantedAuthority("name:"+user.getCustomer().getName());
         SimpleGrantedAuthority lastName = new SimpleGrantedAuthority("lastName:"+user.getCustomer().getLastName());
         SimpleGrantedAuthority customerId = new SimpleGrantedAuthority("customerId:"+user.getCustomer().getId());
-        this.springUserDetails = new User(user.getEmail(), user.getPassword(), List.of(name, lastName, customerId));
+        SimpleGrantedAuthority role = new SimpleGrantedAuthority("role:"+user.getRole().getName());
+        this.springUserDetails = new User(user.getEmail(), user.getPassword(), List.of(name, lastName, customerId, role));
     }
 
     @Override

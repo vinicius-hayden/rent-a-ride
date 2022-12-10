@@ -61,10 +61,15 @@ export default function Register() {
   }
 
   function isEmailValid(email) {
-    return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
-      email
-    )
-      ;
+    if (!/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
+      email) 
+    ) {
+      setEmailError("Favor, inserir um email válido");
+      return false;
+    } else {
+      setEmailError('');
+      return true;
+    }
   }
 
   function isPasswordValid(password) {
@@ -97,7 +102,7 @@ export default function Register() {
 
   function isConfirmedPasswordValid(confirmPassword) {
     if (confirmPassword != password) {
-      confirmPasswordError("As senhas inseridas são diferentes");
+      setConfirmedPasswordError("As senhas inseridas são diferentes");
       return false;
     }
     return true;
@@ -107,7 +112,7 @@ export default function Register() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (isNameValid(name), isLastNameValid(lastName), isEmailValid(email), isPasswordValid(password), isConfirmedPasswordValid(confirmPassword)) {
+    if (isNameValid(name) && isLastNameValid(lastName) && isEmailValid(email) && isPasswordValid(password) && isConfirmedPasswordValid(confirmPassword)) {
       axios.post(url, postData, axiosConfig)
         .then((response) => {
           console.log(response);
@@ -132,15 +137,16 @@ export default function Register() {
     } else {
       if (!isNameValid(name)) {
         setNameError("Favor, inserir nome válido");
+        console.log(emailError, ' <-------- Error');
       }
       if (!isLastNameValid(lastName)) {
         setLastNameError("Favor, inserir sobrenome válido");
       }
       if (!isEmailValid(email) || email.trim() === "" || email == null) {
-        setEmailError("Favor, inserir nome válido");
+        setEmailError("Favor, inserir email válido");
       }
       if (!isPasswordValid(password)) {
-        setPasswordError("Favor, inserir nome válido");
+        setPasswordError("Favor, inserir senha válida");
       }
       if (!isConfirmedPasswordValid(confirmPassword)) {
         setConfirmedPasswordError("Senha acima não coincide");
