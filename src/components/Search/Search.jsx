@@ -22,7 +22,6 @@ export default function Search() {
   function submitForm(event) {
     event.preventDefault();
     const { city, dateRange } = event.target.elements;
-    console.log("City: " + city?.value, "Date: " + dateRange?.value);
   }
 
   function findProducts() {
@@ -38,18 +37,10 @@ export default function Search() {
       }
     })
 
-    console.log(`==>>${pickUpDate}<<==`);
-    console.log("dropOffDate", dropOffDate);
-    console.log("selectedOption", selectedOption);
-    console.log("idFromSelectedCity", idFromSelectedCity);
-
     if (idFromSelectedCity > 0) {
-      if (pickUpDate == '' && dropOffDate == '') {
-        window.location.replace(`/cities/${idFromSelectedCity}/products`);
-        console.log(`1`);
-      } else {
-        console.log(`2`);
+      if (pickUpDate != '' && dropOffDate != '') {
         window.location.replace(`/cities/${idFromSelectedCity}/products/dateRange/${pickUpDate}/${dropOffDate}`);
+        return;
       }
       window.location.replace(`/cities/${idFromSelectedCity}/products`);
     } else {

@@ -65,7 +65,6 @@ export default function Login() {
     if (isValidEmail(email) && isValidPassword(password)) {
       axios.post(url, postData, axiosConfig)
         .then((response) => {
-          console.log(response);
           Swal.fire({
             title: 'Login feito',
             text: "Seja bem vindo :)",
@@ -82,9 +81,7 @@ export default function Login() {
             localStorage.setItem('role', role);
           })
           .then(() => goToUserPage())
-          console.log();
         }, (error) => {
-          console.log(error)
           Swal.fire({
             title: `Tente novamente...`,
             text: "Dados invádios",

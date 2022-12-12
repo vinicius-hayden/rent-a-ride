@@ -115,7 +115,6 @@ export default function Register() {
     if (isNameValid(name) && isLastNameValid(lastName) && isEmailValid(email) && isPasswordValid(password) && isConfirmedPasswordValid(confirmPassword)) {
       axios.post(url, postData, axiosConfig)
         .then((response) => {
-          console.log(response);
           Swal.fire({
             title: "Registrado com sucesso!",
             text: "Seja bem vindo!",
@@ -125,9 +124,7 @@ export default function Register() {
             },
           })
           .then(() => goToLoginPage())
-          console.log();
         }), (error) => {
-          console.log(error);
           Swal.fire({
             title: "Ooopss...",
             text: "Dados inválidos, favor tentar novamente",
@@ -137,7 +134,6 @@ export default function Register() {
     } else {
       if (!isNameValid(name)) {
         setNameError("Favor, inserir nome válido");
-        console.log(emailError, ' <-------- Error');
       }
       if (!isLastNameValid(lastName)) {
         setLastNameError("Favor, inserir sobrenome válido");

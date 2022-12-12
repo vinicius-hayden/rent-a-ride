@@ -55,9 +55,6 @@ export default function ProductRental() {
       .then((citiesJSON) => setCity(citiesJSON));
   }, []);
 
-  // [product].map((product) => console.log(product.images));
-
-
   function bookProduct() {
     let pickUpDate = document.getElementById("pickUpDate").value;
     let dropOffDate = document.getElementById("dropOffDate").value;
@@ -86,11 +83,8 @@ export default function ProductRental() {
       },
     };
     
-    console.log(postData);
-
     axios.post(url, postData, axiosConfig)
       .then((response) => {
-        console.log(response)
         Swal.fire({
           title: "Uhuuul!",
           text: "Sua reserva foi feita!",
@@ -100,9 +94,9 @@ export default function ProductRental() {
           },
         })
       })
-      .then(() => goToHome());
+      // .then(() => goToHome())
+      ,
       (error) => {
-        console.log(error.message);
         Swal.fire({
           title: "Tente novamente",
           text: "Favor revisar parametros",

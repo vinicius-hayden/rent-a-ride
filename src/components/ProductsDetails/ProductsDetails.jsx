@@ -46,7 +46,6 @@ export default function ProductsDetails() {
   });
 
   function redirectToRentalPage(productId) {
-    console.log(productId);
     window.location.replace(`/products/${productId}/rental`);
   }
 

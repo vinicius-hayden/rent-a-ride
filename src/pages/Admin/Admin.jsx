@@ -36,7 +36,6 @@ export default function Admin() {
 
   const handleCategoryChange = (e) => {
     setCategoryInput(e.target.value);
-    console.log(categoryInput);
   }
 
   const handleCityChange = (e) => {
@@ -158,7 +157,6 @@ export default function Admin() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("EU FUI CHAMADO")
     const checkedFeatures = features.filter(obj => obj.checked === true).map((obj) => ({ id: obj.id }));
     const url = 'http://ec2-54-153-58-52.us-west-1.compute.amazonaws.com:9000/products'
     const axiosConfig = {
@@ -232,14 +230,12 @@ export default function Admin() {
     if (!hasError) {
       axios.post(url, postData, axiosConfig)
         .then((response) => {
-          console.log(response)
           Swal.fire({
             title: 'Produto criado com êxito',
             icon: 'success',
           })
             .then(() => document.location.reload())
         }, (error) => {
-          console.log(error)
           Swal.fire({
             title: 'Não foi possível criar o produto',
             text: 'Tente novamente mais tarde',
@@ -249,38 +245,6 @@ export default function Admin() {
       ;
     }
   }
-
-  //   if (isCarValid && isDescriptionValid && areFeaturesValid && isCategoryValid && isCityValid && isImageValid &isCountryValid) {
-  //     axios.post(url, postData, axiosConfig)
-  //       .then((response) => {
-  //         console.log(response)
-  //         Swal.fire({
-  //           title: 'Produto criado com êxito',
-  //           icon: 'success',
-  //         })
-  //           .then(() => document.location.reload())
-  //       }, (error) => {
-  //         console.log(error)
-  //         Swal.fire({
-  //           title: 'Não foi possível criar o produto',
-  //           text: 'Tente novamente mais tarde',
-  //           icon: 'success',
-  //         })
-  //       })
-  //     ;
-  //   } else {
-  //     Swal.fire({
-  //       title: `Dados inválidos!`,
-  //       text: 'Favor, preencher os dados corretamente e preenchendo todos os campos com informações fidedignas',
-  //       icon: 'error'
-  //     })
-  //       .then(() => {
-  //         if(!isCarValid()) {
-  //           setCarError("Dado inválido");
-  //         }
-  //       })
-  //   }
-  // }
 
   const goToHome = () => {
     setTimeout(function () {
