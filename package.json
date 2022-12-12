@@ -1,0 +1,48 @@
+{
+  "name": "frontend",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.2.0",
+    "@fortawesome/free-regular-svg-icons": "^6.2.0",
+    "@fortawesome/free-solid-svg-icons": "^6.2.0",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "axios": "^1.2.0",
+    "bootstrap": "^5.2.3",
+    "date-fns": "^2.29.3",
+    "esbuild": "^0.16.4",
+    "font-awesome": "^4.7.0",
+    "fortawesome": "^0.0.1-security",
+    "jwt-decode": "^3.1.2",
+    "npm-sass": "^3.1.0",
+    "react": "^18.2.0",
+    "react-bootstrap": "^2.6.0",
+    "react-calendar": "^4.0.0",
+    "react-date-range": "^1.4.0",
+    "react-dom": "^18.2.0",
+    "react-fontawesome": "^1.7.1",
+    "react-grid-gallery": "^1.0.0",
+    "react-icons": "^4.6.0",
+    "react-image-gallery": "^1.2.11",
+    "react-router-dom": "^6.4.2",
+    "sass": "1.55.0",
+    "sass-loader": "13.2.0",
+    "sweetalert": "^2.1.2",
+    "sweetalert2": "^11.6.14",
+    "webpack":"^5.75.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.17",
+    "@types/react-dom": "^18.0.6",
+    "@vitejs/plugin-react": "^2.1.0",
+    "@popperjs/core": "^2.11.6",
+    "@jridgewell/sourcemap-codec":"^1.4.14",
+    "vite": "^3.1.0"
+  }
+}
