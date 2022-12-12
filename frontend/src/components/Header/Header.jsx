@@ -3,10 +3,10 @@ import logo from "./logo.png";
 import "./Header.scss"
 import { GiHamburgerMenu } from "react-icons/gi";
 import Sidebar from "./Sidebar/Sidebar";
-import axios from "axios";
-import { RiAdminFill } from "react-icons/ri"
 
 import { FaSignOutAlt } from "react-icons/fa";
+import SidebarUser from "./Sidebar/SidebarUser";
+import SidebarAdmin from "./Sidebar/SidebarAdmin";
 
 export default function Header() {
 
@@ -88,7 +88,6 @@ export default function Header() {
   } if (localStorage.getItem('jwt') && localStorage.getItem('role') == 'customer') {
 
     let [nome, sobrenome] = names(localStorage.getItem('nome'), localStorage.getItem('sobrenome'));
-    {console.log("---->", sobrenome)}
     let [firstLetter, lastLetter] = initials(nome, sobrenome);
     return (
       <div className="header">
@@ -106,6 +105,8 @@ export default function Header() {
         </div>
 
         <div className="header-right">
+          <SidebarUser handleChangeState={handleChangeState}></SidebarUser>
+          <GiHamburgerMenu className="hamburger-menu-button" size={40} onClick={handleChangeState} />
           <div className="initials">
             <h3>{firstLetter + lastLetter}</h3>
           </div>
@@ -114,7 +115,7 @@ export default function Header() {
             <h3> {`${nome} ${sobrenome}`} </h3>
           </div>
 
-          <Link to="/">
+          <Link to="/" className="header-right-signin">
             <button className="button-logout" onClick={signOut}><FaSignOutAlt size={15} /></button>
           </Link>
         </div>
@@ -137,6 +138,8 @@ export default function Header() {
         </div>
 
         <div className="header-right">
+          <SidebarAdmin handleChangeState={handleChangeState}/>
+          <GiHamburgerMenu className="hamburger-menu-button" size={40} onClick={handleChangeState} />
           <Link to="/admin" className="header-right-signin">
             <input
               type="button"

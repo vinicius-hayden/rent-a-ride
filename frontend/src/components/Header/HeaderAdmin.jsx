@@ -2,8 +2,8 @@ import "./Header.scss";
 import { Link } from "react-router-dom";
 import logo from "./logo.png";
 import "./Sidebar/Sidebar.css"
-import SidebarLogin from "./Sidebar/SidebarLogin";
 import { GiHamburgerMenu } from "react-icons/gi";
+import SidebarAdmin from "./Sidebar/SidebarAdmin";
 
 export default function HeaderAdmin() {
 
@@ -31,7 +31,7 @@ export default function HeaderAdmin() {
         </div>
 
         <div className="header-right">
-          <SidebarLogin handleChangeState={handleChangeState}/>
+          <SidebarAdmin handleChangeState={handleChangeState}/>
           <GiHamburgerMenu className="hamburger-menu-button" size={40} onClick={handleChangeState}/>
           <Link to="/register">
             <input

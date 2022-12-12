@@ -10,6 +10,7 @@ import { FormGroup, FormLabel } from 'react-bootstrap';
 import Swal from 'sweetalert2'
 import { icon, text } from '@fortawesome/fontawesome-svg-core';
 import axios from 'axios';
+import Header from '../../components/Header/Header';
 
 export default function Admin() {
   const [cities, setCities] = useState([]);
@@ -142,6 +143,18 @@ export default function Admin() {
       .then((response) => response.json())
       .then((citiesJSON) => setCities(citiesJSON));
   }, []);
+
+  function handleChangeState() {
+    const url = ''
+    let sidebar = document.querySelector('.sidebar');
+
+    if (sidebar.style.display == '') {
+      sidebar.style.display = 'block';
+    }
+    else if (sidebar.style.display == 'block') {
+      sidebar.style.display = '';
+    }
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -278,7 +291,7 @@ export default function Admin() {
   if (localStorage.getItem(('role')) == 'admin') {
     return (
       <>
-        <HeaderAdmin />
+        <Header/>
         <div className="admin-title">
           <h1>Criar Produto</h1>
           <div className="left">

@@ -12,7 +12,7 @@
     display: none;
 }
 
-.sidebar-button { 
+.sidebar-button {
     height: 40px;
     width: 206px;
     margin: 0 8px;
@@ -22,6 +22,25 @@
     border-color: #263238;
     background-color: #FFFFFF;
     margin: 4px;
+}
+
+.initials-sidebar {
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 15px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    text-align: center;
+    margin-bottom: 15px;
+    -webkit-user-select: none;
+    /* Safari */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* IE10+/Edge */
+    user-select: none;
+    /* Standard */
 }
 
 .hamburger-menu-button {
@@ -43,8 +62,10 @@
 }
 
 @media screen and (max-width:838px) {
-
-    .button-header{
+    .button-logout,
+    .button-header,
+    .initials,
+    .name {
         display: none;
     }
 }
