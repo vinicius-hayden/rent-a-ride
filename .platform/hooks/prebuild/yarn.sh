@@ -9,4 +9,4 @@ sudo yum -y install yarn
 cd /var/app/staging/
 # debugging..
 ls -lah
-yarn
+yarn run dev
