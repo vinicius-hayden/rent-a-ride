@@ -130,7 +130,7 @@ public class ProductService {
     }
 
     public List<ProductDto> searchAllByCityIdAndDateRange(Integer cityId, Date pickupDate, Date dropoffDate) {
-        List<Product> list = productRepository.findAllByDateRangeAndDateRange(cityId, pickupDate, dropoffDate);
+        List<Product> list = productRepository.findAllByCityIdAndDateRange(cityId, pickupDate, dropoffDate);
         return list.stream().map(x -> new ProductDto(x)).collect(Collectors.toList());
     }
 }

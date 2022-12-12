@@ -21,15 +21,15 @@ public class ProductController {
 
     @CrossOrigin(origins = "*")
     @GetMapping
-    public ResponseEntity<List<ProductDto>> searchAllProducts(@RequestParam(required = false) Integer categoryId, @RequestParam(required = false) Integer cityId, @RequestParam(required = false) String pickupDateString, @RequestParam(required = false) String dropoffDateString) {
+    public ResponseEntity<List<ProductDto>> searchAllProducts(@RequestParam(required = false) Integer categoryId, @RequestParam(required = false) Integer cityId, @RequestParam(required = false, name = "pickupDate") String pickupDateString, @RequestParam(required = false, name = "dropoffDate") String dropoffDateString) {
 
         if (categoryId != null) {
             List<ProductDto> list = productService.searchAllByCategoryId(categoryId);
             return ResponseEntity.ok().body(list);
         }
         if (cityId != null && pickupDateString != null && dropoffDateString != null) {
-            Date pickupDate = DatatypeConverter.parseDateTime(pickupDateString).getTime();
-            Date dropoffDate = DatatypeConverter.parseDateTime(dropoffDateString).getTime();
+            Date pickupDate = DatatypeConverter.parseDateTime(pickupDateString+"T00:00:00.000+00:00").getTime();
+            Date dropoffDate = DatatypeConverter.parseDateTime(dropoffDateString+"T23:59:59.999+00:00").getTime();
             List<ProductDto> list = productService.searchAllByCityIdAndDateRange(cityId, pickupDate, dropoffDate);
             return ResponseEntity.ok().body(list);
         }
@@ -38,8 +38,8 @@ public class ProductController {
             return ResponseEntity.ok().body(list);
         }
         if (pickupDateString != null && dropoffDateString != null) {
-            Date pickupDate = DatatypeConverter.parseDateTime(pickupDateString).getTime();
-            Date dropoffDate = DatatypeConverter.parseDateTime(dropoffDateString).getTime();
+            Date pickupDate = DatatypeConverter.parseDateTime(pickupDateString+"T00:00:00.000+00:00").getTime();
+            Date dropoffDate = DatatypeConverter.parseDateTime(dropoffDateString+"T23:59:59.999+00:00").getTime();
             List<ProductDto> list = productService.searchAllByDateRange(pickupDate, dropoffDate);
             return ResponseEntity.ok().body(list);
         }

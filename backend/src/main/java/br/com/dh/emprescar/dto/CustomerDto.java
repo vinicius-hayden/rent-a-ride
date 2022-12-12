@@ -22,10 +22,18 @@ public class CustomerDto implements Serializable {
 
     public CustomerDto(Integer id, String name, String lastName/*, Set<BookingDto> bookings*/, UserDto user) {
         this.id = id;
-        this.name = name.trim();
-        this.lastName = lastName.trim();
+        if(name != null) {
+            this.name = name.trim();
+        }
+        if(lastName  != null) {
+            this.lastName = lastName.trim();
+        }
 //        this.bookings = bookings;
         this.user = user;
+    }
+
+    public CustomerDto(Integer id) {
+        this.id = id;
     }
 
     public CustomerDto(Customer entity) {
