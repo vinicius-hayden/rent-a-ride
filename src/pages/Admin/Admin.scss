@@ -9,14 +9,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  h1 {
+    margin-left: 2px;
+  }
 }
 
 .error-msg{
   color: red;
-}
-
-.left {
-  margin-left: 80vw;
 }
 
 .use-bootstrap {

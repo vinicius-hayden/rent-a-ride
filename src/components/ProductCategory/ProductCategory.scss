@@ -12,14 +12,6 @@
   white-space: nowrap
 }
 
-.category-title h1 {
-    margin-left: 5vw;
-}
-
-.left {
-  margin-right: 5rem;
-}
-
 .use-bootstrap {
   @import url('/node_modules/bootstrap/dist/css/bootstrap.min.css');
 }
@@ -102,34 +94,35 @@
 
 }
 
-@media screen and (max-width: 1840px) {
-    .left {
-      margin-left: 15vw;
-    }
-  
-    .category-title {
-      font-size: 10px;
-    }
-  
-}
+// @media screen and (max-width: 1840px) {
+//   .left {
+//     margin-left: 15vw;
+//   }
 
-@media screen and (max-width: 375px) {
-    .category-title h1 {
-        font-size: 18.5px;
-        margin-left: 15px;
-    }
+//   .category-title {
+//     font-size: 10px;
+//   }
 
-    .left {
-        margin-right: 5vw;
-      }
-}
-@media screen and (max-width: 414px) {
-    .category-title h1 {
-        font-size: 20px;
-        margin-left: 15px;
-    }
+// }
 
-    .left {
-        margin-right: 5vw;
-      }
-}
+// @media screen and (max-width: 375px) {
+//   .category-title h1 {
+//     font-size: 18.5px;
+//     margin-left: 15px;
+//   }
+
+//   .left {
+//     margin-right: 5vw;
+//   }
+// }
+
+// @media screen and (max-width: 414px) {
+//   .category-title h1 {
+//     font-size: 20px;
+//     margin-left: 15px;
+//   }
+
+//   .left {
+//     margin-right: 5vw;
+//   }
+// }
