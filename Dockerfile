@@ -1,22 +1,17 @@
-FROM node:16-slim
+FROM node:alpine as build-stage 
 
-RUN npm install -g npm@latest --loglevel=error
-WORKDIR /usr/src/app
+WORKDIR /usr/app
 
-COPY package*.json ./
+COPY ./ /usr/app/
 
-RUN npm install --loglevel=error
+RUN npm install
 
-COPY . .
+RUN npm run build
 
-RUN REACT_APP_API_URL=http://localhost:3000 SKIP_PREFLIGHT_CHECK=true npm run build --prefix client
+FROM nginx:1.16.0-alpine
 
-RUN mv client/build build
+COPY --from=build-stage /usr/app/dist/ /usr/share/nginx/html
 
-RUN rm  -rf client/*
+EXPOSE 3000
 
-RUN mv build client/
-
-EXPOSE 8080
-
-CMD [ "npm", "start" ]
+CMD [ "nginx", "-g", "daemon off;" ]
