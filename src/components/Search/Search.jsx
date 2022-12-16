@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import "./Search.scss";
+import moment from "moment";
 
 export default function Search() {
   const [city, setCity] = useState(['', '']);
   const url = 'http://ec2-54-153-58-52.us-west-1.compute.amazonaws.com:9000/products'
+  const today     = moment().format('YYYY-MM-DD');
+  const tomorrow  = moment().add(1,'days').format('YYYY-MM-DD')
+  // const yesterday = moment().add(-1, 'days');
   
   let config = {
     headers: {
@@ -72,6 +75,8 @@ export default function Search() {
               className="input-date"
               placeholder="Data de retirada"
               id="pickUpDate"
+              // value={today}
+              onChange={console.log(today)}
             />
 
             <input
@@ -79,6 +84,7 @@ export default function Search() {
               className="input-date"
               placeholder="Data de devolução"
               id="dropOffDate"
+              // value={tomorrow}
             />
 
             <input className="button-search" type="submit" value="Buscar" onClick={findProducts}/>
