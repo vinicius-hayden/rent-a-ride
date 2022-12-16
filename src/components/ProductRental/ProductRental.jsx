@@ -7,7 +7,8 @@ import Card from "react-bootstrap/Card";
 import { DateRange } from 'react-date-range';
 
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2'
 
 import { BiArrowBack } from "react-icons/bi";
@@ -31,7 +32,7 @@ export default function ProductRental() {
     features: [],
     images: [{ url: "" }],
   });
-
+  const navigate = useNavigate();
   const [city, setCity] = useState([]);
   let requestConfigurationGet = {
     headers: {
@@ -263,6 +264,6 @@ export default function ProductRental() {
         text: "Fazer Login",
       },
     })
-    .then(()=> window.location = "/login");
+    .then(()=> navigate('/login', {replace: true}));
   }
 }
