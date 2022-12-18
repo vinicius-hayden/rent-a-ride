@@ -107,6 +107,15 @@ export default function Header() {
         <div className="header-right">
           <SidebarUser handleChangeState={handleChangeState}></SidebarUser>
           <GiHamburgerMenu className="hamburger-menu-button" size={40} onClick={handleChangeState} />
+          
+          <Link to="/bookings" className="header-right-bookings">
+              <input
+                type="button"
+                value="Minhas reservas"
+                className="button-header"
+              />
+          </Link>
+          
           <div className="initials">
             <h3>{firstLetter + lastLetter}</h3>
           </div>

@@ -29,7 +29,7 @@ export default function ProductsDetails() {
       Authorization: localStorage.getItem("token"),
     },
   };
-
+  
   const images = [
     {
       original: `${product.images[0].url}`,
@@ -39,14 +39,8 @@ export default function ProductsDetails() {
     },
   ];
 
-  window.scroll({
-    top: 0, 
-    left: 0, 
-    behavior: 'smooth'
-  });
-
   function redirectToRentalPage(productId) {
-    window.location.replace(`/products/${productId}/rental`);
+    return(`/products/${productId}/rental`);
   }
 
   library.add(fas);
@@ -102,7 +96,9 @@ export default function ProductsDetails() {
       </div>
 
       <div className="rent-button-block">
-        <button type="button" className="rent-button-block-button" value="Reservar" onClick={() => redirectToRentalPage(product.id)}>Iniciar Reserva</button>
+        <Link to={`/products/${product.id}/rental`}>
+          <button type="button" className="rent-button-block-button" value="Reservar">Iniciar Reserva</button>
+        </Link>
       </div>
 
       <div className="product-agreement">
@@ -110,13 +106,13 @@ export default function ProductsDetails() {
         <div className="unit-agreement">
           <h1 className="title">Normas</h1>
           <p className="description-agreement">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            O aluguel dos carros é feito diretamente pela Emprescar LTDA.
           </p>
         </div>
         <div className="unit-agreement">
           <h1 className="title">Segurança</h1>
           <p className="description-agreement">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            Para sua segurança, apenas disponibilizaremos os serviços prestados para aqueles com credencias e CNH válidos até a data de 
           </p>
         </div>
         <div className="unit-agreement">

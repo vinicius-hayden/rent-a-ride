@@ -264,6 +264,6 @@ export default function ProductRental() {
         text: "Fazer Login",
       },
     })
-    .then(()=> navigate('/login', {replace: true}));
+    .then(()=> navigate('/login'));
   }
 }
