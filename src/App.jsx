@@ -14,6 +14,7 @@ import ProductRental from "./components/ProductRental/ProductRental";
 import ProductDateRange from "./components/ProductDateRange/ProductDateRange";
 import ProductCityDateRange from "./components/ProductCityDateRange/ProductCityDateRange";
 import Admin from "./pages/Admin/Admin";
+import UserBooking from "./components/UserBooking/UserBooking";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         <Route path="/products/:idProduct" element={<ProductsDetails />} /> 
         <Route path="/categories/:idCategory/products" element={<ProductCategory/>}/>
         <Route path="/cities/:idCity/products" element={<ProductCity/>} />
+        <Route path="/bookings/" element={<UserBooking/>} />
         <Route path="/products/:idProduct/rental" element={<ProductRental/>} />
         <Route path="/products/dateRange/:pickupdate/:dropoffdate" element={<ProductDateRange/>} />
         <Route path="/cities/:idCity/products/dateRange/:pickupdate/:dropoffdate" element={<ProductCityDateRange/>} />
