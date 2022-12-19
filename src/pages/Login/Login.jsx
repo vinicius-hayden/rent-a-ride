@@ -17,7 +17,7 @@ export default function Login() {
   const [passwordError, setPasswordError] = useState("");
   const [successMsg, setSuccessMsg] = useState("");
   const url = 'http://ec2-54-153-58-52.us-west-1.compute.amazonaws.com:9000/auth'
-  var postData =  {
+  var postData = {
     username: `${email}`,
     password: `${password}`
   }
@@ -41,63 +41,60 @@ export default function Login() {
     setPassword(e.target.value);
   }
 
-  
+
   function isValidEmail(email) {
     return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
       email
-      )
-    ;
+    )
+      ;
   }
 
   function isValidPassword(password) {
-    if(password.size > 8) {
+    if (password.size > 8) {
       return false;
     }
-    if(password == '' || password == null) {
+    if (password == '' || password == null) {
       return false
     }
     return true
   }
-    
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
     if (isValidEmail(email) && isValidPassword(password)) {
       axios.post(url, postData, axiosConfig)
-        .then((response) => {
-          Swal.fire({
-            title: 'Login feito',
-            text: "Seja bem vindo :)",
-            icon: "success",
-          })
-          .then(() => {
-            const token = response.data.jwt;
-            localStorage.setItem('jwt', token)
-            const {sub, name, lastName, customerId, role} = jwt(token);
-            localStorage.setItem('email', sub);
-            localStorage.setItem('nome', name);
-            localStorage.setItem('sobrenome', lastName);
-            localStorage.setItem('customerId', customerId);
-            localStorage.setItem('role', role);
-          })
-          .then(() => goToUserPage())
-        }, (error) => {
+        .then((response) => { 
+
+          
+          const token = response.data.jwt;
+          localStorage.setItem('jwt', token)
+          const { sub, name, lastName, customerId, role } = jwt(token);
+          localStorage.setItem('email', sub);
+          localStorage.setItem('nome', name);
+          localStorage.setItem('sobrenome', lastName);
+          localStorage.setItem('customerId', customerId);
+          localStorage.setItem('role', role);
+        }
+          )
+        .then(() => goToUserPage())
+        , (error) => {
           Swal.fire({
             title: `Tente novamente...`,
-            text: "Dados invádios",
+            text: "Dados inválidos",
             icon: "error",
           })
-        })
-      ;
+        }
+        ;
 
     } else {
       if (!isValidPassword(password)) {
         setPasswordError("Favor, inserir senha válida")
       }
-  
+
       if (!isValidEmail(email)) {
         setEmailError("Favor, inserir email válido");
-      }   
+      }
     }
   }
 
@@ -134,7 +131,7 @@ export default function Login() {
               required
             />
           </label>
-          {emailError&&<div className="error-msg"><p> {emailError} </p></div>}
+          {emailError && <div className="error-msg"><p> {emailError} </p></div>}
           <label htmlFor="password">
             Senha
             <input
@@ -153,7 +150,7 @@ export default function Login() {
             />
           </label>
 
-          {passwordError&&<div className="error-msg"><p> {passwordError} </p></div>}
+          {passwordError && <div className="error-msg"><p> {passwordError} </p></div>}
 
           <div className="div-button-login">
             <button
