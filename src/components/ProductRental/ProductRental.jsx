@@ -110,7 +110,7 @@ export default function ProductRental() {
   const goToHome = () => {
     setTimeout(function () {
       window.location.href = "/";
-    }, 2000);
+    }, 500);
   };
 
 
@@ -264,6 +264,6 @@ export default function ProductRental() {
         text: "Fazer Login",
       },
     })
-    .then(()=> navigate('/login'));
+    .then(() => goToHome());
   }
 }

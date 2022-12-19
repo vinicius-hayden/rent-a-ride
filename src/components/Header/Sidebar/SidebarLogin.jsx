@@ -11,7 +11,7 @@ export default function SidebarLogin({ handleChangeState }) {
         <div style={{display: 'flex', justifyContent: 'center'}}>
         <Col>
           <button type="button" onClick={handleChangeState} className="sidebar-close-button">
-            <BsXLg size={20}></BsXLg>
+            <BsXLg size={20} color='white'></BsXLg>
           </button>
         </Col>
         </div>

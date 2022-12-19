@@ -19,6 +19,7 @@ import { BiArrowBack } from "react-icons/bi";
 import { MdLocationOn } from "react-icons/md";
 import { MdSecurity } from "react-icons/md";
 
+
 export default function ProductsDetails() {
   const { idProduct } = useParams();
   const [product, setProduct] = useState({ name: "", description: "", category: { name: '' }, city: { name: '' }, features: [], images: [{url : ""}] });
@@ -30,6 +31,10 @@ export default function ProductsDetails() {
     },
   };
   
+  window.onbeforeunload = function () {
+    window.scrollTo(0, 0);
+  }
+  
   const images = [
     {
       original: `${product.images[0].url}`,
@@ -38,10 +43,6 @@ export default function ProductsDetails() {
       originalWidth: 215
     },
   ];
-
-  function redirectToRentalPage(productId) {
-    return(`/products/${productId}/rental`);
-  }
 
   library.add(fas);
 
@@ -97,7 +98,12 @@ export default function ProductsDetails() {
 
       <div className="rent-button-block">
         <Link to={`/products/${product.id}/rental`}>
-          <button type="button" className="rent-button-block-button" value="Reservar">Iniciar Reserva</button>
+          {/* <button type="button" className="rent-button-block-button" value="Reservar">Iniciar Reserva</button> */}
+          <input
+            type="button"
+            value="Reservar"
+            className="button-rent"
+          />
         </Link>
       </div>
 

@@ -111,7 +111,7 @@ export default function Header() {
           <Link to="/bookings" className="header-right-bookings">
               <input
                 type="button"
-                value="Minhas reservas"
+                value="Minhas Reservas"
                 className="button-header"
               />
           </Link>

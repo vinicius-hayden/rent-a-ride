@@ -35,7 +35,7 @@ export default function SidebarUser({ handleChangeState }) {
         <div style={{ display: 'flex', justifyContent: 'center' }}>
           <Col>
             <button type="button" onClick={handleChangeState} className="sidebar-close-button">
-              <BsXLg size={20}></BsXLg>
+              <BsXLg size={20} color='white'></BsXLg>
             </button>
           </Col>
         </div>
@@ -50,6 +50,13 @@ export default function SidebarUser({ handleChangeState }) {
           <Col>
             <Link to="/">
               <input type="button" value="Menu" className="sidebar-button" />
+            </Link>
+          </Col>
+        </div>
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <Col>
+            <Link to="/bookings">
+              <input type="button" value="Minhas reservas" className="sidebar-button" />
             </Link>
           </Col>
         </div>

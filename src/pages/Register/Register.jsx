@@ -2,7 +2,7 @@ import HeaderRegister from "../../components/Header/HeaderRegister";
 import Footer from "../../components/Footer/Footer";
 
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2'
 
 import "./Register.scss";
@@ -20,6 +20,7 @@ export default function Register() {
   const [confirmPassword, setConfirmedPassword] = useState('');
   const [confirmPasswordError, setConfirmedPasswordError] = useState('');
   const url = 'http://ec2-54-153-58-52.us-west-1.compute.amazonaws.com:9000/customers/'
+  const navigate = useNavigate();
   var postData = {
     name: `${name}`,
     lastName: `${lastName}`,
@@ -123,7 +124,7 @@ export default function Register() {
               text: "Fazer Login",
             },
           })
-          .then(() => goToLoginPage())
+          .then(() => navigate('/login'))
         }), (error) => {
           Swal.fire({
             title: "Ooopss...",
@@ -151,11 +152,12 @@ export default function Register() {
 
   }
 
-  const goToLoginPage = () => {
-    setTimeout(function () {
-      window.location.href = "/login";
-    }, 2000);
-  };
+  // const goToLoginPage = () => {
+  //   // setTimeout(function () {
+  //   //   <Navigate to="/login"/>
+  //   // }, 2000);
+  //   navigate('/login')
+  // };
 
   return (
     <>

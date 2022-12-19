@@ -90,6 +90,23 @@ h1 {
   margin-top: -30px;
 }
 
+.button-rent {
+  height: 40px;
+  width: 206px;
+  margin: 0 8px;
+  font-size: 16px;
+  border-style: solid;
+  border-radius: 5px;
+  border-color: #263238;
+  background-color: #04aa6d;
+  color: #ffffff;
+}
+
+.button-rent:hover {
+  background-color: #267d26;
+  cursor: pointer;
+}
+
 .features .feature-information {
   display: flex;
   align-items: baseline;
