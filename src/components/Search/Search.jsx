@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import "./Search.scss";
 import moment from "moment";
+import { useNavigate } from "react-router-dom";
 
 export default function Search() {
   const [city, setCity] = useState(['', '']);
   const url = 'http://ec2-54-153-58-52.us-west-1.compute.amazonaws.com:9000/products'
   const today     = moment().format('YYYY-MM-DD');
   const tomorrow  = moment().add(1,'days').format('YYYY-MM-DD')
+  const navigate = useNavigate(); 
   // const yesterday = moment().add(-1, 'days');
   
   let config = {
@@ -42,12 +44,16 @@ export default function Search() {
 
     if (idFromSelectedCity > 0) {
       if (pickUpDate != '' && dropOffDate != '') {
-        window.location.replace(`/cities/${idFromSelectedCity}/products/dateRange/${pickUpDate}/${dropOffDate}`);
+        navigate(`/cities/${idFromSelectedCity}/products/dateRange/${pickUpDate}/${dropOffDate}`);
         return;
       }
-      window.location.replace(`/cities/${idFromSelectedCity}/products`);
+      navigate(`/cities/${idFromSelectedCity}/products`);
     } else {
-      window.location.replace(`/products/dateRange/${pickUpDate}/${dropOffDate}`);
+      if (pickUpDate == '' && dropOffDate == '') {
+        window.alert('Por favor, inserir pelo menos cidade.')
+        return;
+      }
+      navigate(`/products/dateRange/${pickUpDate}/${dropOffDate}`);
     }
   }
 

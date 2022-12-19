@@ -112,19 +112,19 @@ export default function ProductsDetails() {
         <div className="unit-agreement">
           <h1 className="title">Normas</h1>
           <p className="description-agreement">
-            O aluguel dos carros é feito diretamente pela Emprescar LTDA.
+            O aluguel dos carros é feito diretamente pela EmpresCar LTDA.
           </p>
         </div>
         <div className="unit-agreement">
           <h1 className="title">Segurança</h1>
           <p className="description-agreement">
-            Para sua segurança, apenas disponibilizaremos os serviços prestados para aqueles com credencias e CNH válidos até a data de 
+            Para sua segurança, apenas disponibilizaremos os serviços prestados para aqueles com credencias e CNH válidos até a data de assinatura de serviço. 
           </p>
         </div>
         <div className="unit-agreement">
           <h1 className="title">Cancelamento</h1>
           <p className="description-agreement">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            A EmpresCar possui uma política de cancelamento restrita aqueles que assinam o serviço dentro do prazo de 5 dias úteis anterior à data do Pick-Up. Favor Consultar nossa equipe para quaisquer dúvidas mediantes pagamentos e/ou questões financeiras.
           </p>
         </div>
       </div>

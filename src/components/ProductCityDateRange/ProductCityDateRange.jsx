@@ -9,7 +9,7 @@ import { MdLocationOn } from "react-icons/md";
 import { CardGroup } from "react-bootstrap";
 import { BiArrowBack } from "react-icons/bi";
 import Card from 'react-bootstrap/Card';
-
+import Moment from 'moment';
 import { useParams } from "react-router-dom";
 import "./ProductCityDateRange.scss";
 
@@ -36,7 +36,7 @@ export default function ProductCityDateRange() {
     <>
       <Header />
       <div className="city-title">
-        <h1> Carros Disponíveis no período de {pickupdate} à {dropoffdate} em {cityName}</h1>
+        <h1> Carros Disponíveis no período de {Moment(pickupdate).format('DD/MM/YYYY')} à {Moment(dropoffdate).format('DD/MM/YYYY')} em {cityName}</h1>
         <div className="left">
           <Link to={"/"}>
             <BiArrowBack size={40} color="#FBC02D" className="arrowback" />

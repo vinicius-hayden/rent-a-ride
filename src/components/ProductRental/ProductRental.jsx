@@ -60,30 +60,30 @@ export default function ProductRental() {
     let pickUpDate = document.getElementById("pickUpDate").value;
     let dropOffDate = document.getElementById("dropOffDate").value;
     let time = document.getElementById("pickUpTime").value;
-    
+
     const url = 'http://ec2-54-153-58-52.us-west-1.compute.amazonaws.com:9000/bookings/';
     const customerId = localStorage.getItem('customerId');
     const pickUpDateTime = `${pickUpDate}T${time}:00.000+00:00`;
     const dropOffDateTime = `${dropOffDate}T${time}:00.000+00:00`;
-    
-    var postData =  {
-      pickupDate : `${pickUpDateTime}`,
-      dropoffDate : `${dropOffDateTime}`,
-      product : {
+
+    var postData = {
+      pickupDate: `${pickUpDateTime}`,
+      dropoffDate: `${dropOffDateTime}`,
+      product: {
         id: idProduct
       },
-      customer : {
+      customer: {
         id: customerId
       }
     }
-  
+
     let axiosConfig = {
       headers: {
         Accept: "*/*, application/json, text/plain ",
         "Content-Type": "application/json",
       },
     };
-    
+
     axios.post(url, postData, axiosConfig)
       .then((response) => {
         Swal.fire({
@@ -104,7 +104,7 @@ export default function ProductRental() {
           icon: "error"
         })
       }
-    ;
+      ;
   }
 
   const goToHome = () => {
@@ -182,24 +182,24 @@ export default function ProductRental() {
           Selecione sua data de reserva
         </h1>
         <div className="calendar-availability-block" style={{ marginBottom: "15px" }}>
-          
-  
-  
-        <input
-              type="date"
-              className="input-date"
-              placeholder="Data de retirada"
-              id="pickUpDate"
-            />
 
-            <input
-              type="date"
-              className="input-date"
-              placeholder="Data de devolução"
-              id="dropOffDate"
-            />
-  
-  
+
+
+          <input
+            type="date"
+            className="input-date"
+            placeholder="Data de retirada"
+            id="pickUpDate"
+          />
+
+          <input
+            type="date"
+            className="input-date"
+            placeholder="Data de devolução"
+            id="dropOffDate"
+          />
+
+
         </div>
         <h1 style={{ marginTop: "35px", textAlign: "center" }}>
           Seu horário de chegada
@@ -236,19 +236,19 @@ export default function ProductRental() {
           <div className="unit-agreement">
             <h1 className="title">Normas</h1>
             <p className="description-agreement">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              O aluguel dos carros é feito diretamente pela EmpresCar LTDA.
             </p>
           </div>
           <div className="unit-agreement">
             <h1 className="title">Segurança</h1>
             <p className="description-agreement">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              Para sua segurança, apenas disponibilizaremos os serviços prestados para aqueles com credencias e CNH válidos até a data de assinatura de serviço.
             </p>
           </div>
           <div className="unit-agreement">
             <h1 className="title">Cancelamento</h1>
             <p className="description-agreement">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              A EmpresCar possui uma política de cancelamento restrita aqueles que assinam o serviço dentro do prazo de 5 dias úteis anterior à data do Pick-Up. Favor Consultar nossa equipe para quaisquer dúvidas mediantes pagamentos e/ou questões financeiras.
             </p>
           </div>
         </div>
@@ -264,6 +264,6 @@ export default function ProductRental() {
         text: "Fazer Login",
       },
     })
-    .then(() => goToHome());
+      .then(() => goToHome());
   }
 }

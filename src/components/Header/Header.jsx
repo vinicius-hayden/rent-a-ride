@@ -97,7 +97,7 @@ export default function Header() {
             <Link to="/" style={{ textDecoration: 'none' }}>
               <img src={logo} className="header-logo" alt="logo" />
               <div className="header-logo-content">
-                <h1 className="logo-text">Emprescar </h1>
+                <h1 className="logo-text">EmpresCar </h1>
                 <p className="logo-text-description">Liberdade para ir onde quiser</p>
               </div>
             </Link>
