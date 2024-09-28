@@ -31,7 +31,7 @@ export default function HeaderLogin() {
           <Link to="/register">
             <input
               type="button"
-              value="Criar conta"
+              value="Sign Up"
               className="button-header"
             />
           </Link>

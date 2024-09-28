@@ -54,8 +54,8 @@ export default function Header() {
               <Link to="/" style={{ textDecoration: 'none' }}>
                 <img src={logo} className="header-logo" alt="logo" />
                 <div className="header-logo-content">
-                  <h1 className="logo-text">Emprescar </h1>
-                  <p className="logo-text-description">Liberdade para ir onde quiser</p>
+                  <h1 className="logo-text">RentRide </h1>
+                  <p className="logo-text-description">Freedom to go anywwhere, anytime</p>
                 </div>
               </Link>
             </div>
@@ -69,7 +69,7 @@ export default function Header() {
             <Link to="/register" className="header-right-signup">
               <input
                 type="button"
-                value="Criar conta"
+                value="Sign up"
                 className="button-header"
               />
             </Link>
@@ -77,7 +77,7 @@ export default function Header() {
             <Link to="/login" className="header-right-signin">
               <input
                 type="button"
-                value="Iniciar sessão"
+                value="Sign In"
                 className="button-header"
               />
             </Link>
@@ -97,8 +97,8 @@ export default function Header() {
             <Link to="/" style={{ textDecoration: 'none' }}>
               <img src={logo} className="header-logo" alt="logo" />
               <div className="header-logo-content">
-                <h1 className="logo-text">EmpresCar </h1>
-                <p className="logo-text-description">Liberdade para ir onde quiser</p>
+                <h1 className="logo-text">RentRide </h1>
+                <p className="logo-text-description">Freedom to go anywhere, anytime</p>
               </div>
             </Link>
           </div>
@@ -139,8 +139,8 @@ export default function Header() {
             <Link to="/" style={{ textDecoration: 'none' }}>
               <img src={logo} className="header-logo" alt="logo" />
               <div className="header-logo-content">
-                <h1 className="logo-text">Emprescar </h1>
-                <p className="logo-text-description">Liberdade para ir onde quiser</p>
+                <h1 className="logo-text">RentRide </h1>
+                <p className="logo-text-description">Freedom to go anywhere, anytime</p>
               </div>
             </Link>
           </div>

@@ -18,7 +18,7 @@ export default function SidebarLogin({ handleChangeState }) {
         <div style={{display: 'flex', justifyContent: 'center'}}>
         <Col>
           <Link to="/register">
-            <input type="button" value="Criar conta" className="sidebar-button" />
+            <input type="button" value="Sign Up" className="sidebar-button" />
           </Link>
         </Col>
         </div>

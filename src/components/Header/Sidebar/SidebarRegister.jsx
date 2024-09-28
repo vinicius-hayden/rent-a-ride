@@ -18,7 +18,7 @@ export default function SidebarRegister({ handleChangeState }) {
         <div style={{display: 'flex', justifyContent: 'center'}}>
         <Col>
           <Link to="/login">
-            <input type="button" value="Iniciar sessão" className="sidebar-button" />
+            <input type="button" value="Sign In" className="sidebar-button" />
           </Link>
         </Col>
         </div>

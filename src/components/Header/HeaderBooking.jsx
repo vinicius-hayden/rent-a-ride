@@ -56,7 +56,7 @@ export default function HeaderBooking() {
             <div className="header-logo-content">
               <h1 className="logo-text">Emprescar </h1>
               <p className="logo-text-description">
-                Liberdade para ir onde quiser
+                Freedom to go anywhere, anytime
               </p>
             </div>
           </Link>
