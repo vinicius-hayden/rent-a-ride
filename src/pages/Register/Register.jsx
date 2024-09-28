@@ -165,16 +165,16 @@ export default function Register() {
       <HeaderRegister />
       <div className="form-register">
         <form onSubmit={(event) => submitForm(event)}>
-          <h1>Criar conta</h1>
+          <h1>Sign up</h1>
 
           <div className="div-input-inline">
             <label>
-              Nome
+              Name
               <input type="text" className="input-firstname" autoComplete="firstname" required onChange={handleNameChange} />
               {nameError && <div className="error-msg"><p> {nameError} </p></div>}
             </label>
             <label>
-              Sobrenome
+              Last Name
               <input type="text" className="input-lastname" autoComplete="lastname" required onChange={handleLastNameChange}/>
             </label>
             {LastNameError && <div className="error-msg"><p> {LastNameError} </p></div>}
@@ -186,21 +186,21 @@ export default function Register() {
             </label>
             {emailError && <div className="error-msg"><p> {emailError} </p></div>}
             <label>
-              Senha <input type="password" className="input-block" autoComplete="password" required onChange={handlePasswordChange}/>
+              Password <input type="password" className="input-block" autoComplete="password" required onChange={handlePasswordChange}/>
             </label>
             {passwordError && <div className="error-msg"><p> {passwordError} </p></div>}
             <label>
-              Confirmar senha
+              Confirm password
               <input type="password" className="input-block" autoComplete="passwordconfirm" required onChange={handleConfirmPasswordChange}/>
             </label>
           </div>
           {confirmPasswordError && <div className="error-msg"><p> {confirmPasswordError} </p></div>}
           <div className="div-button-register">
-            <input type="submit" className="button-register" value="Criar conta" onClick={handleSubmit} />
+            <input type="submit" className="button-register" value="Sign Up" onClick={handleSubmit} />
           </div>
 
           <div className="message-register">
-            Já tem uma conta? <Link to="/login">Iniciar sessão</Link>
+            Already have an account? <Link to="/login">Sign in</Link>
           </div>
         </form>
       </div>

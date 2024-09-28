@@ -120,7 +120,7 @@ export default function Login() {
 
       <div className="form-login">
         <form>
-          <h1>Iniciar sessão</h1>
+          <h1>Sign in</h1>
           <label htmlFor="email">
             E-mail
             <input
@@ -161,12 +161,12 @@ export default function Login() {
               value="Entrar"
               id="button-login"
             >
-              Iniciar sessão
+              Sign in
             </button>
           </div>
 
           <div className="message-login">
-            Ainda não tem conta? <Link to="/register">Registre-se</Link>
+            Don't have an account yet? <Link to="/register">Sign-In</Link>
           </div>
         </form>
       </div>

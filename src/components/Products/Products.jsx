@@ -27,7 +27,7 @@ export default function Products() {
 
   return (
     <>
-      <h2 className="div-title">Recomendações</h2>
+      <h2 className="div-title">Our Recommendations</h2>
       <div className="use-bootstrap">
         <CardGroup style={{ 'justifyContent': 'center' }}>
           {products.map((product, index) => (
@@ -38,7 +38,7 @@ export default function Products() {
                   <Card.Title id="card-product-body-title">{product.name}</Card.Title>
                   <Card.Text id="card-product-body-text">{product.description}</Card.Text>
                   <Link to={`/products/${product.id}`}>
-                    <Button color="267d26" id="card-product-button"> Ver mais detalhes</Button>
+                    <Button color="267d26" id="card-product-button"> View more details</Button>
                   </Link>
                 </Card.Body>
               </Card>

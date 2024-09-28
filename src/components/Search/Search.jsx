@@ -65,11 +65,11 @@ export default function Search() {
             onSubmit={(event) => submitForm(event)}
             className="input-search"
           >
-            <h1>Buscar por ofertas de carros para alugar</h1>
+            <h1>Search for car rental deals</h1>
 
             <select className="input-city" defaultValue={'DEFAULT'}>
               <option value="DEFAULT" disabled>
-                Onde quer retirar seu carro?
+                Where do you want to rent it?
               </option>
               
               {city.map((city, index) => (  
