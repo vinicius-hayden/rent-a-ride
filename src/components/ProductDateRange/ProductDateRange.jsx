@@ -12,6 +12,7 @@ import Card from 'react-bootstrap/Card';
 import Moment from 'moment';
 import { useParams } from "react-router-dom";
 import "./ProductDateRange.scss";
+const apiUrl = import.meta.env.VITE_RENT_RIDE_API_URL;
 
 export default function ProductDateRange() {
   const { pickupdate, dropoffdate } = useParams();
@@ -25,7 +26,7 @@ export default function ProductDateRange() {
   };
   
   useEffect(() => {
-    fetch(`http://ec2-54-153-58-52.us-west-1.compute.amazonaws.com:9000/products?pickupDate=${pickupdate}&dropoffDate=${dropoffdate}`, requestConfigurationGet)
+    fetch(`${apiUrl}/products?pickupDate=${pickupdate}&dropoffDate=${dropoffdate}`, requestConfigurationGet)
       .then((response) => response.json())
       .then((productsJSON) => setProducts(productsJSON));
   }, []);

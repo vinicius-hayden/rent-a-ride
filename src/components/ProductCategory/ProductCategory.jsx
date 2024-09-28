@@ -9,6 +9,7 @@ import { MdLocationOn } from "react-icons/md";
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import { CardGroup } from "react-bootstrap";
+const apiUrl = import.meta.env.VITE_RENT_RIDE_API_URL;
 
 export default function ProductCategory() {
   const { idCategory } = useParams();
@@ -24,7 +25,7 @@ export default function ProductCategory() {
 
 
   useEffect(() => {
-    fetch(`http://ec2-54-153-58-52.us-west-1.compute.amazonaws.com:9000/products/?categoryId=${idCategory}`, requestConfigurationGet)
+    fetch(`${apiUrl}/products/?categoryId=${idCategory}`, requestConfigurationGet)
       .then((response) => response.json())
       .then((productsJSON) => setProducts(productsJSON));
   }, []);

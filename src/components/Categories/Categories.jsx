@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { CardGroup } from "react-bootstrap";
 import Card from 'react-bootstrap/Card';
 import { Link } from "react-router-dom";
+const apiUrl = import.meta.env.VITE_RENT_RIDE_API_URL;
 
 export default function Categories() {
   const [categories, setCategories] = useState([]);
@@ -15,8 +16,10 @@ export default function Categories() {
     },
   };
 
+  console.log(apiUrl);
+
   useEffect(() => {
-    fetch("http://ec2-54-153-58-52.us-west-1.compute.amazonaws.com:9000/categories", requestConfigurationGet)
+    fetch(`${apiUrl}/categories`, requestConfigurationGet)
       .then((response) => response.json())
       .then((categoriesJSON) => setCategories(categoriesJSON));
   }, []);

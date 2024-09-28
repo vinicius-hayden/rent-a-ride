@@ -7,6 +7,7 @@ import Swal from 'sweetalert2'
 
 import "./Register.scss";
 import axios from "axios";
+const apiUrl = import.meta.env.VITE_RENT_RIDE_API_URL;
 
 export default function Register() {
   const [name, setName] = useState('');
@@ -19,7 +20,7 @@ export default function Register() {
   const [passwordError, setPasswordError] = useState("");
   const [confirmPassword, setConfirmedPassword] = useState('');
   const [confirmPasswordError, setConfirmedPasswordError] = useState('');
-  const url = 'http://ec2-54-153-58-52.us-west-1.compute.amazonaws.com:9000/customers/'
+  const url = `${apiUrl}/customers/`
   const navigate = useNavigate();
   var postData = {
     name: `${name}`,

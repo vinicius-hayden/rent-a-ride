@@ -18,7 +18,7 @@ import { useParams } from "react-router-dom";
 import { BiArrowBack } from "react-icons/bi";
 import { MdLocationOn } from "react-icons/md";
 import { MdSecurity } from "react-icons/md";
-
+const apiUrl = import.meta.env.VITE_RENT_RIDE_API_URL;
 
 export default function ProductsDetails() {
   const { idProduct } = useParams();
@@ -47,7 +47,7 @@ export default function ProductsDetails() {
   library.add(fas);
 
   useEffect(() => {
-    fetch(`http://ec2-54-153-58-52.us-west-1.compute.amazonaws.com:9000/products/${idProduct}`, requestConfigurationGet)
+    fetch(`${apiUrl}/products/${idProduct}`, requestConfigurationGet)
       .then((response) => response.json())
       .then((productsJSON) => setProduct(productsJSON));
   }, []);

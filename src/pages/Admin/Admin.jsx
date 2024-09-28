@@ -11,6 +11,7 @@ import Swal from 'sweetalert2'
 import { icon, text } from '@fortawesome/fontawesome-svg-core';
 import axios from 'axios';
 import Header from '../../components/Header/Header';
+const apiUrl = import.meta.env.VITE_RENT_RIDE_API_URL;
 
 export default function Admin() {
   const [cities, setCities] = useState([]);
@@ -120,14 +121,14 @@ export default function Admin() {
   };
 
   useEffect(() => {
-    fetch("http://ec2-54-153-58-52.us-west-1.compute.amazonaws.com:9000/categories", config)
+    fetch(`${apiUrl}/categories`, config)
       .then((response) => response.json())
       .then((categoriesJSON) => setCategory(categoriesJSON));
   }, []);
 
 
   useEffect(() => {
-    fetch("http://ec2-54-153-58-52.us-west-1.compute.amazonaws.com:9000/features", config)
+    fetch(`${apiUrl}/features`, config)
       .then((response) => response.json())
       .then((featuresJSON) => {
         const features = featuresJSON.map(feat => ({
@@ -138,7 +139,7 @@ export default function Admin() {
   }, []);
 
   useEffect(() => {
-    fetch("http://ec2-54-153-58-52.us-west-1.compute.amazonaws.com:9000/cities", config)
+    fetch(`${apiUrl}/cities`, config)
       .then((response) => response.json())
       .then((citiesJSON) => setCities(citiesJSON));
   }, []);
@@ -158,7 +159,7 @@ export default function Admin() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const checkedFeatures = features.filter(obj => obj.checked === true).map((obj) => ({ id: obj.id }));
-    const url = 'http://ec2-54-153-58-52.us-west-1.compute.amazonaws.com:9000/products'
+    const url = `${apiUrl}/products`
     const axiosConfig = {
       headers: {
         Accept: "*/*, application/json, text/plain ",

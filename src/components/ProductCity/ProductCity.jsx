@@ -11,6 +11,7 @@ import Card from 'react-bootstrap/Card';
 
 import { useParams } from "react-router-dom";
 import "./ProductCity.scss"
+const apiUrl = import.meta.env.VITE_RENT_RIDE_API_URL;
 
 export default function ProductCity() {
   const { idCity } = useParams();
@@ -26,7 +27,7 @@ export default function ProductCity() {
   products.map((product) => cityName = product.city.name)
  
   useEffect(() => {
-    fetch(`http://ec2-54-153-58-52.us-west-1.compute.amazonaws.com:9000/products/?cityId=${idCity}`, requestConfigurationGet)
+    fetch(`${apiUrl}/products/?cityId=${idCity}`, requestConfigurationGet)
       .then((response) => response.json())
       .then((productsJSON) => setProducts(productsJSON));
   }, []);

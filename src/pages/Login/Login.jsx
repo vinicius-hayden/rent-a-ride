@@ -9,6 +9,7 @@ import jwt from "jwt-decode"
 import "./Login.scss";
 import axios from 'axios';
 import { useEffect } from "react";
+const apiUrl = import.meta.env.VITE_RENT_RIDE_API_URL;
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -16,7 +17,7 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [successMsg, setSuccessMsg] = useState("");
-  const url = 'http://ec2-54-153-58-52.us-west-1.compute.amazonaws.com:9000/auth'
+  const url = `${apiUrl}/auth`
   var postData = {
     username: `${email}`,
     password: `${password}`

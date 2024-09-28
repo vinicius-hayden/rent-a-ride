@@ -7,6 +7,7 @@ import Button from 'react-bootstrap/Button';
 
 import { CardGroup } from "react-bootstrap";
 import Card from 'react-bootstrap/Card';
+const apiUrl = import.meta.env.VITE_RENT_RIDE_API_URL;
 
 export default function Products() {
   const [products, setProducts] = useState([]);
@@ -19,7 +20,7 @@ export default function Products() {
   };
 
   useEffect(() => {
-    fetch("http://ec2-54-153-58-52.us-west-1.compute.amazonaws.com:9000/products", requestConfigurationGet)
+    fetch(`${apiUrl}/products`, requestConfigurationGet)
       .then((response) => response.json())
       .then((productsJSON) => setProducts(productsJSON));
   }, []);

@@ -19,7 +19,7 @@ import { IoIosCheckmarkCircle } from "react-icons/io";
 import "./ProductRental.scss";
 import axios from "axios";
 import { icon } from "@fortawesome/fontawesome-svg-core";
-
+const apiUrl = import.meta.env.VITE_RENT_RIDE_API_URL;
 
 export default function ProductRental() {
   const { idProduct } = useParams();
@@ -43,7 +43,7 @@ export default function ProductRental() {
 
   useEffect(() => {
     fetch(
-      `http://ec2-54-153-58-52.us-west-1.compute.amazonaws.com:9000/products/${idProduct}`,
+      `${apiUrl}/products/${idProduct}`,
       requestConfigurationGet
     )
       .then((response) => response.json())
@@ -51,7 +51,7 @@ export default function ProductRental() {
   }, []);
 
   useEffect(() => {
-    fetch("http://ec2-54-153-58-52.us-west-1.compute.amazonaws.com:9000/cities", requestConfigurationGet)
+    fetch(`${apiUrl}/cities`, requestConfigurationGet)
       .then((response) => response.json())
       .then((citiesJSON) => setCity(citiesJSON));
   }, []);
@@ -61,7 +61,7 @@ export default function ProductRental() {
     let dropOffDate = document.getElementById("dropOffDate").value;
     let time = document.getElementById("pickUpTime").value;
 
-    const url = 'http://ec2-54-153-58-52.us-west-1.compute.amazonaws.com:9000/bookings/';
+    const url = `${apiUrl}/bookings/`;
     const customerId = localStorage.getItem('customerId');
     const pickUpDateTime = `${pickUpDate}T${time}:00.000+00:00`;
     const dropOffDateTime = `${dropOffDate}T${time}:00.000+00:00`;

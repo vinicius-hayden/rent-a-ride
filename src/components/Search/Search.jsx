@@ -2,10 +2,11 @@ import React, { useState, useEffect } from "react";
 import "./Search.scss";
 import moment from "moment";
 import { useNavigate } from "react-router-dom";
+const apiUrl = import.meta.env.VITE_RENT_RIDE_API_URL;
 
 export default function Search() {
   const [city, setCity] = useState(['', '']);
-  const url = 'http://ec2-54-153-58-52.us-west-1.compute.amazonaws.com:9000/products'
+  const url = `${apiUrl}/products`
   const today     = moment().format('YYYY-MM-DD');
   const tomorrow  = moment().add(1,'days').format('YYYY-MM-DD')
   const navigate = useNavigate(); 
@@ -19,7 +20,7 @@ export default function Search() {
   };
 
   useEffect(() => {
-    fetch("http://ec2-54-153-58-52.us-west-1.compute.amazonaws.com:9000/cities", config)
+    fetch(`${apiUrl}/cities`, config)
       .then((response) => response.json())
       .then((citiesJSON) => setCity(citiesJSON));
   }, []);

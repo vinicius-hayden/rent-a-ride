@@ -11,7 +11,7 @@ import { useEffect, useState } from "react";
 import Moment from 'moment';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-
+const apiUrl = import.meta.env.VITE_RENT_RIDE_API_URL;
 
 export default function UserBooking() {
   const [bookings, setBookings] = useState([]);
@@ -23,7 +23,7 @@ export default function UserBooking() {
     },
   };
   useEffect(() => {
-    fetch(`http://ec2-54-153-58-52.us-west-1.compute.amazonaws.com:9000/bookings`, requestConfigurationGet)
+    fetch(`${apiUrl}/bookings`, requestConfigurationGet)
       .then((response) => response.json())
       .then((allBookings) => allBookings.filter((booking) => {
         return filterBookingsByCustomer(booking, localStorage.getItem('customerId'))
